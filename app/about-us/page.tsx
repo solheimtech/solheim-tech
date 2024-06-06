@@ -4,7 +4,7 @@ import Image from "next/image";
 
 import { Meteors } from "../components/ui/meteors";
 
-export function ServicesCard() {
+const ServicesCard = () => {
   return (
     <div className="flex flex-col items-center gap-[8rem]">
       <h1 className="text-4xl text-white font-bold mb-2">Services</h1>
