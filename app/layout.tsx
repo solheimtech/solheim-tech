@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
+import StarsBackground from "./components/StarsBackground";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,12 +19,15 @@ export default function RootLayout({
   return (
     <html>
       <body>
-        <div>
-          <header>
-            <Navbar />
-          </header>
-          {/* Layout UI */}
-          <main>{children}</main>
+        <div className="relative">
+          <StarsBackground />
+          <div className="relative z-10">
+            <header>
+              <Navbar />
+            </header>
+            {/* Layout UI */}
+            <main>{children}</main>
+          </div>
         </div>
       </body>
     </html>
