@@ -12,7 +12,7 @@ const ServicesCard = () => {
         {[1, 2, 3].map((_, index) => (
           <div key={index} className="w-full sm:w-auto">
             <div className="w-full relative max-w-xs mx-auto">
-              <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-gray-400 to-gray-600 transform scale-[0.80] bg-red-500 rounded-full blur-3xl" />
+              <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-gray-800 to-gray-900 transform scale-[0.80] bg-red-500 rounded-full blur-3xl" />
               <div className="relative shadow-xl bg-black border border-gray-800 px-4 py-8 h-full overflow-hidden rounded-2xl flex flex-col justify-end items-start">
                 <div className="h-5 w-5 rounded-full border flex items-center justify-center mb-4 border-gray-900">
                   <svg
