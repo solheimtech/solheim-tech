@@ -4,14 +4,16 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from "@/app/components/ui/button";
 import { MenuIcon } from 'lucide-react';
+import { ChevronDownIcon, ChevronUpIcon } from 'lucide-react';
 import logo from '../../public/Solheim-Technologies-Banner.jpeg';
 
 const Navbar = () => {
   const [submenuOpen, setSubmenuOpen] = useState(false);
+  const [servicesSubmenuOpen, setServicesSubmenuOpen] = useState(false);
 
   return (
     <div className="container mx-auto px-4 md:px-6 flex items-center justify-between h-16 my-8">
-           <Link href="/" className="flex items-center" prefetch={false}>
+      <Link href="/" className="flex items-center" prefetch={false}>
         <Image src={logo} alt="Solheim Technologies Banner Logo" width={300} height={300} className="filter invert" />
       </Link>
       <nav className="hidden md:flex items-center space-x-6">
@@ -25,6 +27,11 @@ const Navbar = () => {
         >
           <Link href="/about" className="flex items-center space-x-1 text-white hover:font-semibold relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-gray-50 after:transition-all after:duration-300 hover:after:w-full">
             <span>About</span>
+            {submenuOpen ? (
+              <ChevronUpIcon className="h-4 w-4 text-white" />
+            ) : (
+              <ChevronDownIcon className="h-4 w-4 text-white" />
+            )}
           </Link>
           <ul
             className={`absolute left-0 top-full bg-black transition-all duration-300 ease-in-out ${
@@ -43,9 +50,36 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <Link href="/services" className="text-white hover:font-semibold relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-gray-50 after:transition-all after:duration-300 hover:after:w-full">
-          Services
-        </Link>
+        <div
+          className="relative group"
+          onMouseEnter={() => setServicesSubmenuOpen(true)}
+          onMouseLeave={() => setServicesSubmenuOpen(false)}
+        >
+          <Link href="/services" className="flex items-center space-x-1 text-white hover:font-semibold relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-gray-50 after:transition-all after:duration-300 hover:after:w-full">
+            <span>Services</span>
+            {servicesSubmenuOpen ? (
+              <ChevronUpIcon className="h-4 w-4 text-white" />
+            ) : (
+              <ChevronDownIcon className="h-4 w-4 text-white" />
+            )}
+          </Link>
+          <ul
+            className={`absolute left-0 top-full bg-black transition-all duration-300 ease-in-out ${
+              servicesSubmenuOpen ? 'block' : 'hidden'
+            }`}
+          >
+            <li>
+              <Link href="/services/web-development" className="text-white hover:font-semibold">
+                Web Development
+              </Link>
+            </li>
+            <li>
+              <Link href="/services/mobile-development" className="text-white hover:font-semibold">
+                Mobile Development
+              </Link>
+            </li>
+          </ul>
+        </div>
         <Link href="/contact" className="text-white hover:font-semibold relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-gray-50 after:transition-all after:duration-300 hover:after:w-full">
           Contact
         </Link>
