@@ -8,8 +8,9 @@ import { ChevronDownIcon, ChevronUpIcon } from 'lucide-react';
 import logo from '../../public/Solheim-Technologies-Banner.jpeg';
 
 const Navbar = () => {
-  const [submenuOpen, setSubmenuOpen] = useState(false);
+  const [aboutSubmenuOpen, setAboutSubmenuOpen] = useState(false);
   const [servicesSubmenuOpen, setServicesSubmenuOpen] = useState(false);
+  const [contactSubmenuOpen, setContactSubmenuOpen] = useState(false);
 
   return (
     <div className="container mx-auto px-4 md:px-6 flex items-center justify-between h-16 my-8">
@@ -17,39 +18,33 @@ const Navbar = () => {
         <Image src={logo} alt="Solheim Technologies Banner Logo" width={300} height={300} className="filter invert" />
       </Link>
       <nav className="hidden md:flex items-center space-x-6">
-        <Link href="/" className="text-white hover:font-semibold relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-gray-50 after:transition-all after:duration-300 hover:after:w-full">
-          Home
-        </Link>
         <div
           className="relative group"
-          onMouseEnter={() => setSubmenuOpen(true)}
-          onMouseLeave={() => setSubmenuOpen(false)}
+          onMouseEnter={() => setAboutSubmenuOpen(true)}
+          onMouseLeave={() => setAboutSubmenuOpen(false)}
         >
           <Link href="/about" className="flex items-center space-x-1 text-white hover:font-semibold relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-gray-50 after:transition-all after:duration-300 hover:after:w-full">
             <span>About</span>
-            {submenuOpen ? (
+            {aboutSubmenuOpen ? (
               <ChevronUpIcon className="h-4 w-4 text-white" />
             ) : (
               <ChevronDownIcon className="h-4 w-4 text-white" />
             )}
           </Link>
-          <ul
-            className={`absolute left-0 top-full bg-black transition-all duration-300 ease-in-out ${
-              submenuOpen ? 'block' : 'hidden'
-            }`}
-          >
-            <li>
-              <Link href="/about/team" className="text-white hover:font-semibold">
+          <ul className={`absolute left-0 top-full bg-black transition-all duration-300 ease-in-out p-2 ${aboutSubmenuOpen ? 'block' : 'hidden'}`} style={{ width: '200px' }}>
+            <li className="mb-2">
+              <Link href="/about/team" className="text-white hover:font-semibold whitespace-nowrap">
                 Our Team
               </Link>
             </li>
             <li>
-              <Link href="/about/history" className="text-white hover:font-semibold">
-                Our History
+              <Link href="/about/partnerships" className="text-white hover:font-semibold whitespace-nowrap">
+                Partnerships
               </Link>
             </li>
           </ul>
         </div>
+        
         <div
           className="relative group"
           onMouseEnter={() => setServicesSubmenuOpen(true)}
@@ -63,26 +58,74 @@ const Navbar = () => {
               <ChevronDownIcon className="h-4 w-4 text-white" />
             )}
           </Link>
-          <ul
-            className={`absolute left-0 top-full bg-black transition-all duration-300 ease-in-out ${
-              servicesSubmenuOpen ? 'block' : 'hidden'
-            }`}
-          >
-            <li>
-              <Link href="/services/web-development" className="text-white hover:font-semibold">
-                Web Development
+          <ul className={`absolute left-0 top-full bg-transparent transition-all duration-300 ease-in-out p-2 ${servicesSubmenuOpen ? 'block' : 'hidden'}`} style={{ width: '200px' }}>
+            <li className="mb-2">
+              <Link href="/services/website-design" className="text-white hover:font-semibold whitespace-nowrap">
+                Website Design
+              </Link>
+            </li>
+            <li className="mb-2"> 
+              <Link href="/services/local-seo-pro" className="text-white hover:font-semibold whitespace-nowrap">
+                Local SEO Pro
               </Link>
             </li>
             <li>
-              <Link href="/services/mobile-development" className="text-white hover:font-semibold">
-                Mobile Development
+              <Link href="/services/aerial-photography-and-videography" className="text-white hover:font-semibold whitespace-nowrap">
+                Aerial Photography and Videography
               </Link>
             </li>
           </ul>
         </div>
-        <Link href="/contact" className="text-white hover:font-semibold relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-gray-50 after:transition-all after:duration-300 hover:after:w-full">
-          Contact
+
+        <Link href="/membership" className="text-white hover:font-semibold relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-gray-50 after:transition-all after:duration-300 hover:after:w-full">
+          Membership
         </Link>
+
+        <Link href="/our-work" className="text-white hover:font-semibold relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-gray-50 after:transition-all after:duration-300 hover:after:w-full">
+          Our Work
+        </Link>
+
+        <div
+          className="relative group"
+          onMouseEnter={() => setContactSubmenuOpen(true)}
+          onMouseLeave={() => setContactSubmenuOpen(false)}
+        >
+          <Link href="/services" className="flex items-center space-x-1 text-white hover:font-semibold relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-gray-50 after:transition-all after:duration-300 hover:after:w-full">
+            <span>Contact</span>
+            {contactSubmenuOpen ? (
+              <ChevronUpIcon className="h-4 w-4 text-white" />
+            ) : (
+              <ChevronDownIcon className="h-4 w-4 text-white" />
+            )}
+          </Link>
+          <ul className={`absolute left-0 top-full bg-transparent transition-all duration-300 ease-in-out p-2 ${contactSubmenuOpen ? 'block' : 'hidden'}`} style={{ width: '200px' }}>
+            <li className="mb-2">
+              <Link href="/contact/free-consultation" className="text-white hover:font-semibold whitespace-nowrap">
+                Free Consultation
+              </Link>
+            </li>
+            <li className="mb-2"> 
+              <Link href="/contact/project-estimate" className="text-white hover:font-semibold whitespace-nowrap">
+                Project Estimate
+              </Link>
+            </li>
+            <li className="mb-2">
+              <Link href="/contact/remote-tech-support" className="text-white hover:font-semibold whitespace-nowrap">
+                Remote Tech Support
+              </Link>
+            </li>
+            <li className="mb-2">
+              <Link href="/contact/resources" className="text-white hover:font-semibold whitespace-nowrap">
+                Resources Center
+              </Link>
+            </li>
+            <li>
+              <Link href="/contact/resources/articles" className="text-white hover:font-semibold whitespace-nowrap">
+                Articles
+              </Link>
+            </li>
+          </ul>
+        </div>
       </nav>
       <div className="md:hidden">
         <Button variant="ghost" size="icon" className="hover:bg-gray-50 hover:text-black">
