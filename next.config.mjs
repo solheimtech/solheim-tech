@@ -2,7 +2,7 @@
 const nextConfig = {
   transpilePackages: ['three'],
   images: {
-    domains: ['assets.aceternity.com'],
+    domains: ['assets.aceternity.com', 'solheimtech.com'],
   },
 };
 
