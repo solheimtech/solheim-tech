@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { Button } from "@/app/components/ui/button";
 import { MenuIcon, X as CloseIcon } from 'lucide-react';
 import { ChevronDownIcon, ChevronUpIcon } from 'lucide-react';
-import logo from '../../public/Solheim-Technologies-Banner.jpeg';
+import logo from '../../public/Solheim-Technologies-Banner.png';
 
 const Navbar = () => {
   const [aboutSubmenuOpen, setAboutSubmenuOpen] = useState(false);
@@ -243,6 +243,7 @@ const Navbar = () => {
                   </Link>
                 </li>
               </ul>
+              
             </div>
           </nav>
         </div>
