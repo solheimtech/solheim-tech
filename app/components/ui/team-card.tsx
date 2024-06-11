@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { FC, useState } from "react";
-import { FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
+import { FaFacebook, FaLinkedin } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { motion } from "framer-motion";
 
 interface User {
@@ -59,21 +60,21 @@ const Card: FC<CardProps> = ({ user }) => {
             className="opacity-20 hover:text-black hover:opacity-100 transition-colors duration-300"
             whileHover={{ scale: 1.1 }}
           >
-            <FaFacebook size={28} />
+            <FaFacebook size={20} />
           </motion.a>
           <motion.a
             href="#"
             className="opacity-20 hover:text-black hover:opacity-100 transition-colors duration-300"
             whileHover={{ scale: 1.1 }}
           >
-            <FaTwitter size={28} />
+            <FaXTwitter size={20} />
           </motion.a>
           <motion.a
             href="#"
             className="opacity-20 hover:text-black hover:opacity-100 transition-colors duration-300"
             whileHover={{ scale: 1.1 }}
           >
-            <FaLinkedin size={28} />
+            <FaLinkedin size={20} />
           </motion.a>
         </div>
       </div>
