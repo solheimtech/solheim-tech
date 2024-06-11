@@ -10,9 +10,9 @@ export const InfiniteMovingCards = ({
   className,
 }: {
   items: {
-    quote: string;
+    description: string;
     name: string;
-    title: string;
+    rating: number; // Add rating property
   }[];
   direction?: "left" | "right";
   speed?: "fast" | "normal" | "slow";
@@ -97,15 +97,26 @@ export const InfiniteMovingCards = ({
                 className="user-select-none -z-1 pointer-events-none absolute -left-0.5 -top-0.5 h-[calc(100%_+_4px)] w-[calc(100%_+_4px)]"
               ></div>
               <span className="relative z-20 text-sm leading-[1.6] text-black font-normal">
-                {item.quote}
+                {item.description}
               </span>
               <div className="relative z-20 mt-6 flex flex-row items-center">
                 <span className="flex flex-col gap-1">
                   <span className="text-sm leading-[1.6] text-gray-800 font-normal">
                     {item.name}
                   </span>
-                  <span className="text-sm leading-[1.6] text-gray-800 font-normal">
-                    {item.title}
+                  <span className="flex">
+                    {Array.from({ length: 5 }, (_, i) => (
+                      <svg
+                        key={i}
+                        className={`w-4 h-4 ${
+                          i < item.rating ? "text-yellow-500" : "text-gray-300"
+                        }`}
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.97a1 1 0 00.95.69h4.18c.969 0 1.371 1.24.588 1.81l-3.388 2.46a1 1 0 00-.364 1.118l1.287 3.97c.3.921-.755 1.688-1.54 1.118l-3.388-2.46a1 1 0 00-1.175 0l-3.388 2.46c-.784.57-1.838-.197-1.54-1.118l1.287-3.97a1 1 0 00-.364-1.118L2.34 9.397c-.783-.57-.38-1.81.588-1.81h4.18a1 1 0 00.95-.69l1.286-3.97z" />
+                      </svg>
+                    ))}
                   </span>
                 </span>
               </div>
