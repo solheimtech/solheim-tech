@@ -13,34 +13,42 @@ import CustomerHappinessIcon from '../../public/happy.svg';
 
 const testimonials = [
   {
-    quote:
-      "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair.",
-    name: "Charles Dickens",
-    title: "A Tale of Two Cities",
+    description:
+      "These guys are eager and enthusiastic about solving your problem. They have a long term view for the company and to that end they would rather have you as a long term customer rather than a cash grab, shoddy work, see-ya-bye one time customer. Theses guys are honest and freely give information in person or over the phone. Try them and determine if you too are happy to have found an honest and trustworthy partner to help with your hardware/software or online difficulties. I know I have.",
+    name: "William Lax",
+    rating: 5,
   },
   {
-    quote:
-      "To be, or not to be, that is the question: Whether 'tis nobler in the mind to suffer The slings and arrows of outrageous fortune, Or to take Arms against a Sea of troubles, And by opposing end them: to die, to sleep.",
-    name: "William Shakespeare",
-    title: "Hamlet",
+    description:
+      "I can't say enough about the service I received from David at Solheim Technologies.  In 24 hours they were able to create and get a live version of my website completed. This included adding a calendar and payment system. On top of that, I  received training on how to use these systems.  If you are looking for a company that has a customer-centric approach to its service, look no further. Thank you David and team for your amazing customer service!",
+    name: "SUZI MURPHY",
+    rating: 5,
   },
   {
-    quote: "All that we see or seem is but a dream within a dream.",
-    name: "Edgar Allan Poe",
-    title: "A Dream Within a Dream",
+    description:
+      "This company is very prompt and very experienced  at Solheim Technologies. I have used there services on several occasions and have been very happy with the service they provide. I always have a smile on my face when they finish.  Great company if you ever need your computer checked out.  They will even come to your home. So Happy.",
+    name: "Lorna Oldham",
+    rating: 5,
   },
   {
-    quote:
-      "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.",
-    name: "Jane Austen",
-    title: "Pride and Prejudice",
+    description:
+      "I consulted with David concerning a website for my soap making company and not only was he knowledgeable about every aspect of webpage design and how to best set up my company, but he gave me fantastic advice that actually pointed me in a different direction.  This kind of integrity is not easy to come by!  It really was all based on my budget, but I can assure you and him (thanks David) that when I'm ready to take the next step, Solheim Technologies is who I will be turning to for my website!  Outstanding!!",
+    name: "Keith Taylor",
+    rating: 5,
   },
   {
-    quote:
-      "Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.",
-    name: "Herman Melville",
-    title: "Moby-Dick",
+    description:
+      "It was a pleasure to work with David and his team to develop our companies website. He was very responsive to all of our needs, ideas, and suggestions, and we walked away at the end with a great result!",
+    name: "David Beker",
+    rating: 5,
   },
+  {
+    description:
+      "Solheim Technologies have done a great job on my website. Anytime I've wanted to add or change something they have been very prompt. Our business has increased with their help! I'd highly recommend them.",
+    name: "Dan Christman",
+    rating: 5,
+  },
+  
 ];
 
 const ServicesCard: React.FC = () => {
