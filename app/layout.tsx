@@ -23,15 +23,19 @@ export default function RootLayout({
       <body>
       <StarsBackground />
 
-        <div className="relative z-10">
-          <header>
-            <Header />
-            <Navbar />
-          </header>
+        <header className="relative z-10">
+          <Header />
+          <Navbar />
+        </header>
+        <div className="relative z-0">
           <main>{children}</main>
+        </div>
+        <div className="relative z-10">
           <Footer />
         </div>
+
       </body>
+
     </html>
   )
 }
