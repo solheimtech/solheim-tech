@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import StarsBackground from "./components/StarsBackground";
+import logo from "../public/assets/images/ST-Icon.jpg";
 
 export const metadata: Metadata = {
   title: "Solheim Technologies",
@@ -18,7 +19,7 @@ export default function RootLayout({
   return (
     <html>
       <head>
-        <link rel="icon" href="/ST-Icon.jpg" type="image/jpeg" />
+        <link rel="icon" href={logo.src} type="image/jpeg" />
       </head>
       <body>
       <StarsBackground />
