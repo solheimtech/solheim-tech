@@ -4,11 +4,11 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaFacebookF, FaTwitter, FaLinkedinIn, FaGooglePlusG, FaFlickr } from 'react-icons/fa';
-import logo from '../../public/Solheim-Technologies-Banner.png';
+import logo from '../../public/assets/images/Solheim-Technologies-Banner.png';
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white py-8">
+    <footer className="bg-black text-white py-8 mt-auto w-full absolute">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center md:items-start space-y-6 md:space-y-0">
           <div className="flex flex-col items-center md:items-start text-center md:text-left">

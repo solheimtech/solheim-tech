@@ -5,12 +5,13 @@ import Image from 'next/image';
 import { Button } from "@/app/components/ui/button";
 import { MenuIcon, X as CloseIcon } from 'lucide-react';
 import { ChevronDownIcon, ChevronUpIcon } from 'lucide-react';
-import logo from '../../public/Solheim-Technologies-Banner.png';
+import logo from '../../public/assets/images/Solheim-Technologies-Banner.png';
 
 const Navbar = () => {
   const [aboutSubmenuOpen, setAboutSubmenuOpen] = useState(false);
   const [servicesSubmenuOpen, setServicesSubmenuOpen] = useState(false);
   const [contactSubmenuOpen, setContactSubmenuOpen] = useState(false);
+  const [ourWorkSubmenuOpen, setOurWorkSubmenuOpen] = useState(false);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
   return (
@@ -59,7 +60,7 @@ const Navbar = () => {
               <ChevronDownIcon className="h-4 w-4 text-white" />
             )}
           </Link>
-          <ul className={`absolute left-0 top-full bg-transparent transition-all duration-300 ease-in-out p-2 ${servicesSubmenuOpen ? 'block' : 'hidden'}`} style={{ width: '200px' }}>
+          <ul className={`absolute left-0 top-full bg-black transition-all duration-300 ease-in-out p-2 ${servicesSubmenuOpen ? 'block' : 'hidden'}`} style={{ width: '200px' }}>
             <li className="mb-2">
               <Link href="/services/website-design" className="text-white hover:font-semibold whitespace-nowrap">
                 Website Design
@@ -82,9 +83,42 @@ const Navbar = () => {
           Membership
         </Link>
 
-        <Link href="/our-work" className="text-white hover:font-semibold relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-gray-50 after:transition-all after:duration-300 hover:after:w-full">
-          Our Work
-        </Link>
+        <div
+          className="relative group"
+          onMouseEnter={() => setOurWorkSubmenuOpen(true)}
+          onMouseLeave={() => setOurWorkSubmenuOpen(false)}
+        >
+          <Link href="/our-work" className="flex items-center space-x-1 text-white hover:font-semibold relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-gray-50 after:transition-all after:duration-300 hover:after:w-full">
+            <span>Our Work</span>
+            {contactSubmenuOpen ? (
+              <ChevronUpIcon className="h-4 w-4 text-white" />
+            ) : (
+              <ChevronDownIcon className="h-4 w-4 text-white" />
+            )}
+          </Link>
+          <ul className={`absolute left-0 top-full bg-black transition-all duration-300 ease-in-out p-2 ${ourWorkSubmenuOpen ? 'block' : 'hidden'}`} style={{ width: '200px' }}>
+            <li className="mb-2">
+              <Link href="/our-work/videos" className="text-white hover:font-semibold whitespace-nowrap">
+                Videos
+              </Link>
+            </li>
+            <li className="mb-2"> 
+              <Link href="/our-work/photos" className="text-white hover:font-semibold whitespace-nowrap">
+                Photos
+              </Link>
+            </li>
+            <li className="mb-2">
+              <Link href="/our-work/websites" className="text-white hover:font-semibold whitespace-nowrap">
+                Websites
+              </Link>
+            </li>
+            <li className="mb-2">
+              <Link href="/our-work/logos" className="text-white hover:font-semibold whitespace-nowrap">
+                Logos
+              </Link>
+            </li>
+          </ul>
+        </div>
 
         <div
           className="relative group"
@@ -99,7 +133,7 @@ const Navbar = () => {
               <ChevronDownIcon className="h-4 w-4 text-white" />
             )}
           </Link>
-          <ul className={`absolute left-0 top-full bg-transparent transition-all duration-300 ease-in-out p-2 ${contactSubmenuOpen ? 'block' : 'hidden'}`} style={{ width: '200px' }}>
+          <ul className={`absolute left-0 top-full bg-black transition-all duration-300 ease-in-out p-2 ${contactSubmenuOpen ? 'block' : 'hidden'}`} style={{ width: '200px' }}>
             <li className="mb-2">
               <Link href="/contact/free-consultation" className="text-white hover:font-semibold whitespace-nowrap">
                 Free Consultation
