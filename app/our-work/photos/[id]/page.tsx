@@ -1,17 +1,17 @@
 "use client";
 import { useParams } from 'next/navigation';
 import Image from 'next/image';
-import { useVideoContents } from '../../../contexts/VideoContents';
+import { usePhotoContents } from '@/app/contexts/PhotoContents';
 
-const VideoDetail = () => {
+const PhotoDetail = () => {
   const { id } = useParams();
-  const items = useVideoContents();
+  const items = usePhotoContents();
 
   if (!id) {
     return <div>There is no ID found</div>;
   }
 
-  const item = items.find((item) => item.id === parseInt(id as string));
+  const item = items.find(item => item.id === parseInt(id as string));
 
   if (!item) {
     return <div>Item not found</div>;
@@ -32,4 +32,4 @@ const VideoDetail = () => {
   );
 };
 
-export default VideoDetail;
+export default PhotoDetail;
