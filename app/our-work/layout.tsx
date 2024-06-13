@@ -1,6 +1,8 @@
 "use client"
-import { VideoContentsProvider } from '../contexts/VideoContents';
-import { PhotoContentsProvider } from '../contexts/PhotoContents';
+import { VideoContentsProvider } from '../contents/VideoContents';
+import { PhotoContentsProvider } from '../contents/PhotoContents';
+import { LogoContentsProvider } from '../contents/LogoContents';
+import { WebsiteContentsProvider } from '../contents/WebsiteContents';
 import { ReactNode } from 'react';
 
 interface OurWorkLayoutProps {
@@ -11,7 +13,11 @@ export default function OurWorkLayout({ children }: OurWorkLayoutProps) {
   return (
     <VideoContentsProvider>
       <PhotoContentsProvider>
-        {children}
+        <LogoContentsProvider>
+          <WebsiteContentsProvider>
+            {children}
+          </WebsiteContentsProvider>
+        </LogoContentsProvider>
       </PhotoContentsProvider>
     </VideoContentsProvider>
   );

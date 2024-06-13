@@ -1,33 +1,37 @@
 "use client";
 import { useParams } from 'next/navigation';
 import Image from 'next/image';
-import { usePhotoContents } from '@/app/contexts/PhotoContents';
+import { usePhotoContents } from '@/app/contents/PhotoContents';
 
 const PhotoDetail = () => {
   const { id } = useParams();
   const items = usePhotoContents();
 
   if (!id) {
-    return <div>There is no ID found</div>;
+    return <div className="text-center">There is no ID found</div>;
   }
 
   const item = items.find(item => item.id === parseInt(id as string));
 
   if (!item) {
-    return <div>Item not found</div>;
+    return <div className="text-center">Item not found</div>;
   }
 
   return (
-    <div>
-      {item.type === 'video' ? (
-        <video controls>
-          <source src={item.src} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      ) : (
-        <Image src={item.src} alt={item.alt || 'Image description not available'} width={100} height={100} />
-      )}
-      <p>{item.description}</p>
+    <div className="flex flex-col items-center p-4 text-center">
+        <div className="flex flex-col items-center mb-4">
+          <Image 
+            src={item.src} 
+            alt={item.alt || 'Image description not available'} 
+            width={300} 
+            height={300} 
+            className="rounded-lg shadow-lg mb-4"
+          />
+        </div>
+        <div className="text-center">
+          <p className='text-3xl text-white font-bold mb-2 text-center'>{item.title}</p>
+          <p className="text-lg text-white w-[70%] mx-auto">{item.description}</p>
+        </div>
     </div>
   );
 };

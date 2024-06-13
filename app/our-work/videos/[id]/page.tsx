@@ -1,7 +1,7 @@
 "use client";
 import { useParams } from 'next/navigation';
 import Image from 'next/image';
-import { useVideoContents } from '../../../contexts/VideoContents';
+import { useVideoContents } from '../../../contents/VideoContents';
 
 const VideoDetail = () => {
   const { id } = useParams();
@@ -18,16 +18,14 @@ const VideoDetail = () => {
   }
 
   return (
-    <div>
-      {item.type === 'video' ? (
-        <video controls>
-          <source src={item.src} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      ) : (
-        <Image src={item.src} alt={item.alt || 'Image description not available'} width={100} height={100} />
-      )}
-      <p>{item.description}</p>
+    <div className='py-10'>
+        <div className="flex justify-center">
+          <video controls className='w-[80%]'>
+            <source src={item.src} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <p className="text-lg font-semibold text-center mt-4 text-white">{item.description}</p>
     </div>
   );
 };
