@@ -98,8 +98,13 @@ const Navbar = () => {
           </Link>
           <ul className={`absolute left-0 top-full bg-black transition-all duration-300 ease-in-out p-2 ${ourWorkSubmenuOpen ? 'block' : 'hidden'}`} style={{ width: '200px' }}>
             <li className="mb-2">
-              <Link href="/our-work/videos" className="text-white hover:font-semibold whitespace-nowrap">
-                Videos
+              <Link href="/our-work/websites" className="text-white hover:font-semibold whitespace-nowrap">
+                Websites
+              </Link>
+            </li>
+            <li className="mb-2">
+              <Link href="/our-work/logos" className="text-white hover:font-semibold whitespace-nowrap">
+                Logos
               </Link>
             </li>
             <li className="mb-2"> 
@@ -108,13 +113,8 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="mb-2">
-              <Link href="/our-work/websites" className="text-white hover:font-semibold whitespace-nowrap">
-                Websites
-              </Link>
-            </li>
-            <li className="mb-2">
-              <Link href="/our-work/logos" className="text-white hover:font-semibold whitespace-nowrap">
-                Logos
+              <Link href="/our-work/videos" className="text-white hover:font-semibold whitespace-nowrap">
+                Videos
               </Link>
             </li>
           </ul>
@@ -243,9 +243,33 @@ const Navbar = () => {
             <Link href="/membership" className="text-white hover:font-semibold" onClick={() => setMobileNavOpen(false)}>
               Membership
             </Link>
-            <Link href="/our-work" className="text-white hover:font-semibold" onClick={() => setMobileNavOpen(false)}>
-              Our Work
-            </Link>
+            <div className="relative group">
+              <Link href="/our-work" className="text-white hover:font-semibold flex items-center space-x-1" onClick={() => setMobileNavOpen(false)}>
+                <span>Our Work</span>
+              </Link>
+              <ul className="transition-all duration-300 ease-in-out p-2 block">
+                <li className="mb-2">
+                  <Link href="/our-work/websites" className="text-white hover:font-semibold whitespace-nowrap" onClick={() => setMobileNavOpen(false)}>
+                    Websites
+                  </Link>
+                </li>
+                <li className="mb-2">
+                  <Link href="/our-work/logos" className="text-white hover:font-semibold whitespace-nowrap" onClick={() => setMobileNavOpen(false)}>
+                    Logos
+                  </Link>
+                </li>
+                <li className="mb-2">
+                  <Link href="/our-work/photos" className="text-white hover:font-semibold whitespace-nowrap" onClick={() => setMobileNavOpen(false)}>
+                    Photos
+                  </Link>
+                </li>
+                <li className="">
+                  <Link href="/our-work/videos" className="text-white hover:font-semibold whitespace-nowrap" onClick={() => setMobileNavOpen(false)}>
+                    Videos
+                  </Link>
+                </li>
+              </ul>
+            </div>
             <div className="relative group">
               <Link href="/contact" className="text-white hover:font-semibold flex items-center space-x-1" onClick={() => setMobileNavOpen(false)}>
                 <span>Contact</span>
