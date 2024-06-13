@@ -1,6 +1,11 @@
 import React from "react";
+import MembershipCard from "../components/MemebrshipCard";
 
 export default function Membership() {
-  return <div>Membership</div>;
+  return (
+    <div>
+      {/* <MembershipCard /> */}
+    </div>
+  );
 }
 
