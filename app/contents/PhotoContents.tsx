@@ -2,6 +2,7 @@ import { createContext, useContext, ReactNode } from 'react';
 
 type Item = {
   id: number;
+  slug: string;
   src: string;
   type: "image" | "video";
   alt?: string;
@@ -12,6 +13,7 @@ type Item = {
 const items: Item[] = [
   {
     id: 1,
+    slug: "rocket-launch-1",
     src: "https://solheimtech.com/wp-content/uploads/2023/03/Superstitions-2000.jpg",
     type: "image",
     alt: "A beautiful landscape",
@@ -20,6 +22,7 @@ const items: Item[] = [
   },
   {
     id: 2,
+    slug: "rocket-launch-2",
     src: "https://solheimtech.com/wp-content/uploads/2023/03/Superstitions-2000.jpg",
     type: "image",
     alt: "A beautiful landscape",
@@ -28,6 +31,7 @@ const items: Item[] = [
   },
   {
     id: 3,
+    slug: "rocket-launch-3",
     src: "https://solheimtech.com/wp-content/uploads/2023/03/Superstitions-2000.jpg",
     type: "image",
     alt: "A beautiful landscape",
@@ -36,6 +40,7 @@ const items: Item[] = [
   },
   {
     id: 4,
+    slug: "rocket-launch-4",
     src: "https://solheimtech.com/wp-content/uploads/2023/03/Superstitions-2000.jpg",
     type: "image",
     alt: "A beautiful landscape",
@@ -44,6 +49,7 @@ const items: Item[] = [
   },
   {
     id: 5,
+    slug: "rocket-launch-5",
     src: "https://solheimtech.com/wp-content/uploads/2023/03/Superstitions-2000.jpg",
     type: "image",
     alt: "A beautiful landscape",
@@ -52,6 +58,7 @@ const items: Item[] = [
   },
   {
     id: 6,
+    slug: "rocket-launch-6",
     src: "https://solheimtech.com/wp-content/uploads/2023/03/Superstitions-2000.jpg",
     type: "image",
     alt: "A beautiful landscape",
@@ -60,6 +67,7 @@ const items: Item[] = [
   },
   {
     id: 7,
+    slug: "rocket-launch-7",
     src: "https://solheimtech.com/wp-content/uploads/2023/03/Superstitions-2000.jpg",
     type: "image",
     alt: "A beautiful landscape",
@@ -68,6 +76,7 @@ const items: Item[] = [
   },
   {
     id: 8,
+    slug: "rocket-launch-8",
     src: "https://solheimtech.com/wp-content/uploads/2023/03/Superstitions-2000.jpg",
     type: "image",
     alt: "A beautiful landscape",

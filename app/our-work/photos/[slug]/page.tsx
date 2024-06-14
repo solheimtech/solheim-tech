@@ -4,14 +4,14 @@ import Image from 'next/image';
 import { usePhotoContents } from '@/app/contents/PhotoContents';
 
 const PhotoDetail = () => {
-  const { id } = useParams();
+  const { slug } = useParams();
   const items = usePhotoContents();
 
-  if (!id) {
+  if (!slug) {
     return <div className="text-center">There is no ID found</div>;
   }
 
-  const item = items.find(item => item.id === parseInt(id as string));
+  const item = items.find(item => item.slug === slug);
 
   if (!item) {
     return <div className="text-center">Item not found</div>;

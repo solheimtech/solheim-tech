@@ -13,7 +13,7 @@ export default function LogosPage() {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4">
         {items.map(item => (
           <Parallax key={item.id}>
-            <Link href={`/our-work/logos/${item.id}`} passHref>
+            <Link href={`/our-work/logos/${item.slug}`} passHref>
               <DirectionAwareHover src={item.images[0].src} type="image">
                 <p className="font-bold text-lg md:text-xl">{item.title}</p>
                 <p className="font-normal text-xs md:text-sm">{item.description}</p>

@@ -4,14 +4,14 @@ import Image from 'next/image';
 import { useVideoContents } from '../../../contents/VideoContents';
 
 const VideoDetail = () => {
-  const { id } = useParams();
+  const { slug } = useParams();
   const items = useVideoContents();
 
-  if (!id) {
+  if (!slug) {
     return <div>There is no ID found</div>;
   }
 
-  const item = items.find((item) => item.id === parseInt(id as string));
+  const item = items.find((item) => item.slug === slug);
 
   if (!item) {
     return <div>Item not found</div>;

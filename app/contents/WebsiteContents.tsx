@@ -7,15 +7,17 @@ type ImageType = {
 
 type Item = {
   id: number;
+  slug:string;
   title: string;
   description: string;
   images: ImageType[];
-  category: string; // Added category field
+  category: string; 
 };
 
 const items: Item[] = [
   {
     id: 1,
+    slug: "rocket-launch-1",
     title: "Rocket Launch",
     description: "A thrilling rocket launch.",
     images: [
@@ -40,6 +42,7 @@ const items: Item[] = [
   },
   {
     id: 2,
+    slug: "rocket-launch-2",
     title: "Rocket Launch",
     description: "A thrilling rocket launch.",
     images: [
@@ -52,6 +55,7 @@ const items: Item[] = [
   },
   {
     id: 3,
+    slug: "rocket-launch-3",
     title: "Rocket Launch",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Non enim praesent elementum facilisis leo. Nullam non nisi est sit amet. Maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum. Pharetra massa massa ultricies mi quis. Nisl nisi scelerisque eu ultrices vitae auctor eu augue ut. Ultricies leo integer malesuada nunc vel risus. Purus gravida quis blandit turpis cursus in hac. Arcu dictum varius duis at consectetur lorem. Diam vel quam elementum pulvinar etiam non quam lacus.",
     images: [
@@ -64,6 +68,7 @@ const items: Item[] = [
   },
   {
     id: 4,
+    slug: "rocket-launch-4",
     title: "Rocket Launch",
     description: "A thrilling rocket launch.",
     images: [
@@ -76,6 +81,7 @@ const items: Item[] = [
   },
   {
     id: 5,
+    slug: "rocket-launch-5",
     title: "Rocket Launch",
     description: "A thrilling rocket launch.",
     images: [
@@ -88,6 +94,7 @@ const items: Item[] = [
   },
   {
     id: 6,
+    slug: "rocket-launch-6",
     title: "Rocket Launch",
     description: "A thrilling rocket launch.",
     images: [
@@ -100,6 +107,7 @@ const items: Item[] = [
   },
   {
     id: 7,
+    slug: "rocket-launch-7",
     title: "Rocket Launch",
     description: "A thrilling rocket launch.",
     images: [
@@ -112,6 +120,7 @@ const items: Item[] = [
   },
   {
     id: 8,
+    slug: "rocket-launch-8",
     title: "Rocket Launch",
     description: "A thrilling rocket launch.",
     images: [

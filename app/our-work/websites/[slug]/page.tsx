@@ -1,19 +1,19 @@
 "use client";
 import { useParams } from 'next/navigation';
 import Image from 'next/image';
-import { useLogoContents } from '../../../contents/LogoContents';
+import { useWebsiteContents } from '@/app/contents/WebsiteContents';
 import { useState } from 'react';
 
-const LogoDetail = () => {
-  const { id } = useParams();
-  const items = useLogoContents();
+const WebsiteDetail = () => {
+  const { slug } = useParams();
+  const items = useWebsiteContents();
   const [selectedImage, setSelectedImage] = useState(0);
 
-  if (!id) {
+  if (!slug) {
     return <div className="text-center">There is no ID found</div>;
   }
 
-  const item = items.find(item => item.id === parseInt(id as string));
+  const item = items.find((item: any) => item.slug === slug);
 
   if (!item) {
     return <div className="text-center">Item not found</div>;
@@ -35,7 +35,7 @@ const LogoDetail = () => {
           style={{ aspectRatio: '1 / 1' }}
         />
         <div className="flex space-x-2 mt-2 overflow-x-auto">
-          {item.images.map((img, index) => (
+          {item.images.map((img: any, index: any) => (
             <Image 
               key={index} 
               src={img.src} 
@@ -57,4 +57,4 @@ const LogoDetail = () => {
   );
 };
 
-export default LogoDetail;
+export default WebsiteDetail;
