@@ -14,7 +14,7 @@ const items: Item[] = [
   {
     id: 1,
     slug: "rocket-launch-1",
-    src: "/assets/videos/rocket2.mp4",
+    src: "https://cefqtkkupjodlfz5.public.blob.vercel-storage.com/assets/videos/rocket2-2MBqfxiD6gq2b4WLK2dEe2Bv3MDW3r.mp4",
     type: "video",
     title: "Rocket Launch",
     description: "A thrilling rocket launch."
@@ -22,7 +22,7 @@ const items: Item[] = [
   {
     id: 2,
     slug: "rocket-launch-2",
-    src: "/assets/videos/rocket2.mp4",
+    src: "https://cefqtkkupjodlfz5.public.blob.vercel-storage.com/assets/videos/rocket2-2MBqfxiD6gq2b4WLK2dEe2Bv3MDW3r.mp4",
     type: "video",
     title: "Rocket Launch",
     description: "A thrilling rocket launch."
@@ -30,7 +30,7 @@ const items: Item[] = [
   {
     id: 3,
     slug: "rocket-launch-3",
-    src: "/assets/videos/rocket2.mp4",
+    src: "https://cefqtkkupjodlfz5.public.blob.vercel-storage.com/assets/videos/rocket2-2MBqfxiD6gq2b4WLK2dEe2Bv3MDW3r.mp4",
     type: "video",
     title: "Rocket Launch",
     description: "A thrilling rocket launch."
@@ -38,7 +38,7 @@ const items: Item[] = [
   {
     id: 4,
     slug: "rocket-launch-4",
-    src: "/assets/videos/rocket2.mp4",
+    src: "https://cefqtkkupjodlfz5.public.blob.vercel-storage.com/assets/videos/rocket2-2MBqfxiD6gq2b4WLK2dEe2Bv3MDW3r.mp4",
     type: "video",
     title: "Rocket Launch",
     description: "A thrilling rocket launch."
@@ -46,7 +46,7 @@ const items: Item[] = [
   {
     id: 5,
     slug: "rocket-launch-5",
-    src: "/assets/videos/rocket2.mp4",
+    src: "https://cefqtkkupjodlfz5.public.blob.vercel-storage.com/assets/videos/rocket2-2MBqfxiD6gq2b4WLK2dEe2Bv3MDW3r.mp4",
     type: "video",
     title: "Rocket Launch",
     description: "A thrilling rocket launch."
@@ -54,7 +54,7 @@ const items: Item[] = [
   {
     id: 6,
     slug: "rocket-launch-6",
-    src: "/assets/videos/rocket2.mp4",
+    src: "https://cefqtkkupjodlfz5.public.blob.vercel-storage.com/assets/videos/rocket2-2MBqfxiD6gq2b4WLK2dEe2Bv3MDW3r.mp4",
     type: "video",
     title: "Rocket Launch",
     description: "A thrilling rocket launch."
@@ -62,7 +62,7 @@ const items: Item[] = [
   {
     id: 7,
     slug: "rocket-launch-7",
-    src: "/assets/videos/rocket2.mp4",
+    src: "https://cefqtkkupjodlfz5.public.blob.vercel-storage.com/assets/videos/rocket2-2MBqfxiD6gq2b4WLK2dEe2Bv3MDW3r.mp4",
     type: "video",
     title: "Rocket Launch",
     description: "A thrilling rocket launch."
@@ -70,7 +70,7 @@ const items: Item[] = [
   {
     id: 8,
     slug: "rocket-launch-8",
-    src: "/assets/videos/rocket2.mp4",
+    src: "https://cefqtkkupjodlfz5.public.blob.vercel-storage.com/assets/videos/rocket2-2MBqfxiD6gq2b4WLK2dEe2Bv3MDW3r.mp4",
     type: "video",
     title: "Rocket Launch",
     description: "A thrilling rocket launch."
