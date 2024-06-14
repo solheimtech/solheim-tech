@@ -14,7 +14,11 @@ export default function VideosPage() {
         {items.map((item) => (
           <Parallax key={item.id}>
             <Link href={`/our-work/videos/${item.slug}`} passHref>
-              <DirectionAwareHover src={item.src} type={item.type}>
+              <DirectionAwareHover 
+                src={item.src} 
+                imgSrc={item.imgSrc || ''} 
+                type={item.type} 
+                title={item.title || ''}>
                 <p className="font-bold text-lg md:text-xl">{item.title}</p>
                 <p className="font-normal text-xs md:text-sm">{item.description}</p>
               </DirectionAwareHover>

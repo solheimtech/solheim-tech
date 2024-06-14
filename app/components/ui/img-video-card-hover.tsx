@@ -7,14 +7,18 @@ import { cn } from "../../utils/cn";
 
 export const DirectionAwareHover = ({
   src,
+  imgSrc,
   type,
+  title,
   children,
   childrenClassName,
   imageClassName,
   className,
 }: {
   src: string;
+  imgSrc: string;
   type: "image" | "video";
+  title: string;
   children: React.ReactNode | string;
   childrenClassName?: string;
   imageClassName?: string;
@@ -110,8 +114,10 @@ export const DirectionAwareHover = ({
                 muted
                 width="100%"
                 height="100%"
+                src={src}
+                playsInline
               >
-                <source src={src} type="video/mp4" />
+                <Image src={imgSrc} alt={title} placeholder='blur' blurDataURL={imgSrc} fill className='h-auto w-auto object-cover' />
               </video>
             )}
           </motion.div>
