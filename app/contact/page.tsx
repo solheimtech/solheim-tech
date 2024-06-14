@@ -3,7 +3,9 @@
 import React, { useState } from 'react';
 import { CiCircleCheck } from "react-icons/ci";
 import { GoXCircle } from "react-icons/go";
-import Script from 'next/script';
+import dotenv from 'dotenv';
+
+dotenv.config({ path: '.env.deployment.local' });
 
 const ContactPage = () => {
 
@@ -35,6 +37,78 @@ const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>)
     }
 };
 
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  const form = e.target as HTMLFormElement;
+  const requiredFields = form.querySelectorAll("[required]") as NodeListOf<HTMLInputElement | HTMLTextAreaElement>;
+  let allFieldsValid = true;
+
+  requiredFields.forEach((field) => {
+    const errorElement = field.nextElementSibling as HTMLElement;
+    if (!field.value.trim()) {
+      allFieldsValid = false;
+      if (errorElement && field.previousElementSibling) {
+        const labelText = (field.previousElementSibling as HTMLElement).textContent?.replace('*', '').trim();
+        errorElement.textContent = `${labelText} is required.`;
+        field.classList.add('focus:ring-red-500');
+        field.classList.add('focus:border-red-500');
+      }
+    } else {
+      if (errorElement) {
+        errorElement.textContent = "";
+        field.classList.remove('focus:ring-red-500');
+        field.classList.remove('focus:border-red-500');
+      }
+    }
+  });
+
+  if (!allFieldsValid) {
+    return;
+  }
+
+  const formData = {
+    fields: [
+      { name: "email", value: email },
+      { name: "phone", value: phone },
+      { name: "firstname", value: firstName },
+      { name: "lastname", value: lastName },
+      { name: "company", value: company },
+      { name: "message", value: message },
+    ],
+    context: {
+      pageUri: window.location.href,
+      pageName: document.title,
+      ipAddress: await fetch('https://api.ipify.org?format=json').then(res => res.json()).then(data => data.ip)
+    }
+  };
+
+  try {
+    const response = await fetch(`https://api.hsforms.com/submissions/v3/integration/submit/${process.env.NEXT_PUBLIC_PORTAL_ID}/${process.env.NEXT_PUBLIC_FORM_GUID}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Cookie': document.cookie // Include cookies in the request
+      },
+      body: JSON.stringify(formData),
+    });
+
+    if (response.ok) {
+      setStatus('Form submitted successfully!');
+      console.log('Form submitted successfully!')
+    } else if (response.status === 404) {
+      setStatus('Form submission endpoint not found (404).');
+      console.log('Form submission endpoint not found (404).')
+    } else {
+      setStatus('Failed to submit the form.');
+      console.log('Failed to submit the form.')
+    }
+  } catch (error) {
+    console.error('Error submitting form:', error);
+    setStatus('Failed to submit the form.');
+  }
+};
+
+
 
   return (
     <div className="container mx-auto px-4 py-8 md:px-6 text-white">
@@ -62,35 +136,7 @@ const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>)
         {/* Contact Form */}
         <div className="w-full md:w-1/2 bg-white opacity-[92%] p-10 rounded-lg">
           <h2 className="text-3xl font-semibold mb-4 text-black">Get in Touch</h2>
-          <form className="space-y-4" onSubmit={(e) => {
-            e.preventDefault();
-            const form = e.target as HTMLFormElement;
-            const requiredFields = form.querySelectorAll("[required]") as NodeListOf<HTMLInputElement | HTMLTextAreaElement>;
-            let allFieldsValid = true;
-
-            requiredFields.forEach((field) => {
-              const errorElement = field.nextElementSibling as HTMLElement;
-              if (!field.value.trim()) {
-                allFieldsValid = false;
-                if (errorElement && field.previousElementSibling) {
-                  const labelText = (field.previousElementSibling as HTMLElement).textContent?.replace('*', '').trim();
-                  errorElement.textContent = `${labelText} is required.`;
-                  field.classList.add('focus:ring-red-500');
-                  field.classList.add('focus:border-red-500'); 
-                }
-              } else {
-                if (errorElement) {
-                  errorElement.textContent = "";
-                  field.classList.remove('focus:ring-red-500');
-                  field.classList.remove('focus:border-red-500');
-                }
-              }
-            });
-
-            if (allFieldsValid) {
-              console.log('Form submitted successfully!');
-            }
-          }}>
+          <form className="space-y-4" onSubmit={handleSubmit}>
             <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
               <div className="w-full md:w-1/2">
                 <label htmlFor="first-name" className="block text-sm font-medium text-black">First Name <span className="text-red-500">*</span></label>
