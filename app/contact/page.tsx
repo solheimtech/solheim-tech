@@ -16,7 +16,7 @@ const [lastName, setLastName] = useState('');
 const [company, setCompany] = useState('');
 const [message, setMessage] = useState('');
 const [status, setStatus] = useState('');
-
+const [isSuccess, setIsSuccess] = useState(true);
 
 const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const field = e.target;
@@ -93,18 +93,22 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     });
 
     if (response.ok) {
-      setStatus('Form submitted successfully!');
+      setStatus('Solheim Technologies has received!');
+      setIsSuccess(true);
       console.log('Form submitted successfully!')
     } else if (response.status === 404) {
       setStatus('Form submission endpoint not found (404).');
+      setIsSuccess(false);
       console.log('Form submission endpoint not found (404).')
     } else {
       setStatus('Failed to submit the form.');
+      setIsSuccess(false);
       console.log('Failed to submit the form.')
     }
   } catch (error) {
     console.error('Error submitting form:', error);
     setStatus('Failed to submit the form.');
+    setIsSuccess(false);
   }
 };
 
@@ -181,7 +185,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
               <div className="fixed inset-0 flex items-center justify-center z-50">
                 <div className="bg-white p-6 rounded shadow-lg text-black">
                   <div className="flex items-center">
-                    {status === 'Form submitted successfully!' ? (
+                    {isSuccess ? (
                       <CiCircleCheck className="w-6 h-6 text-green-500" />
                     ) : (
                       <GoXCircle className="w-6 h-6 text-red-500" />
