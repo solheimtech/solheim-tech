@@ -2,24 +2,23 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Button } from "@/app/components/ui/button";
-import { MenuIcon, X as CloseIcon } from 'lucide-react';
 import { ChevronDownIcon, ChevronUpIcon } from 'lucide-react';
 import logo from '../../public/assets/images/Solheim-Technologies-Banner.png';
+import MobileNav from './ui/mobile-nav';
 
 const Navbar = () => {
   const [aboutSubmenuOpen, setAboutSubmenuOpen] = useState(false);
   const [servicesSubmenuOpen, setServicesSubmenuOpen] = useState(false);
   const [contactSubmenuOpen, setContactSubmenuOpen] = useState(false);
   const [ourWorkSubmenuOpen, setOurWorkSubmenuOpen] = useState(false);
-  const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
   return (
-    <div className="container mx-auto px-4 md:px-6 flex items-center justify-between h-16 my-8">
+    <>
+    <div className="hidden container mx-auto px-4 md:px-6 lg:flex items-center justify-between h-16 my-8">
       <Link href="/" className="flex items-center" prefetch={false}>
         <Image src={logo} alt="Solheim Technologies Banner Logo" width={300} height={300} className="filter invert" />
       </Link>
-      <nav className="hidden lg:flex items-center space-x-6">
+      <nav className="lg:flex items-center space-x-6">
         <div
           className="relative group"
           onMouseEnter={() => setAboutSubmenuOpen(true)}
@@ -164,149 +163,10 @@ const Navbar = () => {
       </nav>
 
       {/* Mobile Nav */}
-      <div className="lg:hidden relative z-50">
-        <Button
-          variant="ghost"
-          size="icon"
-          onClick={() => setMobileNavOpen(!mobileNavOpen)}
-        >
-          <MenuIcon className="h-6 w-6 text-white" />
-        </Button>
-        <div
-          className={`fixed top-0 right-0 h-full bg-black transition-transform transform ${
-            mobileNavOpen ? 'translate-x-0' : 'translate-x-full'
-          }`}
-          style={{ width: '250px' }}
-        >
-          <div className="p-4">
-            <Button
-              variant="ghost"
-              size="icon"
-              className="hover:bg-gray-50 hover:text-black"
-              onClick={() => setMobileNavOpen(false)}
-            >
-              <CloseIcon className="h-6 w-6 text-white" />
-            </Button>
-          </div>
-          <nav className="flex flex-col space-y-4 p-4">
-            <div className="relative group">
-              <Link href="/about" className="text-white hover:font-semibold flex items-center space-x-1" onClick={() => setMobileNavOpen(false)}>
-                <span>About Us</span>
-              </Link>
-              <ul className="transition-all duration-300 ease-in-out p-2 block">
-                <li className="mb-2">
-                  <Link href="/about/team" className="text-white hover:font-semibold whitespace-nowrap" onClick={() => setMobileNavOpen(false)}>
-                    Meet the Team
-                  </Link>
-                </li>
-                <li className="">
-                  <Link href="/about/partnerships" className="text-white hover:font-semibold whitespace-nowrap" onClick={() => setMobileNavOpen(false)}>
-                    Partnerships
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div className="relative group">
-              <Link href="/services" className="text-white hover:font-semibold flex items-center space-x-1" onClick={() => setMobileNavOpen(false)}>
-                <span>Services</span>
-              </Link>
-              <ul className="transition-all duration-300 ease-in-out p-2 block">
-                <li className="mb-2">
-                  <Link href="/services/website-design" className="text-white hover:font-semibold whitespace-nowrap" onClick={() => setMobileNavOpen(false)}>
-                    Website Design
-                  </Link>
-                </li>
-                <li className="mb-2">
-                  <Link href="/services/local-seo-pro" className="text-white hover:font-semibold whitespace-nowrap" onClick={() => setMobileNavOpen(false)}>
-                    Local SEO Pro
-                  </Link>
-                </li>
-                <li className="mb-2">
-                  <Link href="/services/aerial-photography-and-videography" className="text-white hover:font-semibold whitespace-nowrap" onClick={() => setMobileNavOpen(false)}>
-                    Aerial Photos and Videos
-                  </Link>
-                </li>
-                <li className="mb-2">
-                  <Link href="/contact/resources" className="text-white hover:font-semibold whitespace-nowrap" onClick={() => setMobileNavOpen(false)}>
-                    Resources Center
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/contact/resources/articles" className="text-white hover:font-semibold whitespace-nowrap" onClick={() => setMobileNavOpen(false)}>
-                    Articles
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <Link href="/membership" className="text-white hover:font-semibold" onClick={() => setMobileNavOpen(false)}>
-              Membership
-            </Link>
-            <div className="relative group">
-              <Link href="/our-work" className="text-white hover:font-semibold flex items-center space-x-1" onClick={() => setMobileNavOpen(false)}>
-                <span>Our Work</span>
-              </Link>
-              <ul className="transition-all duration-300 ease-in-out p-2 block">
-                <li className="mb-2">
-                  <Link href="/our-work/websites" className="text-white hover:font-semibold whitespace-nowrap" onClick={() => setMobileNavOpen(false)}>
-                    Websites
-                  </Link>
-                </li>
-                <li className="mb-2">
-                  <Link href="/our-work/logos" className="text-white hover:font-semibold whitespace-nowrap" onClick={() => setMobileNavOpen(false)}>
-                    Logos
-                  </Link>
-                </li>
-                <li className="mb-2">
-                  <Link href="/our-work/photos" className="text-white hover:font-semibold whitespace-nowrap" onClick={() => setMobileNavOpen(false)}>
-                    Photos
-                  </Link>
-                </li>
-                <li className="">
-                  <Link href="/our-work/videos" className="text-white hover:font-semibold whitespace-nowrap" onClick={() => setMobileNavOpen(false)}>
-                    Videos
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div className="relative group">
-              <Link href="/contact" className="text-white hover:font-semibold flex items-center space-x-1" onClick={() => setMobileNavOpen(false)}>
-                <span>Contact</span>
-              </Link>
-              <ul className="transition-all duration-300 ease-in-out p-2 block">
-                <li className="mb-2">
-                  <Link href="/contact/free-consultation" className="text-white hover:font-semibold whitespace-nowrap" onClick={() => setMobileNavOpen(false)}>
-                    Free Consultation
-                  </Link>
-                </li>
-                <li className="mb-2">
-                  <Link href="/contact/project-estimate" className="text-white hover:font-semibold whitespace-nowrap" onClick={() => setMobileNavOpen(false)}>
-                    Project Estimate
-                  </Link>
-                </li>
-                <li className="mb-2">
-                  <Link href="/contact/remote-tech-support" className="text-white hover:font-semibold whitespace-nowrap" onClick={() => setMobileNavOpen(false)}>
-                    Remote Tech Support
-                  </Link>
-                </li>
-                <li className="mb-2">
-                  <Link href="/contact/resources" className="text-white hover:font-semibold whitespace-nowrap" onClick={() => setMobileNavOpen(false)}>
-                    Resources Center
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/contact/resources/articles" className="text-white hover:font-semibold whitespace-nowrap" onClick={() => setMobileNavOpen(false)}>
-                    Articles
-                  </Link>
-                </li>
-              </ul>
-              
-            </div>
-          </nav>
-        </div>
-      </div>
     </div>
+      <MobileNav />
+    
+    </>
   );
 };
 

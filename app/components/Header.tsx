@@ -17,7 +17,7 @@ const Header: React.FC = () => {
   }
 
   return (
-    <div className="bg-black text-white py-2 px-4 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+    <div className="hidden md:flex bg-black text-white py-2 px-4 flex-col md:flex-row justify-between items-center text-center md:text-left">
       <div className="flex flex-col md:flex-row space-x-0 md:space-x-4 mb-2 md:mb-0 pl-[2rem]">
         <a href="tel:+14808645117" className="text-md underline font-medium">(480) 864-5117</a>
         <span className='text-md font-medium hidden md:inline'>|</span>
@@ -86,4 +86,3 @@ const Header: React.FC = () => {
 };
 
 export default Header;
-
