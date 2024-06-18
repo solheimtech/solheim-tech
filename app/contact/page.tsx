@@ -83,7 +83,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   };
 
   try {
-    const response = await fetch(`https://api.hsforms.com/submissions/v3/integration/submit/${process.env.NEXT_PUBLIC_PORTAL_ID}/${process.env.NEXT_PUBLIC_FORM_GUID}`, {
+    const response = await fetch(`https://api.hsforms.com/submissions/v3/integration/submit/${process.env.NEXT_PUBLIC_PORTAL_ID}/${process.env.NEXT_PUBLIC_CONTACT_FORM_GUID}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -95,15 +95,12 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     if (response.ok) {
       setStatus('Solheim Technologies has received!');
       setIsSuccess(true);
-      console.log('Form submitted successfully!')
     } else if (response.status === 404) {
       setStatus('Form submission endpoint not found (404).');
       setIsSuccess(false);
-      console.log('Form submission endpoint not found (404).')
     } else {
       setStatus('Failed to submit the form.');
       setIsSuccess(false);
-      console.log('Failed to submit the form.')
     }
   } catch (error) {
     console.error('Error submitting form:', error);
@@ -115,8 +112,8 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 
 
   return (
-    <div className="container mx-auto px-4 py-8 md:px-6 text-white">
-      <h1 className="text-center text-4xl font-bold mt-8 mb-[6rem]">Contact Us</h1>
+    <div className="container mx-auto px-4 py-8 md:px-6 text-white pt-[8rem] lg:pt-[0rem]">
+      <h1 className="text-center text-[2.5rem] sm:text-[5rem] font-bold mt-8 mb-[6rem]">Contact Us</h1>
       <div className="flex flex-col-reverse md:flex-row justify-between items-start">
         <div className="w-full md:w-1/2 mb-8 md:mb-0 mt-16 md:mt-[8rem]">
           <h2 className="text-3xl font-semibold mb-4">Contact Information</h2>
@@ -138,46 +135,46 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         </div>
 
         {/* Contact Form */}
-        <div className="w-full md:w-1/2 bg-white opacity-[92%] p-10 rounded-lg">
+        <div className="w-full md:w-1/2 bg-white p-10 rounded-lg">
           <h2 className="text-3xl font-semibold mb-4 text-black">Get in Touch</h2>
           <form className="space-y-4" onSubmit={handleSubmit}>
             <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
               <div className="w-full md:w-1/2">
                 <label htmlFor="first-name" className="block text-sm font-medium text-black">First Name <span className="text-red-500">*</span></label>
-                <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} id="first-name" name="first-name" className="text-black mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required onBlur={handleBlur} />
+                <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} id="first-name" name="first-name" className="text-black mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-black focus:border-black sm:text-sm" required onBlur={handleBlur} />
                 <p className="text-red-500 text-sm mt-1"></p>
               </div>
               <div className="w-full md:w-1/2">
                 <label htmlFor="last-name" className="block text-sm font-medium text-black">Last Name <span className="text-red-500">*</span></label>
-                <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} id="last-name" name="last-name" className="text-black mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required onBlur={handleBlur} />
+                <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} id="last-name" name="last-name" className="text-black mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-black focus:border-black sm:text-sm" required onBlur={handleBlur} />
                 <p className="text-red-500 text-sm mt-1"></p>
               </div>
             </div>
             <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
               <div className="w-full md:w-1/2">
                 <label htmlFor="email" className="block text-sm font-medium text-black">Email Address <span className="text-red-500">*</span></label>
-                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} id="email" name="email" className="text-black mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required onBlur={handleBlur} />
+                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} id="email" name="email" className="text-black mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-black focus:border-black sm:text-sm" required onBlur={handleBlur} />
                 <p className="text-red-500 text-sm mt-1"></p>
               </div>
               <div className="w-full md:w-1/2">
                 <label htmlFor="phone" className="block text-sm font-medium text-black">Phone Number <span className="text-red-500">*</span></label>
-                <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} id="phone" name="phone" className="text-black mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required onBlur={handleBlur} />
+                <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} id="phone" name="phone" className="text-black mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-black focus:border-black sm:text-sm" required onBlur={handleBlur} />
                 <p className="text-red-500 text-sm mt-1"></p>
               </div>
             </div>
             <div className="w-full">
               <label htmlFor="company" className="block text-sm font-medium text-black">Company Name</label>
-              <input type="text" value={company} onChange={(e) => setCompany(e.target.value)} id="company" name="company" className="text-black mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" onBlur={handleBlur} />
+              <input type="text" value={company} onChange={(e) => setCompany(e.target.value)} id="company" name="company" className="text-black mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-black focus:border-black sm:text-sm" onBlur={handleBlur} />
               <p className="text-red-500 text-sm mt-1 hidden"></p>
             </div>
             <div>
               <label htmlFor="message" className="block text-sm font-medium text-black">Message <span className="text-red-500">*</span></label>
-              <textarea id="message" value={message} onChange={(e) => setMessage(e.target.value)} name="message" rows={4} className="text-black mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required onBlur={handleBlur}></textarea>
+              <textarea id="message" value={message} onChange={(e) => setMessage(e.target.value)} name="message" rows={4} className="text-black mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-black focus:border-black sm:text-sm" required onBlur={handleBlur}></textarea>
               <p className="text-red-500 text-sm mt-1"></p>
             </div>
             
             <div>
-              <button type="submit" className="w-full inline-flex justify-center py-2 px-4 shadow-sm text-sm font-medium rounded-md text-black bg-white border-black border hover:bg-black hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+              <button type="submit" className="w-full inline-flex justify-center py-2 px-4 shadow-sm text-sm font-medium rounded-md text-black bg-white border-black border hover:bg-black hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black">
                 Send Message
               </button>
             </div>
