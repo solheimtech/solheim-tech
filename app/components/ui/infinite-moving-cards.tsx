@@ -5,14 +5,14 @@ import React, { useEffect, useState, useCallback } from "react";
 
 export const InfiniteMovingCards = ({
   items,
-  direction = "left",
+  direction = "right",
   speed = "fast",
   className,
 }: {
   items: {
     description: string;
     name: string;
-    rating: number; // Add rating property
+    rating: number;
   }[];
   direction?: "left" | "right";
   speed?: "fast" | "normal" | "slow";
@@ -22,10 +22,11 @@ export const InfiniteMovingCards = ({
   const scrollerRef = React.useRef<HTMLUListElement>(null);
 
   const [start, setStart] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   const getDirection = useCallback(() => {
     if (containerRef.current) {
-      if (direction === "left") {
+      if (direction === "right") {
         containerRef.current.style.setProperty(
           "--animation-direction",
           "forwards"
@@ -79,6 +80,30 @@ export const InfiniteMovingCards = ({
         "scroller relative z-20 max-w-[24rem] sm:max-w-[37rem] md:max-w-[45rem] lg:max-w-[80rem] overflow-hidden",
         className
       )}
+      onMouseEnter={() => {
+        setIsHovered(true);
+        if (scrollerRef.current) {
+          scrollerRef.current.style.animationPlayState = "paused";
+        }
+      }}
+      onMouseLeave={() => {
+        setIsHovered(false);
+        if (scrollerRef.current) {
+          scrollerRef.current.style.animationPlayState = "running";
+        }
+      }}
+      onTouchStart={() => {
+        setIsHovered(true);
+        if (scrollerRef.current) {
+          scrollerRef.current.style.animationPlayState = "paused";
+        }
+      }}
+      onTouchEnd={() => {
+        setIsHovered(false);
+        if (scrollerRef.current) {
+          scrollerRef.current.style.animationPlayState = "running";
+        }
+      }}
     >
       <ul
         ref={scrollerRef}
@@ -91,8 +116,7 @@ export const InfiniteMovingCards = ({
           <li
             className="w-[250px] md:w-[350px] lg:w-[450px] max-w-full relative rounded-2xl border border-b-0 flex-shrink-0 border-slate-700 px-4 md:px-8 py-6"
             style={{
-              background:
-                "linear-gradient(180deg, var(--white), var(--white)",
+              background: "white",
             }}
             key={item.name}
           >
