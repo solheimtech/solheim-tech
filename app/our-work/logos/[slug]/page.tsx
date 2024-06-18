@@ -24,7 +24,7 @@ const LogoDetail = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row items-center p-4 text-center">
+    <div className="flex flex-col md:flex-row items-center p-4 text-center pt-[8rem] lg:pt-[0rem]">
       <div className="flex flex-col items-center mb-4 w-full md:w-1/2">
         <Image 
           src={item.images[selectedImage].src} 

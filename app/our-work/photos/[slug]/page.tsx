@@ -18,7 +18,7 @@ const PhotoDetail = () => {
   }
 
   return (
-    <div className="flex flex-col items-center p-4 text-center">
+    <div className="flex flex-col items-center p-4 text-center pt-[8rem] lg:pt-[0rem]">
         <div className="flex flex-col items-center mb-4">
           <Image 
             src={item.src} 

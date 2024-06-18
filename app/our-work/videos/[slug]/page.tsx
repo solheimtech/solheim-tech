@@ -18,9 +18,9 @@ const VideoDetail = () => {
   }
 
   return (
-    <div className='py-10'>
+    <div className='py-10 pt-[8rem] md:pt-[0rem]'>
         <div className="flex justify-center">
-          <video controls className='w-[80%]'>
+          <video controls autoPlay className='w-[80%]'>
             <source src={item.src} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
