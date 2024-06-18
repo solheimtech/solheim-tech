@@ -16,7 +16,7 @@ const Navbar = () => {
     <>
     <div className="hidden container mx-auto px-4 md:px-6 lg:flex items-center justify-between h-16 my-8">
       <Link href="/" className="flex items-center" prefetch={false}>
-        <Image src={logo} alt="Solheim Technologies Banner Logo" width={300} height={300} className="filter invert" />
+        <Image src={logo} alt="Solheim Technologies Banner Logo" width={300} height={300} className="filter invert" loading='lazy'/>
       </Link>
       <nav className="lg:flex items-center space-x-6">
         <div
@@ -89,7 +89,7 @@ const Navbar = () => {
         >
           <Link href="/our-work" className="flex items-center space-x-1 text-white hover:font-semibold relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-gray-50 after:transition-all after:duration-300 hover:after:w-full">
             <span>Our Work</span>
-            {contactSubmenuOpen ? (
+            {ourWorkSubmenuOpen ? (
               <ChevronUpIcon className="h-4 w-4 text-white" />
             ) : (
               <ChevronDownIcon className="h-4 w-4 text-white" />
@@ -134,7 +134,7 @@ const Navbar = () => {
           </Link>
           <ul className={`absolute left-0 top-full bg-black transition-all duration-300 ease-in-out p-2 ${contactSubmenuOpen ? 'block' : 'hidden'}`} style={{ width: '200px' }}>
             <li className="mb-2">
-              <Link href="/contact/free-consultation" className="text-white hover:font-semibold whitespace-nowrap">
+              <Link href="https://meetings.hubspot.com/dsolheim/free-consultation?uuid=4c92feda-4336-4136-9029-88f1f1b42ad6" className="text-white hover:font-semibold whitespace-nowrap">
                 Free Consultation
               </Link>
             </li>
@@ -171,3 +171,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

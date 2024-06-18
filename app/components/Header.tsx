@@ -1,86 +1,71 @@
 "use client"
 
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React from 'react';
 import { FaFacebookF, FaInstagram, FaYoutube, FaLinkedinIn } from 'react-icons/fa';
 import { SiX } from 'react-icons/si';
 
 const Header: React.FC = () => {
-  const [isVisible, setIsVisible] = useState(true);
-
-  const handleClose = () => {
-    setIsVisible(false);
-  };
-
-  if (!isVisible) {
-    return null;
-  }
-
   return (
-    <div className="hidden md:flex bg-black text-white py-2 px-4 flex-col md:flex-row justify-between items-center text-center md:text-left">
-      <div className="flex flex-col md:flex-row space-x-0 md:space-x-4 mb-2 md:mb-0 pl-[2rem]">
-        <a href="tel:+14808645117" className="text-md underline font-medium">(480) 864-5117</a>
-        <span className='text-md font-medium hidden md:inline'>|</span>
-        <a href="mailto:hello@solheimtech.com" className="text-md underline font-medium">hello@solheimtech.com</a>
+    <div className="hidden lg:flex bg-black text-white py-2 px-4 flex-col lg:flex-row justify-between items-center text-center lg:text-left">
+      <div className="flex flex-col lg:flex-row space-x-0 lg:space-x-4 mb-2 lg:mb-0 pl-[2rem]">
+        <Link href="tel:+14808645117" className="text-md underline font-medium">(480) 864-5117</Link>
+        <span className='text-md font-medium hidden lg:inline'>|</span>
+        <Link href="mailto:hello@solheimtech.com" className="text-md underline font-medium">hello@solheimtech.com</Link>
       </div>
       
-      <div className="flex-grow flex justify-center mb-2 md:mb-0">
+      <div className="flex-grow flex justify-center mb-2 lg:mb-0">
         <div className="flex space-x-4">
-          <a
-            href="https://facebook.com"
+          <Link
+            href="https://www.facebook.com/solheimtech"
             target="_blank"
             rel="noopener noreferrer"
             className="text-white hover:text-gray-300"
           >
             <FaFacebookF />
-          </a>
-          <a
-            href="https://instagram.com"
+          </Link>
+          <Link
+            href="https://www.instagram.com/solheimtech/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-white hover:text-gray-300"
           >
             <FaInstagram />
-          </a>
-          <a
-            href="https://x.com"
+          </Link>
+          <Link
+            href="https://x.com/solheimtech"
             target="_blank"
             rel="noopener noreferrer"
             className="text-white hover:text-gray-300"
           >
             <SiX />
-          </a>
-          <a
-            href="https://youtube.com"
+          </Link>
+          <Link
+            href="https://www.youtube.com/channel/UCUfRXnvKwTJbLh5Mu5_qRYw"
             target="_blank"
             rel="noopener noreferrer"
             className="text-white hover:text-gray-300"
           >
             <FaYoutube />
-          </a>
-          <a
-            href="https://linkedin.com"
+          </Link>
+          <Link
+            href="https://www.linkedin.com/company/solheimtech/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-white hover:text-gray-300"
           >
             <FaLinkedinIn />
-          </a>
+          </Link>
         </div>
       </div>
 
-      <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4 mr-[1rem] items-center md:items-start">
-        <Link href="/consultation" className="text-md font-medium text-center md:text-left">Free Consultation</Link>
-        <span className='text-md font-medium hidden md:inline'>|</span>
-        <Link href="/consultation" className="text-md font-medium text-center md:text-left">Schedule Service</Link>
-        <span className='text-md font-medium hidden md:inline'>|</span>
-        <Link href="/consultation" className="text-md font-medium text-center md:text-left">Remote Support</Link>
+      <div className="flex flex-col lg:flex-row space-y-2 lg:space-y-0 lg:space-x-4 mr-[1rem] items-center lg:items-start">
+        <Link href="/contact/free-consultation" className="text-md font-medium text-center lg:text-left">Free Consultation</Link>
+        <span className='text-md font-medium hidden lg:inline'>|</span>
+        <Link href="/contact/project-estimate" className="text-md font-medium text-center lg:text-left">Project Estimate</Link>
+        <span className='text-md font-medium hidden lg:inline'>|</span>
+        <Link href="/contact/remote-tech-support" className="text-md font-medium text-center lg:text-left">Remote Tech Support</Link>
       </div>
-
-      <button onClick={handleClose} className="text-white hover:text-gray-300 mt-2 md:mt-0 self-center md:self-auto">
-        <span className="block md:hidden">Close</span>
-        <span className="hidden md:block">X</span>
-      </button>
     </div>
   );
 };
