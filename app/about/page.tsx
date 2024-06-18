@@ -3,12 +3,8 @@
 import { NextPage } from "next";
 import React, { useRef } from "react";
 import Image from "next/image";
-import { Meteors } from "../components/ui/meteors";
 import { InfiniteMovingCards } from "../components/ui/infinite-moving-cards";
-import BusinessConsultingIcon from '../../public/briefcase.svg';
-import WebsiteDevelopmentIcon from '../../public/website.svg';
-import ITServicesIcon from '../../public/service.svg';
-import CustomerHappinessIcon from '../../public/happy.svg';
+
 
 
 const testimonials = [
@@ -51,66 +47,12 @@ const testimonials = [
   
 ];
 
-const ServicesCard: React.FC = () => {
-  const services = [
-    {
-      title: "Business Technology Consulting",
-      description: "Our expert consultants provide strategic guidance to optimize your technology infrastructure, streamline operations, and drive business growth.",
-      icon: BusinessConsultingIcon,
-    },
-    {
-      title: "Website Development",
-      description: "We create stunning, user-friendly websites tailored to your brand's unique needs, ensuring a seamless online presence and exceptional user experience.",
-      icon: WebsiteDevelopmentIcon,
-    },
-    {
-      title: "Computer & IT Services",
-      description: "From hardware setup to software support, we offer comprehensive IT services to keep your business running smoothly and efficiently.",
-      icon: ITServicesIcon,
-    },
-    {
-      title: "Customer Happiness",
-      description: "We prioritize exceptional customer service, ensuring satisfaction through personalized support and proactive solutions for all your technology needs.",
-      icon: CustomerHappinessIcon,
-    },
-  ];
 
-  return (
-    <div className="flex flex-col items-center">
-      <h1 className="text-3xl text-white font-bold">Why choose us</h1>
-      <p className="text-md text-white font-light py-4 w-2/3 text-center">Thank you for considering Solheim Tech! We are a small team of 3 that are dedicated to providing high quality services at a reasonable price.</p>
-      <div className="flex flex-wrap justify-center gap-[4rem] pt-[4rem]">
-        {services.map((service, index) => (
-        <div key={index} className="w-full sm:w-auto">
-          <div className="w-full relative max-w-xs mx-auto transition-transform duration-300 h-full">
-            <div className="absolute inset-0 h-full w-full bg-gradient-to-r transform scale-[0.80] rounded-full blur-3xl" />
-              <div className="relative bg-transparent border border-gray-900 px-4 py-8 h-full overflow-hidden rounded-2xl flex flex-col justify-between items-start">
-                <div className="h-7 w-7 rounded-full border flex items-center justify-center mb-4 border-none">
-                  <Image src={service.icon} alt={`${service.title} icon`} />
-                </div>
-
-                <h1 className="font-bold text-xl text-white mb-4 relative z-50">
-                  {service.title}
-                </h1>
-
-                <p className="font-normal text-base text-slate-300 mb-4 relative z-50">
-                  {service.description}
-                </p>
-
-                <Meteors number={20} />
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
 
 const AboutUs: NextPage = () => {
   return (
-    <div className="flex flex-col items-center justify-start pt-[8rem] z-10">
-      <h1 className="text-3xl text-white font-bold">About Us</h1>
+    <div className="flex flex-col items-center justify-start pt-[8rem] lg:pt-[0rem] z-10">
+      <h1 className="text-[2.5rem] sm:text-[5rem] text-white font-bold">About Us</h1>
       <p className="text-white text-md font-light pt-3 text-center">As a tech solutions company, we are committed to your businesses tech needs</p>
 
       <div className="flex flex-col md:flex-row items-start justify-center p-2 md:p-[5rem] md:mb-10">
@@ -133,9 +75,7 @@ const AboutUs: NextPage = () => {
         </div>
       </div>
 
-      <div className="relative z-10 pt-[6rem]">
-        <ServicesCard />
-      </div>
+      
 
       <div className="h-[40rem] rounded-md flex flex-col antialiased items-center justify-center relative overflow-hidden">
         <p className="text-white text-3xl font-bold pb-5">Customer Review</p>
