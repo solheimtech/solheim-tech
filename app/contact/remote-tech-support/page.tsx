@@ -8,8 +8,7 @@ import { FaAppStoreIos } from "react-icons/fa";
 import { IoLogoAndroid } from "react-icons/io";
 import { FaRaspberryPi } from "react-icons/fa";
 
-
-export const osVersion = [
+const osVersion = [
   {
     title: "Windows",
     link: "https://stripe.com",
