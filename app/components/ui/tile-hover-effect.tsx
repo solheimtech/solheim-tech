@@ -34,7 +34,7 @@ export const HoverEffect = ({
           <AnimatePresence>
             {hoveredIndex === idx && (
               <motion.span
-                className="absolute inset-0 h-full w-full bg-neutral-200 block rounded-3xl"
+                className="absolute inset-0 h-full w-full bg-gray-300 blur-sm block rounded-3xl"
                 layoutId="hoverBackground"
                 initial={{ opacity: 0 }}
                 animate={{
@@ -48,7 +48,7 @@ export const HoverEffect = ({
               />
             )}
           </AnimatePresence>
-          <Card className="border border-white flex flex-col items-center justify-center">
+          <Card className="border-2 group-hover:border-gray-300 border-white flex flex-col items-center justify-center">
             <div className="flex items-center justify-center w-16 h-16 mb-4 text-white">{item.icon}</div> {/* Render icon as a ReactNode */}
             <CardTitle className="text-center">{item.title}</CardTitle>
           </Card>
