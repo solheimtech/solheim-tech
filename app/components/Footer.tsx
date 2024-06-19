@@ -12,7 +12,7 @@ const Footer = () => {
     <footer className="bg-black bg-opacity-75 text-white py-8 mt-auto w-full absolute">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center md:items-start space-y-6 md:space-y-0">
-          <div className="flex flex-col items-center md:items-start text-center md:text-left">
+          <div className="flex flex-col items-center text-center md:items-start md:text-left">
             <Link href="/" className="flex items-center mb-4" prefetch={false}>
               <Image src={logo} alt="Solheim Technologies Banner Logo" width={300} height={300} className="filter invert" loading='lazy' />
             </Link>
@@ -21,9 +21,9 @@ const Footer = () => {
             </p>
           </div>
           <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8">
-            <div className="flex flex-col">
+            <div className="flex flex-col items-center text-center md:items-start md:text-left">
               <p className='text-white font-bold pb-2'>Company</p>
-              <ul className="space-y-2 text-center md:text-left">
+              <ul className="space-y-2">
                   <li><Link href="/about">About Us</Link></li>
                   <li><Link href="/services">Services</Link></li>
                   <li><Link href="/portfolio">Portfolio</Link></li>
@@ -32,9 +32,9 @@ const Footer = () => {
                   <li><Link href="/update-payment-method">Update Payment Method</Link></li>
               </ul>
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col items-center text-center md:items-start md:text-left">
               <p className='text-white font-bold pb-2'>Contact</p>
-              <ul className="space-y-2 text-center md:text-left">
+              <ul className="space-y-2">
                   <li className="flex items-center justify-center md:justify-start">
                       <FaEnvelope className="mr-2" />
                       <a href="mailto:hello@solheimtech.com" className="hover:underline">
