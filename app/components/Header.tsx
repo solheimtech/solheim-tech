@@ -60,7 +60,7 @@ const Header: React.FC = () => {
       </div>
 
       <div className="flex flex-col lg:flex-row space-y-2 lg:space-y-0 lg:space-x-4 mr-[1rem] items-center lg:items-start">
-        <Link href="/contact/free-consultation" className="text-md font-medium text-center lg:text-left">Free Consultation</Link>
+        <Link href="https://meetings.hubspot.com/dsolheim/free-consultation?uuid=4c92feda-4336-4136-9029-88f1f1b42ad6" className="text-md font-medium text-center lg:text-left">Free Consultation</Link>
         <span className='text-md font-medium hidden lg:inline'>|</span>
         <Link href="/contact/project-estimate" className="text-md font-medium text-center lg:text-left">Project Estimate</Link>
         <span className='text-md font-medium hidden lg:inline'>|</span>

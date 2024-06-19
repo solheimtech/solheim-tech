@@ -1,4 +1,4 @@
-import { createContext, useContext, ReactNode } from 'react';
+import { createContext, useContext, ReactNode, useEffect, useState } from 'react';
 
 type Item = {
   id: number;
@@ -88,7 +88,38 @@ const items: Item[] = [
 
 const VideoContentsContext = createContext<Item[]>(items);
 
-export const useVideoContents = () => useContext(VideoContentsContext);
+export const useVideoContents = () => {
+  const context = useContext(VideoContentsContext);
+  const [cachedVideos, setCachedVideos] = useState<HTMLVideoElement[]>([]);
+
+  useEffect(() => {
+    const videoElements: HTMLVideoElement[] = [];
+    context.forEach(item => {
+      const video = document.createElement('video');
+      video.src = item.src;
+      video.preload = 'auto';
+
+      video.onloadeddata = () => {
+        console.log(`Video ${item.src} preloaded successfully.`);
+      };
+
+      video.onerror = (e) => {
+        console.error(`Error preloading video ${item.src}`, e);
+      };
+
+      videoElements.push(video);
+    });
+
+    setCachedVideos(videoElements);
+
+    // Cleanup function to remove video elements
+    return () => {
+      videoElements.forEach(video => video.remove());
+    };
+  }, [context]);
+
+  return { context, cachedVideos };
+};
 
 export const VideoContentsProvider = ({ children }: { children: ReactNode }) => {
   return (

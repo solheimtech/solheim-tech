@@ -1,6 +1,119 @@
-import React from "react";
+"use client"
 
-export default function Portfolio() {
-  return <div>Portfolio</div>;
+import React, { useEffect, useState, useMemo, useRef } from "react";
+import WorkDisplayCard from "@/app/components/ui/work-display-card";
+import { useWebsiteContents } from "@/app/contents/WebsiteContents";
+import { useLogoContents } from "@/app/contents/LogoContents";
+import { usePhotoContents } from "@/app/contents/PhotoContents";
+import { useVideoContents } from "@/app/contents/VideoContents";
+
+export default function OurWork() {
+  const websiteContents = useWebsiteContents();
+  const logoContents = useLogoContents();
+  const photoContents = usePhotoContents();
+  const videoContents = useVideoContents().context;
+ 
+  const firstFourWebsiteContents = websiteContents.slice(0, 4);
+  const firstFourLogoContents = logoContents.slice(0, 4);
+  const firstFourPhotoContents = photoContents.slice(0, 4);
+  const firstFourVideoContents = videoContents.slice(0, 4);
+
+  const projects = useMemo(() => [
+    {
+      slug: "websites",
+      preview: firstFourWebsiteContents.length > 0 ? firstFourWebsiteContents.map(content => content.images[0].src).filter((images): images is string => !!images) : [],
+      title: "Websites",
+    },
+    {
+      slug: "logos",
+      preview: firstFourLogoContents.length > 0 ? firstFourLogoContents.map(content => content.images[0].src).filter((images): images is string => !!images) : [],
+      title: "Logos",
+    },
+    {
+      slug: "photos",
+      preview: firstFourPhotoContents.length > 0 ? firstFourPhotoContents.map(content => content.src).filter((src): src is string => !!src ) : [],
+      title: "Photos",
+    },
+    {
+      slug: "videos",
+      preview: firstFourVideoContents.length > 0 ? firstFourVideoContents.map((content: any) => content.src).filter((src: any): src is string => !!src) : [],
+      title: "Videos",
+    },
+  ], [firstFourVideoContents, firstFourWebsiteContents, firstFourLogoContents, firstFourPhotoContents]);
+
+  const completedWork = useMemo(() => [
+    {
+      title: "Monthly Mangaged Sites",
+      number: 80,
+    },
+    {
+      title: "Completed Projects",
+      number: 675,
+    },
+    {
+      title: "Years in Business",
+      number: 11,
+    },
+    {
+      title: "Projects in Development",
+      number: 5,
+    }
+  ], []);
+
+  const [counts, setCounts] = useState(completedWork.map(() => 0));
+  const completedWorkRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (completedWorkRef.current) {
+        const rect = completedWorkRef.current.getBoundingClientRect();
+        if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+          const interval = setInterval(() => {
+            setCounts((prevCounts) => 
+              prevCounts.map((count, index) => {
+                const target = completedWork[index].number;
+                let increment;
+                if (target > 500) {
+                  increment = 15;
+                } else if (target > 100) {
+                  increment = 10;
+                } else {
+                  increment = 1;
+                }
+                return count < target ? count + increment : count;
+              })
+            );
+          }, 20);
+
+          return () => clearInterval(interval);
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [completedWork]);
+
+  return (
+    <div className="pt-[8rem] lg:pt-0">
+      <div>
+        <h1 className="text-[2.5rem] sm:text-[5rem] text-white font-bold text-center">Our Work</h1>
+        <p className="text-center text-gray-200">We have worked with many clients and have a wide range of projects.</p>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4">
+        {projects.map((project, index) => (
+          <WorkDisplayCard key={index} project={{ ...project, preview: project.preview.filter((image: any) => image !== undefined) }} />
+        ))}
+      </div>
+      <div ref={completedWorkRef} className="flex flex-col md:flex-row gap-[4rem] md:gap-[8rem] bg-white justify-center items-center w-full h-auto md:h-[20rem] p-4">
+        {completedWork.map((project, index) => (
+          <div key={index} className="flex flex-col items-center justify-center text-center">
+            <p className="text-[2.5rem] md:text-[3.5rem] text-black font-bold">{counts[index]}{project.number === 80 ? "+" : ""}</p>
+            <p className="text-gray-800">{project.title}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }
 
