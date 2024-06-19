@@ -159,7 +159,7 @@ const ContactPage = () => {
 
   return (
     <div className="container mx-auto px-4 pt-[8rem] lg:pt-[0rem] py-8 md:px-6 text-white">
-      <h1 className="text-center text-[2.5rem] sm:text-[5rem] font-bold mt-8 mb-[6rem]">Project Estimate</h1>
+      <h1 className="text-center text-[2.5rem] sm:text-[5rem] font-bold mt-8 mb-4">Project Estimate</h1>
       <div className="flex justify-center">
         <div className="w-full md:w-1/2 bg-white p-10 rounded-lg">
           <h2 className="text-2xl font-semibold mb-4 text-black">Get a quote today!</h2>
