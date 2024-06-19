@@ -1,17 +1,16 @@
 "use client";
 import { useParams } from 'next/navigation';
-import Image from 'next/image';
 import { useVideoContents } from '../../../contents/VideoContents';
 
 const VideoDetail = () => {
   const { slug } = useParams();
-  const items = useVideoContents();
+  const { context: items } = useVideoContents();
 
   if (!slug) {
     return <div>There is no ID found</div>;
   }
 
-  const item = items.find((item) => item.slug === slug);
+  const item = items.find((item: { slug: string }) => item.slug === slug);
 
   if (!item) {
     return <div>Item not found</div>;
