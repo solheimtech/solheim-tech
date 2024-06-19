@@ -198,9 +198,12 @@ const MobileNav = () => {
                                     </AnimatePresence>
                                 </div>
 
-                                <Link href="/membership" className={`text-white hover:font-semibold ${currentPath === '/membership' ? 'font-bold' : ''}`} onClick={() => setMobileNavOpen(false)}>
-                                    Membership
-                                </Link>
+                                <div className="my-2">
+                                    <Link href="/membership" className={`text-white hover:font-semibold ${currentPath === '/membership' ? 'font-bold' : ''}`} onClick={() => setMobileNavOpen(false)}>
+                                        Membership
+                                    </Link>
+                                </div>
+                                
                                 <div className="relative group">
                                     <div className="flex items-center justify-between">
                                         <motion.div
