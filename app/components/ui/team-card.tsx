@@ -31,9 +31,8 @@ const Card: FC<CardProps> = ({ user, expandedUser, onExpand }) => {
     <motion.div
       className={`bg-white border border-gray-200 rounded-2xl shadow-lg overflow-hidden flex flex-col items-center transform transition-transform duration-300 ${isExpanded ? 'max-w-3xl' : 'max-w-2xl'}`}
       onClick={handleCardClick}
-      animate={{ scale: isExpanded ? 1.05 : 1 }}
       transition={{ duration: 0.3 }}
-      whileHover={{ scale: 1.02, cursor: 'pointer' }}
+      whileHover={!isExpanded ? { scale: 1.02, cursor: 'pointer' } : {}}
     >
       <Image
         className="w-64 h-64 object-cover m-4"
@@ -52,16 +51,14 @@ const Card: FC<CardProps> = ({ user, expandedUser, onExpand }) => {
             <span className="block text-lg text-gray-900">{user.role}</span>
           </div>
         </div>
-        {isExpanded && (
-          <motion.div
-            className="mt-4 text-gray-700"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            transition={{ duration: 0.3 }}
-          >
-            <p>{user.description}</p>
-          </motion.div>
-        )}
+        <motion.div
+          className="mt-4 text-gray-700"
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: isExpanded ? 1 : 0, height: isExpanded ? 'auto' : 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          <p>{user.description}</p>
+        </motion.div>
         <div className="flex justify-start items-center mt-6 space-x-6">
           <motion.a
             href={user.facebook}

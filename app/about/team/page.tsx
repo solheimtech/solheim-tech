@@ -38,8 +38,8 @@ const OurTeam = () => {
   ];
 
   return (
-    <div>
-      <div className="flex flex-col items-center justify-start min-h-[4rem] pt-8 lg:pt-[0rem] text-white pb-8">
+    <div className="pt-[8rem] lg:pt-[0rem]">
+      <div className="flex flex-col items-center justify-start min-h-[4rem] text-white pb-8">
         <h1 className="text-[2.5rem] sm:text-[5rem] font-bold">Meet the Team</h1>
       </div>
       <div className="flex flex-col md:flex-row justify-center md:space-x-8 overflow-x-auto p-4">
