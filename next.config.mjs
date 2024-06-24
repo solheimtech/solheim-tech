@@ -6,7 +6,7 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      // Redirects for /our-team/*
+      // Redirects for NFC Card Google Review
       {
         source: '/nfc/clients/complete-calibrations/mesa/google-review',
         destination: 'https://g.page/r/Caxsrxx5LDDbEAI/review',
