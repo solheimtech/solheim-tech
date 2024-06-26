@@ -5,9 +5,10 @@ import React, { useEffect, FC } from "react";
 interface MeetingsProps {
   title: string;
   dataSrc: string;
+  cssId?: string; // Optional CSS ID
 }
 
-const Meetings: FC<MeetingsProps> = ({ title, dataSrc }) => {
+const Meetings: FC<MeetingsProps> = ({ title, dataSrc, cssId }) => {
   useEffect(() => {
     const script = document.createElement("script");
     script.src = "https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js";
@@ -24,7 +25,7 @@ const Meetings: FC<MeetingsProps> = ({ title, dataSrc }) => {
         <h1 className="text-[2rem] sm:text-[3rem] md:text-[4rem] lg:text-[4rem] font-bold">{title}</h1>
       </div>
       <div className="flex justify-center p-2 sm:p-4">
-        <div className="meetings-iframe-container w-full max-w-[90%] sm:max-w-[80%] md:max-w-[70%] lg:max-w-[60%]" data-src={dataSrc}></div>
+        <div id={cssId} className="meetings-iframe-container w-full max-w-[90%] sm:max-w-[80%] md:max-w-[70%] lg:max-w-[60%]" data-src={dataSrc}></div>
       </div>
     </div>
   );
