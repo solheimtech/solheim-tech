@@ -49,7 +49,7 @@ const Footer = () => {
                   </li>
                   <li className="flex items-center justify-center md:justify-start">
                       <FaMapMarkerAlt className="mr-2" />
-                      1819 E. Southern Ave. D-10, Mesa, AZ 85204
+                      1819 E. Southern Ave. Ste D-10, Mesa, AZ 85204
                   </li>
               </ul>
             </div>
