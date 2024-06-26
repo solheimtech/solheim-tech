@@ -14,10 +14,10 @@ type Item = {
 const items: Item[] = [
   {
     id: 1,
-    slug: "big-nates-bbq",
+    slug: "big-nates-family-bbq",
     src: "https://cefqtkkupjodlfz5.public.blob.vercel-storage.com/assets/videos/Big-Nates-BBQ-kAYuh3NNcr5gg8W7EMt8xThlREZGV9.mp4",
     type: "video",
-    title: "Big Nate's BBQ",
+    title: "Big Nate's Family BBQ",
     description: "Big Nate's BBQ is known for its mouth-watering, slow-cooked barbecue with a rich, smoky flavor that keeps customers coming back for more.",
     imgSrc: "https://solheimtech.com/wp-content/uploads/2023/03/Superstitions-2000.jpg"
   },
