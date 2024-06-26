@@ -6,18 +6,20 @@ import Link from 'next/link';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaFacebookF, FaInstagram, FaYoutube, FaLinkedinIn } from 'react-icons/fa';
 import { SiX } from 'react-icons/si';
 import logo from '../../public/assets/images/Solheim-Technologies-Banner.png';
+import backgroundImage from '../../public/assets/images/City-at-Dusk-BW.jpg';
 
 const Footer = () => {
   return (
-    <footer className="bg-black bg-opacity-75 text-white py-8 mt-auto w-full absolute">
-      <div className="container mx-auto px-4">
+    <footer className="bg-black bg-opacity-75 text-white py-8 mt-auto w-full absolute" style={{ backgroundImage: `url(${backgroundImage.src})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+      <div className="absolute inset-0 bg-black opacity-70"></div> {/* Overlay */}
+      <div className="container mx-auto px-4 relative z-10"> {/* Added relative z-10 to ensure content is above overlay */}
         <div className="flex flex-col md:flex-row justify-between items-center md:items-start space-y-6 md:space-y-0">
           <div className="flex flex-col items-center text-center md:items-start md:text-left">
             <Link href="/" className="flex items-center mb-4" prefetch={false}>
               <Image src={logo} alt="Solheim Technologies Banner Logo" width={300} height={300} className="filter invert" loading='lazy' />
             </Link>
             <p className="max-w-md text-center md:text-left">
-              Since 2012, we&apos;ve helped hundreds of small businesses enhance their online presence. Our expertise spans WordPress, Google Business Profiles, SEO, Social Media Management, and more. Let us manage the technology that drives your business. Sign up for a <Link href="/free-consult"><span className='underline hover:text-blue-500'>free consultation today</span></Link>.
+              Since 2012, we&apos;ve helped hundreds of small businesses enhance their online presence. Let us help manage the technology that drives your business. Sign up for a <Link href="/meeting/free-consultation" className='underline text-white hover:font-bold'>free consultation today</Link>.
             </p>
           </div>
           <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8">
@@ -26,7 +28,7 @@ const Footer = () => {
               <ul className="space-y-2">
                   <li><Link href="/about">About Us</Link></li>
                   <li><Link href="/services">Services</Link></li>
-                  <li><Link href="/portfolio">Portfolio</Link></li>
+                  <li><Link href="/our-work">Our Work</Link></li>
                   <li><Link href="/pricing">Pricing</Link></li>
                   <li><Link href="/contact">Contact Us</Link></li>
                   <li><Link href="/update-payment-method">Update Payment Method</Link></li>
@@ -55,7 +57,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <hr className="my-6 border-t border-gray-700" />
+        <hr className="my-6 border-t border-white" />
         <div className="flex flex-col items-center">
           <div className="flex space-x-4 mb-4">
           <Link
