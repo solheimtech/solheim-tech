@@ -2,7 +2,7 @@
 const nextConfig = {
   transpilePackages: ['three'],
   images: {
-    domains: ['assets.aceternity.com', 'solheimtech.com'],
+    domains: ['assets.aceternity.com', 'solheimtech.com', 'img.stripecdn.com'],
   },
   async redirects() {
     return [
