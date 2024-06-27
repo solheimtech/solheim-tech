@@ -4,6 +4,9 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import StandardIcon from "@/public/assets/images/ST-StndIcon.png";
+import PremiumIcon from "@/public/assets/images/ST-PremIcon.png";
+import ProIcon from "@/public/assets/images/ST-ProIcon.png";
 
 interface MembershipPlan {
   id: number;
@@ -18,8 +21,8 @@ interface MembershipPlan {
 const membershipPlans: MembershipPlan[] = [
   {
     id: 1,
-    image: "https://img.stripecdn.com/cdn-cgi/image/format=auto,height=120,dpr=1/https://d1wqzb5bdbcre6.cloudfront.net/b5dd23e3cae4930fe770e9881a9e5a44f68b7330808e6d6e6a055928af581870/68747470733a2f2f66696c65732e7374726970652e636f6d2f6c696e6b732f4d44423859574e6a644638784d444e744e3067794d4764494e5577314d45355a66475a7358327870646d56665957744d646b39455547784a4f465a72626d35505a55706f53486b35556b567a303045746c6259666369",
-    name: "Basic",
+    image: StandardIcon.src,
+    name: "Standard",
     description: "5 hours of service with active rollover, WordPress Website Hosting, monthly 30-minute strategy call, graphic design, Local SEO Pro for 1 location, remote PC/Mac support, and technology assistance.",
     price: "$499/month",
     features: [
@@ -40,8 +43,8 @@ const membershipPlans: MembershipPlan[] = [
   },
   {
     id: 2,
-    image: "https://img.stripecdn.com/cdn-cgi/image/format=auto,height=120,dpr=1/https://d1wqzb5bdbcre6.cloudfront.net/9d4d0e9e048ab1227518ca236dcdec96f92b0f5ad8e89ca986800e13b7b78253/68747470733a2f2f66696c65732e7374726970652e636f6d2f6c696e6b732f4d44423859574e6a644638784d444e744e3067794d4764494e5577314d45355a66475a7358327870646d566663484931597a6733553039304f476861554731715758423464584d7763484e4530307574647555705a34",
-    name: "Standard",
+    image: PremiumIcon.src,
+    name: "Premium",
     description: "10 hours of service with active rollover, monthly 30-minute strategy call, communication space, social media management, graphic design, reputation management, review response, SEO, remote PC/Mac support, and technology assistance.",
     price: "$999/month",
     features: [
@@ -65,8 +68,8 @@ const membershipPlans: MembershipPlan[] = [
   },
   {
     id: 3,
-    image: "https://img.stripecdn.com/cdn-cgi/image/format=auto,height=120,dpr=1/https://d1wqzb5bdbcre6.cloudfront.net/206872bc8c3de4ed54f2e607e2e884debdd680ab4e127acd3aa7b7d4dc54f732/68747470733a2f2f66696c65732e7374726970652e636f6d2f6c696e6b732f4d44423859574e6a644638784d444e744e3067794d4764494e5577314d45355a66475a7358327870646d5666636a6857536c51345133525755304e535a5664796432316a6357706e6348424c303053777168304b6357",
-    name: "Premium",
+    image: ProIcon.src,
+    name: "Pro",
     description: "20 hours of service with active rollover, twice monthly 30-minute strategy calls, communication space, social media management, graphic design, reputation management, review response, remote PC/Mac support, and more.",
     price: "$1,999/month",
     features: [

@@ -31,7 +31,7 @@ const Footer = () => {
                   <li><Link href="/our-work">Our Work</Link></li>
                   <li><Link href="/pricing">Pricing</Link></li>
                   <li><Link href="/contact">Contact Us</Link></li>
-                  <li><Link href="/update-payment-method">Update Payment Method</Link></li>
+                  <li><Link href="https://pay.solheimtech.com/p/login/7sIcP60il6XD0pOcMM">Update Payment Method</Link></li>
               </ul>
             </div>
             <div className="flex flex-col items-center text-center md:items-start md:text-left">
