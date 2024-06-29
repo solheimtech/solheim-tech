@@ -2,6 +2,12 @@
 
 import Link from "next/link";
 import { useEffect, useState, useMemo } from "react";
+import { motion } from "framer-motion";
+import ConsultIcon from "@/public/assets/icons/consult.svg";
+import DesignIcon from "@/public/assets/icons/web-design.svg";
+import HostingIcon from "@/public/assets/icons/web-hosting.svg";
+import SeoIcon from "@/public/assets/icons/seo.svg";
+import Image from "next/image";
 
 export default function Home() {
   const words = useMemo(() => ["to innovation", "to excellence", "to your success"], []);
@@ -21,6 +27,7 @@ export default function Home() {
           setIsDeleting(false);
           if (currentWordIndex < words.length - 1) {
             setCurrentWordIndex((prevIndex) => prevIndex + 1);
+            setCharIndex(0);
           }
         }
       } else {
@@ -41,152 +48,82 @@ export default function Home() {
   }, [charIndex, isDeleting, currentWordIndex, words]);
 
   return (
-    <main className="flex-1">
-        <section className="w-full h-auto py-12 pt-16 md:py-24 lg:py-32">
-          <div className="container mx-auto h-full px-4 md:px-6">
-            <div className="grid h-full gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
-              <div className="flex flex-col justify-center space-y-4 h-full">
-                <div className="space-y-2 animate-fade-in">
-                  <h1 className="text-white text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                    Solheim Technologies is dedicated <span className="bg-white text-black px-1 inline-block">{displayedText}</span>
-                  </h1>
-                  <p className="max-w-[600px] text-gray-500 md:text-xl dark:text-gray-400">
-                    Discover the power of our cutting-edge technology solutions and elevate your business to new
-                    heights.
-                  </p>
-                </div>
-                <div className="flex flex-col gap-2 min-[400px]:flex-row animate-fade-in-up">
-                  <Link
-                    href="/meeting/free-consultation"
-                    className="inline-flex h-10 items-center justify-center rounded-md bg-gray-900 px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
-                    prefetch={false}
-                  >
-                    Get Started
-                  </Link>
-                  <Link
-                    href="/services"
-                    className="inline-flex h-10 items-center justify-center rounded-md border border-gray-200 bg-white px-8 text-sm font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300"
-                    prefetch={false}
-                  >
-                    Learn More
-                  </Link>
-                </div>
-              </div>
-              {/* Import Image */}
+    <main className="flex-1 pt-[40%] lg:pt-[0rem]">
+      <section className="w-full h-[60vh] lg:h-screen flex items-start justify-center bg-cover bg-center" style={{ backgroundImage: "url('/path/to/your/custom/background.jpg')" }}>
+        <div className="container mx-auto text-center mt-[10%] px-4 sm:px-0">
+          <div className="space-y-6 animate-fade-in">
+            <h1 className="text-white text-3xl font-extrabold tracking-tight sm:text-7xl xl:text-8xl w-full space-y-4">
+              <span className="block">Solheim Technologies is</span> 
+              <div className="block pt-0 lg:pt-2">dedicated <span className="bg-white text-black px-2 lg:px-4 inline-block">{displayedText}</span></div>
+            </h1>
+            <p className="max-w-[800px] mx-auto text-gray-200 text-base sm:text-2xl">
+              Discover the power of our cutting-edge technology solutions and elevate your business to new heights.
+            </p>
+            <div className="flex flex-col gap-4 sm:flex-row justify-center animate-fade-in-up">
+              <Link
+                href="/meeting/free-consultation"
+                className="relative z-10"
+                prefetch={false}
+              >
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="relative inline-flex h-12 items-center justify-center rounded-md bg-black px-6 sm:px-10 text-lg font-medium text-white border-2 border-white shadow transition-colors hover:bg-white hover:text-black focus-visible:outline-none"
+                >
+                  Free Consultation
+                </motion.div>
+              </Link>
+              <Link
+                href="/meeting/free-consultation"
+                className="relative z-10"
+                prefetch={false}
+              >
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="relative inline-flex h-12 items-center justify-center rounded-md bg-white px-6 sm:px-10 text-lg font-medium text-black border-2 border-white shadow transition-colors hover:bg-black hover:text-white hover:border-white hover:border-2 focus-visible:outline-none"
+                >
+                  Learn More
+                </motion.div>
+              </Link>
             </div>
           </div>
-        </section>
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
-          <div className="container px-4 md:px-6">
-            <div className="grid max-w-5xl mx-auto items-center gap-6 lg:grid-cols-3 lg:gap-12">
-              <div className="grid gap-1 animate-fade-in">
-                <RocketIcon className="h-10 w-10 text-gray-900 dark:text-gray-50" />
-                <h3 className="text-lg font-bold">Rapid Innovation</h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400">
-                  Accelerate your development with our cutting-edge tools and technologies.
-                </p>
-              </div>
-              <div className="grid gap-1 animate-fade-in-up">
-                <ShieldIcon className="h-10 w-10 text-gray-900 dark:text-gray-50" />
-                <h3 className="text-lg font-bold">Secure by Design</h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400">
-                  Safeguard your data with our robust security measures.
-                </p>
-              </div>
-              <div className="grid gap-1 animate-fade-in-down">
-                <BoltIcon className="h-10 w-10 text-gray-900 dark:text-gray-50" />
-                <h3 className="text-lg font-bold">Lightning-fast Performance</h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400">
-                  Deliver lightning-fast experiences with our optimized infrastructure.
-                </p>
-              </div>
+        </div>
+      </section>
+      <section className="w-full py-12 sm:py-24 bg-gray-100 dark:bg-gray-800">
+        <div className="container px-4 md:px-6">
+          <div className="grid max-w-[120rem] mx-auto items-start gap-12 lg:grid-cols-4">
+            <div className="grid gap-4 animate-fade-in">
+              <Image src={DesignIcon} alt="Design Icon" className="h-12 w-12 text-gray-900" />
+              <h3 className="text-lg sm:text-xl font-bold">Website Design</h3>
+              <p className="text-sm sm:text-base text-gray-500">
+              WordPress and Shopify website design that you and your customers will love. And Google, CDNs, computers, iPhones, Androids, well.. you get the idea.
+              </p>
+            </div>
+            <div className="grid gap-4 animate-fade-in-up">
+              <Image src={HostingIcon} alt="Hosting Icon" className="h-12 w-12 text-gray-900" />
+              <h3 className="text-lg sm:text-xl font-bold">Website Hosting</h3>
+              <p className="text-sm sm:text-base text-gray-500">
+              Lightning fast WordPress hosting coming from the cloud. Select your datacenter closest to your place of business for ultrafast and reliable service.
+              </p>
+            </div>
+            <div className="grid gap-4 animate-fade-in-down">
+              <Image src={SeoIcon} alt="SEO Icon" className="h-12 w-12 text-gray-900" />
+              <h3 className="text-lg sm:text-xl font-bold">SEO</h3>
+              <p className="text-sm sm:text-base text-gray-500">
+              Solheim Technologies specializes in SEO, ensuring your website achieves maximum visibility and traffic. We take the guesswork out of SEO management, allowing you to focus on growing your business.
+              </p>
+            </div>
+            <div className="grid gap-4 animate-fade-in-down">
+              <Image src={ConsultIcon} alt="Consult Icon" className="h-12 w-12 text-gray-900" />
+              <h3 className="text-lg sm:text-xl font-bold">Tech Consulting</h3>
+              <p className="text-sm sm:text-base text-gray-500">
+              We know how to do so much more than build amazing websites. If you want to move your business ahead of the competition, let us know.
+              </p>
             </div>
           </div>
-        </section>
-      </main>
-    );
-  }
-
-function BoltIcon(props: any) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
-      <circle cx="12" cy="12" r="4" />
-    </svg>
-  )
+        </div>
+      </section>
+    </main>
+  );
 }
-
-
-function MountainIcon(props: any) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="m8 3 4 8 5-5 5 15H2L8 3z" />
-    </svg>
-  )
-}
-
-
-function RocketIcon(props: any) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
-      <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
-      <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
-      <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
-    </svg>
-  )
-}
-
-
-function ShieldIcon(props: any) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
-    </svg>
-  )
-}
-

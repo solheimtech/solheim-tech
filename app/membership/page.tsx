@@ -107,7 +107,7 @@ export default function Membership() {
   return (
     <div className="text-center pb-[10rem] pt-[8rem] lg:pt-[0rem]">
       <div className="flex flex-col items-center justify-start h-[70vh] pt-[8rem]">
-        <h1 className="mb-4 text-[2.5rem] lg:text-[3rem] font-bold text-white pb-8">Solheim Technologies Membership</h1>
+        <h1 className="mb-4 text-[2.5rem] sm:text-[5rem] font-bold text-white pb-8">Solheim Technologies Membership</h1>
         <h2 className="text-[1.5rem] lg:text-[2rem] font-bold text-white pb-8">Unmatched Website Support.  Business & Technology Consulting</h2>
         <p className="text-white font-light w-[50%]">In the ever-evolving technological landscape, robust support and expert guidance are crucial for success. Recognizing this, Solheim Technologies has created the Solheim Technologies Membership, a subscription offering unparalleled service, strategic benefits, and cutting-edge Search Engine Optimization – all designed to propel your business to the forefront of your industry</p>
       </div>

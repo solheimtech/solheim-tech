@@ -1,10 +1,10 @@
 "use client"
 import React from "react";
 import Image from "next/image";
-import WebsiteDevelopmentIcon from '../../public/website.svg';
-import SEOIcon from '../../public/seo.svg';
-import ReportIcon from '../../public/report.svg';
-import CustomerHappinessIcon from '../../public/happy.svg';
+import WebsiteDevelopmentIcon from '../../public/assets/icons/website.svg';
+import SEOIcon from '../../public/assets/icons/seo.svg';
+import ReportIcon from '../../public/assets/icons/report.svg';
+import CustomerHappinessIcon from '../../public/assets/icons/happy.svg';
 import Tilt from 'react-parallax-tilt';
 import { MdOutlineWeb } from "react-icons/md";
 import { FaRegLightbulb } from "react-icons/fa";
