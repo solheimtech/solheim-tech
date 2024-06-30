@@ -8,7 +8,7 @@ import { usePhotoContents } from "@/app/contents/PhotoContents";
 import { useVideoContents } from "@/app/contents/VideoContents";
 
 export default function OurWork() {
-  const websiteContents = useWebsiteContents();
+  const websiteContents = useWebsiteContents().context;
   const logoContents = useLogoContents();
   const photoContents = usePhotoContents();
   const videoContents = useVideoContents().context;
@@ -21,17 +21,17 @@ export default function OurWork() {
   const projects = useMemo(() => [
     {
       slug: "websites",
-      preview: firstFourWebsiteContents.length > 0 ? firstFourWebsiteContents.map(content => content.images[0].src).filter((images): images is string => !!images) : [],
+      preview: firstFourWebsiteContents.length > 0 ? firstFourWebsiteContents.map((content: any) => content.src).filter((videos: any): videos is string => !!videos) : [],
       title: "Websites",
     },
     {
       slug: "logos",
-      preview: firstFourLogoContents.length > 0 ? firstFourLogoContents.map(content => content.images[0].src).filter((images): images is string => !!images) : [],
+      preview: firstFourLogoContents.length > 0 ? firstFourLogoContents.map((content: any) => content.images[0].src).filter((images: any): images is string => !!images) : [],
       title: "Logos",
     },
     {
       slug: "photos",
-      preview: firstFourPhotoContents.length > 0 ? firstFourPhotoContents.map(content => content.src).filter((src): src is string => !!src ) : [],
+      preview: firstFourPhotoContents.length > 0 ? firstFourPhotoContents.map((content: any) => content.src).filter((src: any): src is string => !!src ) : [],
       title: "Photos",
     },
     {
@@ -39,7 +39,7 @@ export default function OurWork() {
       preview: firstFourVideoContents.length > 0 ? firstFourVideoContents.map((content: any) => content.src).filter((src: any): src is string => !!src) : [],
       title: "Videos",
     },
-  ], [firstFourVideoContents, firstFourWebsiteContents, firstFourLogoContents, firstFourPhotoContents]);
+  ], [firstFourWebsiteContents, firstFourVideoContents, firstFourLogoContents, firstFourPhotoContents]);
 
   const completedWork = useMemo(() => [
     {
@@ -102,7 +102,7 @@ export default function OurWork() {
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4">
         {projects.map((project, index) => (
-          <WorkDisplayCard key={index} project={{ ...project, preview: project.preview.filter((image: any) => image !== undefined) }} />
+          <WorkDisplayCard key={index} project={{ ...project, preview: project.preview.filter((video: any) => video !== undefined) }} />
         ))}
       </div>
       <div ref={completedWorkRef} className="flex flex-col md:flex-row gap-[4rem] md:gap-[8rem] bg-white justify-center items-center w-full h-auto md:h-[20rem] p-4">
