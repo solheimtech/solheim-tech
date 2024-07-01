@@ -81,7 +81,7 @@ export default function Home() {
                 <motion.div
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
-                  className="relative inline-flex h-12 items-center justify-center rounded-md bg-white px-6 sm:px-10 text-lg font-medium text-black border-2 border-white shadow transition-colors hover:bg-black hover:text-white hover:border-white hover:border-2 focus-visible:outline-none"
+                  className="relative inline-flex h-12 items-center justify-center rounded-md bg-white px-6 sm:px-10 text-lg font-medium text-black border-2 border-black shadow transition-colors hover:bg-black hover:text-white focus-visible:outline-none"
                 >
                   Learn More
                 </motion.div>
@@ -95,29 +95,29 @@ export default function Home() {
           <div className="grid max-w-[120rem] mx-auto items-start gap-12 lg:grid-cols-4">
             <div className="grid gap-4 animate-fade-in">
               <Image src={DesignIcon} alt="Design Icon" className="h-12 w-12 text-gray-900" />
-              <h3 className="text-lg sm:text-xl font-bold">Website Design</h3>
-              <p className="text-sm sm:text-base text-gray-500">
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900">Website Design</h3>
+              <p className="text-sm sm:text-base text-gray-700">
               WordPress and Shopify website design that you and your customers will love. And Google, CDNs, computers, iPhones, Androids, well.. you get the idea.
               </p>
             </div>
             <div className="grid gap-4 animate-fade-in-up">
               <Image src={HostingIcon} alt="Hosting Icon" className="h-12 w-12 text-gray-900" />
-              <h3 className="text-lg sm:text-xl font-bold">Website Hosting</h3>
-              <p className="text-sm sm:text-base text-gray-500">
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900">Website Hosting</h3>
+              <p className="text-sm sm:text-base text-gray-700">
               Lightning fast WordPress hosting coming from the cloud. Select your datacenter closest to your place of business for ultrafast and reliable service.
               </p>
             </div>
             <div className="grid gap-4 animate-fade-in-down">
               <Image src={SeoIcon} alt="SEO Icon" className="h-12 w-12 text-gray-900" />
-              <h3 className="text-lg sm:text-xl font-bold">SEO</h3>
-              <p className="text-sm sm:text-base text-gray-500">
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900">SEO</h3>
+              <p className="text-sm sm:text-base text-gray-700">
               Solheim Technologies specializes in SEO, ensuring your website achieves maximum visibility and traffic. We take the guesswork out of SEO management, allowing you to focus on growing your business.
               </p>
             </div>
             <div className="grid gap-4 animate-fade-in-down">
               <Image src={ConsultIcon} alt="Consult Icon" className="h-12 w-12 text-gray-900" />
-              <h3 className="text-lg sm:text-xl font-bold">Tech Consulting</h3>
-              <p className="text-sm sm:text-base text-gray-500">
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900">Tech Consulting</h3>
+              <p className="text-sm sm:text-base text-gray-700">
               We know how to do so much more than build amazing websites. If you want to move your business ahead of the competition, let us know.
               </p>
             </div>
