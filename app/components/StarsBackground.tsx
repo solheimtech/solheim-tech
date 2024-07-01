@@ -8,7 +8,7 @@ import * as THREE from "three";
 
 const StarBackground = (props: any) => {
   const ref = useRef<THREE.Points>(null);
-  const { pointer, size, camera } = useThree((state) => state);
+  const { size, camera } = useThree((state) => state);
 
   const [sphere, setSphere] = useState(() => {
     let positions = random.inSphere(new Float32Array(5000), { radius: 1.2 });
@@ -21,6 +21,9 @@ const StarBackground = (props: any) => {
   const [targetPosition, setTargetPosition] = useState<[number, number, number] | null>(null);
   const [animationProgress, setAnimationProgress] = useState(0);
   const [isHolding, setIsHolding] = useState(false);
+  const [holdTime, setHoldTime] = useState(0);
+  const [mouse, setMouse] = useState({ x: 0, y: 0 });
+  const [isTouchScreen, setIsTouchScreen] = useState(false);
 
   useEffect(() => {
     const handleMouseDown = (event: MouseEvent) => {
@@ -37,25 +40,50 @@ const StarBackground = (props: any) => {
       setTargetPosition([pos.x, pos.y, pos.z]);
       setAnimationProgress(0);
       setIsHolding(true);
+      setHoldTime(0); // Reset hold time
     };
 
     const handleMouseUp = () => {
       setIsHolding(false);
     };
 
+    const handleMouseMove = (event: MouseEvent) => {
+      setMouse({ x: (event.clientX / size.width) * 2 - 1, y: -(event.clientY / size.height) * 2 + 1 });
+    };
+
+    const handleTouchStart = () => {
+      setIsTouchScreen(true);
+    };
+
     window.addEventListener("mousedown", handleMouseDown);
     window.addEventListener("mouseup", handleMouseUp);
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("touchstart", handleTouchStart);
+
     return () => {
       window.removeEventListener("mousedown", handleMouseDown);
       window.removeEventListener("mouseup", handleMouseUp);
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("touchstart", handleTouchStart);
     };
   }, [size, camera]);
 
   useFrame((state, delta) => {
     if (ref.current) {
-      const speedFactor = Math.sqrt(pointer.x * pointer.x + pointer.y * pointer.y) * 0.03; // Reduced speed factor
-      ref.current.rotation.x += pointer.y * delta * speedFactor;
-      ref.current.rotation.y += pointer.x * delta * speedFactor;
+      let speedFactor = 0.05;
+
+      if (isHolding) {
+        setHoldTime((prev) => prev + delta); // Increase hold time
+        speedFactor += holdTime * 0.1; // Increase speed factor over time
+      }
+
+      if (isTouchScreen) {
+        ref.current.rotation.x += delta * speedFactor;
+        ref.current.rotation.y += delta * speedFactor;
+      } else {
+        ref.current.rotation.x += mouse.y * delta * speedFactor;
+        ref.current.rotation.y += mouse.x * delta * speedFactor;
+      }
 
       if (targetPosition && isHolding) {
         setAnimationProgress((prev) => Math.min(prev + delta * 0.05, 1)); // Reduced animation speed
@@ -86,8 +114,8 @@ const StarBackground = (props: any) => {
       <Points ref={ref} positions={sphere} stride={3} frustumCulled {...props}>
         <PointMaterial
           transparent
-          color="#fff"
-          size={0.002}
+          color={isHolding ? "rgba(255, 255, 255, 0.5)" : "#fff"} // Change opacity when holding
+          size={isHolding ? 0.004 : 0.002} // Increase size when holding
           sizeAttenuation={true}
           depthWrite={false}
         />
@@ -98,7 +126,7 @@ const StarBackground = (props: any) => {
 
 const StarsCanvas = () => (
   <div className="w-full h-full fixed inset-0 pointer-events-none">
-    <Canvas camera={{ position: [0, 0, 1] }}>
+    <Canvas camera={{ position: [0, 0, 1] }} className="pointer-events-auto">
       <StarBackground />
     </Canvas>
   </div>
