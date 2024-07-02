@@ -19,6 +19,7 @@ const ContactPage = () => {
   const [budgetError, setBudgetError] = useState('');
   const [services, setServices] = useState<string[]>([]);
   const [servicesError, setServicesError] = useState('');
+  const [recaptchaToken, setRecaptchaToken] = useState('');
 
   useEffect(() => {
     const loadRecaptcha = () => {
@@ -103,32 +104,28 @@ const ContactPage = () => {
       return;
     }
 
-    const recaptchaToken = await (window as any).grecaptcha.execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY, { action: 'submit' });
+    // Execute reCAPTCHA and get the token
+    const token = await (window as any).grecaptcha.execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY, { action: 'submit' });
+    setRecaptchaToken(token);
 
+    // Now submit your form data including the reCAPTCHA token to the API
     const formData = {
-      fields: [
-        { name: "firstname", value: firstName },
-        { name: "lastname", value: lastName },
-        { name: "email", value: email },
-        { name: "phone", value: phone },
-        { name: "company", value: company },
-        { name: "domain", value: companyDomain },
-        { name: "budget", value: budget.join(', ') },
-        { name: "question", value: question.join(', ') },
-        { name: "services", value: services.join(', ') },
-        { name: "message", value: message },
-      ],
-      context: {
-        pageUri: window.location.href,
-        pageName: document.title,
-        ipAddress: await fetch('https://api.ipify.org?format=json').then(res => res.json()).then(data => data.ip)
-      },
-      'g-recaptcha-response': recaptchaToken
+      firstName,
+      lastName,
+      email,
+      phone,
+      company,
+      companyDomain,
+      budget: budget.join(', '),
+      question: question.join(', '),
+      services: services.join(', '),
+      message,
+      'g-recaptcha-response': token
     };
 
     console.log('Form Data:', formData);
     try {
-      const response = await fetch(`https://api.hsforms.com/submissions/v3/integration/submit/${process.env.NEXT_PUBLIC_PORTAL_ID}/${process.env.NEXT_PUBLIC_PROJECT_FORM_GUID}`, {
+      const response = await fetch('/api/submit-form', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -145,8 +142,12 @@ const ContactPage = () => {
         setIsSuccess(false);
       } else {
         const errorData = await response.json();
-        console.error('Error response:', errorData);
-        setStatus('Failed to submit the form.');
+        console.error('Error Data:', errorData); // Log the error data for debugging
+        if (errorData.errors && errorData.errors.includes('invalid-input-response')) {
+          setStatus('reCAPTCHA verification failed. Please try again.');
+        } else {
+          setStatus('Failed to submit the form.');
+        }
         setIsSuccess(false);
       }
     } catch (error) {
@@ -155,7 +156,6 @@ const ContactPage = () => {
       setIsSuccess(false);
     }
   };
-
 
   return (
     <div className="container mx-auto px-4 pt-[8rem] lg:pt-[0rem] py-8 md:px-6 text-white">
@@ -268,7 +268,7 @@ const ContactPage = () => {
               <textarea id="message" value={message} onChange={(e) => setMessage(e.target.value)} name="message" rows={4} className="text-black mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-black focus:border-black sm:text-sm" required onBlur={handleBlur}></textarea>
               <p className="text-red-500 text-sm mt-1"></p>
             </div>
-            
+            <div className="g-recaptcha-badge"></div>
             <div>
               <button type="submit" className="w-full inline-flex justify-center py-2 px-4 shadow-sm text-sm font-medium rounded-md text-black bg-white border-black border hover:bg-black hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black">
                 Send Message
