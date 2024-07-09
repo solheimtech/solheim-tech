@@ -74,7 +74,7 @@ export default function Home() {
                 </motion.div>
               </Link>
               <Link
-                href="/meeting/free-consultation"
+                href="/about"
                 className="relative z-10"
                 prefetch={false}
               >

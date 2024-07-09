@@ -1,11 +1,12 @@
 "use client"
 
-import React, { useEffect, useState, useMemo, useRef } from "react";
+import React, { useEffect, useState, useMemo, useRef, useCallback } from "react";
 import WorkDisplayCard from "@/app/components/ui/work-display-card";
 import { useWebsiteContents } from "@/app/contents/WebsiteContents";
 import { useLogoContents } from "@/app/contents/LogoContents";
 import { usePhotoContents } from "@/app/contents/PhotoContents";
 import { useVideoContents } from "@/app/contents/VideoContents";
+import CountUp from 'react-countup';
 
 export default function OurWork() {
   const websiteContents = useWebsiteContents().context;
@@ -43,7 +44,7 @@ export default function OurWork() {
 
   const completedWork = useMemo(() => [
     {
-      title: "Monthly Mangaged Sites",
+      title: "Monthly Managed Sites",
       number: 80,
     },
     {
@@ -60,39 +61,28 @@ export default function OurWork() {
     }
   ], []);
 
-  const [counts, setCounts] = useState(completedWork.map(() => 0));
   const completedWorkRef = useRef<HTMLDivElement>(null);
+  const [hasScrolled, setHasScrolled] = useState(false);
+
+  const handleScroll = useCallback(() => {
+    if (completedWorkRef.current) {
+      const rect = completedWorkRef.current.getBoundingClientRect();
+      if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+        setHasScrolled(true);
+      }
+    }
+  }, []);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (completedWorkRef.current) {
-        const rect = completedWorkRef.current.getBoundingClientRect();
-        if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
-          const interval = setInterval(() => {
-            setCounts((prevCounts) => 
-              prevCounts.map((count, index) => {
-                const target = completedWork[index].number;
-                let increment;
-                if (target > 500) {
-                  increment = 15;
-                } else if (target > 100) {
-                  increment = 10;
-                } else {
-                  increment = 1;
-                }
-                return count < target ? count + increment : count;
-              })
-            );
-          }, 20);
-
-          return () => clearInterval(interval);
-        }
-      }
+    const onScroll = () => {
+      handleScroll();
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [completedWork]);
+    window.addEventListener('scroll', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+    };
+  }, [handleScroll]);
 
   return (
     <div className="pt-[8rem] lg:pt-0">
@@ -107,8 +97,15 @@ export default function OurWork() {
       </div>
       <div ref={completedWorkRef} className="flex flex-col md:flex-row gap-[4rem] md:gap-[8rem] bg-white justify-center items-center w-full h-auto md:h-[20rem] p-4">
         {completedWork.map((project, index) => (
-          <div key={`${project.title}-${index}-${counts[index]}`} className="flex flex-col items-center justify-center text-center">
-            <p className="text-[2.5rem] md:text-[3.5rem] text-black font-bold">{counts[index]}{project.number === 80 ? "+" : ""}</p>
+          <div key={`${project.title}-${index}`} className="flex flex-col items-center justify-center text-center">
+            <p className="text-[2.5rem] md:text-[3.5rem] text-black font-bold">
+              {hasScrolled ? (
+                <CountUp end={project.number} duration={2} />
+              ) : (
+                project.number
+              )}
+              {project.number === 80 ? "+" : ""}
+            </p>
             <p className="text-gray-800">{project.title}</p>
           </div>
         ))}
