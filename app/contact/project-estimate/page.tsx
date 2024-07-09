@@ -184,7 +184,24 @@ const ContactPage = () => {
               </div>
               <div className="w-full md:w-1/2">
                 <label htmlFor="phone" className="block text-sm font-medium text-black">Phone Number <span className="text-red-500">*</span></label>
-                <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} id="phone" name="phone" className="text-black mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-black focus:border-black sm:text-sm" required onBlur={handleBlur} />
+                <input 
+                  type="tel" 
+                  value={phone} 
+                  onChange={(e) => {
+                    const input = e.target.value.replace(/\D/g, '');
+                    let formattedPhone = input;
+                    if (input.length > 3 && input.length <= 6) {
+                      formattedPhone = `${input.slice(0, 3)}-${input.slice(3)}`;
+                    } else if (input.length > 6) {
+                      formattedPhone = `${input.slice(0, 3)}-${input.slice(3, 6)}-${input.slice(6, 10)}`;
+                    }
+                    setPhone(formattedPhone);
+                  }} 
+                  id="phone" 
+                  name="phone" 
+                  className="text-black mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-black focus:border-black sm:text-sm" 
+                  required 
+                />
                 <p className="text-red-500 text-sm mt-1"></p>
               </div>
             </div>
