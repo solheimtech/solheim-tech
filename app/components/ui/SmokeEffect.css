@@ -1,0 +1,41 @@
+.smoke-container {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  
+  .smoke {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: url('/assets/images/smoke.jpg') center center / cover no-repeat;
+    animation: smokeAnimation 20s linear infinite;
+  }
+  
+  @keyframes smokeAnimation {
+    0% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0.8;
+    }
+    25% {
+      transform: translate(-50%, -50%) scale(1.25);
+      opacity: 0.6;
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.5);
+      opacity: 0.4;
+    }
+    75% {
+      transform: translate(-50%, -50%) scale(1.75);
+      opacity: 0.2;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(2);
+      opacity: 0;
+    }
+    101% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0.8;
+    }
+  }

@@ -102,12 +102,12 @@ export default function OurWork() {
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4">
         {projects.map((project, index) => (
-          <WorkDisplayCard key={index} project={{ ...project, preview: project.preview.filter((video: any) => video !== undefined) }} />
+          <WorkDisplayCard key={`${project.slug}-${index}`} project={{ ...project, preview: project.preview.filter((video: any) => video !== undefined) }} />
         ))}
       </div>
       <div ref={completedWorkRef} className="flex flex-col md:flex-row gap-[4rem] md:gap-[8rem] bg-white justify-center items-center w-full h-auto md:h-[20rem] p-4">
         {completedWork.map((project, index) => (
-          <div key={index} className="flex flex-col items-center justify-center text-center">
+          <div key={`${project.title}-${index}-${counts[index]}`} className="flex flex-col items-center justify-center text-center">
             <p className="text-[2.5rem] md:text-[3.5rem] text-black font-bold">{counts[index]}{project.number === 80 ? "+" : ""}</p>
             <p className="text-gray-800">{project.title}</p>
           </div>
@@ -116,4 +116,3 @@ export default function OurWork() {
     </div>
   );
 }
-
