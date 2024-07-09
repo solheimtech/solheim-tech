@@ -4,6 +4,12 @@ import React, { useState, useEffect } from 'react';
 import { CiCircleCheck } from "react-icons/ci";
 import { GoXCircle } from "react-icons/go";
 
+declare global {
+  interface Window {
+    grecaptcha: any;
+  }
+}
+
 const ContactPage = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -26,9 +32,12 @@ const ContactPage = () => {
       script.src = `https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`;
       script.async = true;
       script.defer = true;
+      script.onload = () => {
+        console.log('reCAPTCHA script loaded');
+      };
       document.body.appendChild(script);
     };
-
+  
     loadRecaptcha();
   }, []);
 
@@ -103,56 +112,63 @@ const ContactPage = () => {
       return;
     }
 
-    const recaptchaToken = await (window as any).grecaptcha.execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY, { action: 'submit' });
+    if (typeof window.grecaptcha !== 'undefined') {
+      const recaptchaToken = await window.grecaptcha.execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY, { action: 'submit' });
 
-    const formData = {
-      fields: [
-        { name: "firstname", value: firstName },
-        { name: "lastname", value: lastName },
-        { name: "email", value: email },
-        { name: "phone", value: phone },
-        { name: "company", value: company },
-        { name: "domain", value: companyDomain },
-        { name: "budget", value: budget.join(', ') },
-        { name: "question", value: question.join(', ') },
-        { name: "services", value: services.join(', ') },
-        { name: "message", value: message },
-      ],
-      context: {
-        pageUri: window.location.href,
-        pageName: document.title,
-        ipAddress: await fetch('https://api.ipify.org?format=json').then(res => res.json()).then(data => data.ip)
-      },
-      'g-recaptcha-response': recaptchaToken
-    };
-
-    console.log('Form Data:', formData);
-    try {
-      const response = await fetch(`https://api.hsforms.com/submissions/v3/integration/submit/${process.env.NEXT_PUBLIC_PORTAL_ID}/${process.env.NEXT_PUBLIC_PROJECT_FORM_GUID}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Cookie': document.cookie // Include cookies in the request
+      const formData = {
+        fields: [
+          { name: "firstname", value: firstName },
+          { name: "lastname", value: lastName },
+          { name: "email", value: email },
+          { name: "phone", value: phone },
+          { name: "company", value: company },
+          { name: "domain", value: companyDomain },
+          { name: "budget", value: budget.join(', ') },
+          { name: "question", value: question.join(', ') },
+          { name: "services", value: services.join(', ') },
+          { name: "message", value: message },
+        ],
+        context: {
+          pageUri: window.location.href,
+          pageName: document.title,
+          ipAddress: await fetch('https://api.ipify.org?format=json').then(res => res.json()).then(data => data.ip)
         },
-        body: JSON.stringify(formData),
-      });
+        'g-recaptcha-response': recaptchaToken
+      };
 
-      if (response.ok) {
-        setStatus('Solheim Technologies has received!');
-        setIsSuccess(true);
-      } else if (response.status === 404) {
-        setStatus('Form submission endpoint not found (404).');
-        setIsSuccess(false);
-      } else {
-        const errorData = await response.json();
-        console.error('Error response:', errorData);
+      console.log('Form Data:', formData);
+      try {
+        const response = await fetch('/api/submit-form', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Cookie': document.cookie // Include cookies in the request
+          },
+          body: JSON.stringify(formData),
+        });
+
+        if (response.ok) {
+          setStatus('Solheim Technologies has received!');
+          setIsSuccess(true);
+        } else if (response.status === 404) {
+          setStatus('Form submission endpoint not found (404).');
+          setIsSuccess(false);
+        } else {
+          const errorData = await response.json();
+          console.error('Error response:', errorData);
+          setStatus('Failed to submit the form.');
+          setIsSuccess(false);
+        }
+      } catch (error) {
+        console.error('Error submitting form:', error);
         setStatus('Failed to submit the form.');
         setIsSuccess(false);
       }
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      setStatus('Failed to submit the form.');
+    } else {
+      console.error('reCAPTCHA not loaded');
+      setStatus('Failed to load reCAPTCHA.');
       setIsSuccess(false);
+      return;
     }
   };
 
