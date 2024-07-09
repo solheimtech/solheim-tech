@@ -134,7 +134,7 @@ const Navbar = () => {
           </Link>
           <ul className={`absolute left-0 top-full bg-black transition-all duration-300 ease-in-out p-2 ${contactSubmenuOpen ? 'block' : 'hidden'}`} style={{ width: '200px' }}>
             <li className="mb-2">
-              <Link href="https://meetings.hubspot.com/dsolheim/free-consultation?uuid=4c92feda-4336-4136-9029-88f1f1b42ad6" className="text-white hover:font-semibold whitespace-nowrap">
+              <Link href="/meeting/free-consultation" className="text-white hover:font-semibold whitespace-nowrap">
                 Free Consultation
               </Link>
             </li>
