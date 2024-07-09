@@ -116,27 +116,20 @@ const ContactPage = () => {
       const recaptchaToken = await window.grecaptcha.execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY, { action: 'submit' });
 
       const formData = {
-        fields: [
-          { name: "firstname", value: firstName },
-          { name: "lastname", value: lastName },
-          { name: "email", value: email },
-          { name: "phone", value: phone },
-          { name: "company", value: company },
-          { name: "domain", value: companyDomain },
-          { name: "budget", value: budget.join(', ') },
-          { name: "question", value: question.join(', ') },
-          { name: "services", value: services.join(', ') },
-          { name: "message", value: message },
-        ],
-        context: {
-          pageUri: window.location.href,
-          pageName: document.title,
-          ipAddress: await fetch('https://api.ipify.org?format=json').then(res => res.json()).then(data => data.ip)
-        },
+        firstName,
+        lastName,
+        email,
+        phone,
+        company,
+        companyDomain,
+        budget: budget.join(', '),
+        question: question.join(', '),
+        services: services.join(', '),
+        message,
         'g-recaptcha-response': recaptchaToken
       };
 
-      console.log('Form Data:', formData);
+      console.log('Form Data from page.tsx:', formData);
       try {
         const response = await fetch('/api/submit-form', {
           method: 'POST',

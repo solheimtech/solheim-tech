@@ -19,7 +19,7 @@ export async function POST(request: Request) {
 
   if (recaptchaData.success) {
     // Proceed with form processing
-    console.log('Form Data:', formData);
+    console.log('Form Data from /api/submit-form:', formData);
 
     // Create OAuth2 client
     const oauth2Client = new google.auth.OAuth2(
