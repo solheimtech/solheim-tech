@@ -100,9 +100,9 @@ export default function OurWork() {
           <div key={`${project.title}-${index}`} className="flex flex-col items-center justify-center text-center">
             <p className="text-[2.5rem] md:text-[3.5rem] text-black font-bold">
               {hasScrolled ? (
-                <CountUp end={project.number} duration={2} />
+                <CountUp start={0} end={project.number} duration={2} />
               ) : (
-                project.number
+                0
               )}
               {project.number === 80 ? "+" : ""}
             </p>
