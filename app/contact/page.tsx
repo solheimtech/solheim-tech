@@ -1,52 +1,45 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { CiCircleCheck } from "react-icons/ci";
 import { GoXCircle } from "react-icons/go";
 import dotenv from 'dotenv';
 
-dotenv.config({ path: '.env.deployment.local' });
+declare global {
+  interface Window {
+    grecaptcha: any;
+  }
+}
 
 const ContactPage = () => {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [company, setCompany] = useState('');
+  const [message, setMessage] = useState('');
+  const [status, setStatus] = useState('');
+  const [isSuccess, setIsSuccess] = useState(true);
 
-const [email, setEmail] = useState('');
-const [phone, setPhone] = useState('');
-const [firstName, setFirstName] = useState('');
-const [lastName, setLastName] = useState('');
-const [company, setCompany] = useState('');
-const [message, setMessage] = useState('');
-const [status, setStatus] = useState('');
-const [isSuccess, setIsSuccess] = useState(true);
+  useEffect(() => {
+    const loadRecaptcha = () => {
+      const script = document.createElement('script');
+      script.src = `https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`;
+      script.async = true;
+      script.defer = true;
+      script.onload = () => {
+        console.log('reCAPTCHA script loaded');
+      };
+      document.body.appendChild(script);
+    };
+  
+    loadRecaptcha();
+  }, []);
 
-const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const field = e.target;
     const errorElement = field.nextElementSibling as HTMLElement;
     if (field.hasAttribute('required') && !field.value.trim()) {
-        if (errorElement && field.previousElementSibling) {
-            const labelText = (field.previousElementSibling as HTMLElement).textContent?.replace('*', '').trim();
-            errorElement.textContent = `${labelText} is required.`;
-            field.classList.add('focus:ring-red-500');
-            field.classList.add('focus:border-red-500');
-        }
-    } else {
-        if (errorElement) {
-            errorElement.textContent = "";
-            field.classList.remove('focus:ring-red-500');
-            field.classList.remove('focus:border-red-500');
-        }
-    }
-};
-
-const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
-  const form = e.target as HTMLFormElement;
-  const requiredFields = form.querySelectorAll("[required]") as NodeListOf<HTMLInputElement | HTMLTextAreaElement>;
-  let allFieldsValid = true;
-
-  requiredFields.forEach((field) => {
-    const errorElement = field.nextElementSibling as HTMLElement;
-    if (!field.value.trim()) {
-      allFieldsValid = false;
       if (errorElement && field.previousElementSibling) {
         const labelText = (field.previousElementSibling as HTMLElement).textContent?.replace('*', '').trim();
         errorElement.textContent = `${labelText} is required.`;
@@ -60,56 +53,85 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         field.classList.remove('focus:border-red-500');
       }
     }
-  });
-
-  if (!allFieldsValid) {
-    return;
-  }
-
-  const formData = {
-    fields: [
-      { name: "email", value: email },
-      { name: "phone", value: phone },
-      { name: "firstname", value: firstName },
-      { name: "lastname", value: lastName },
-      { name: "company", value: company },
-      { name: "message", value: message },
-    ],
-    context: {
-      pageUri: window.location.href,
-      pageName: document.title,
-      ipAddress: await fetch('https://api.ipify.org?format=json').then(res => res.json()).then(data => data.ip)
-    }
   };
 
-  try {
-    const response = await fetch(`https://api.hsforms.com/submissions/v3/integration/submit/${process.env.NEXT_PUBLIC_PORTAL_ID}/${process.env.NEXT_PUBLIC_CONTACT_FORM_GUID}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Cookie': document.cookie // Include cookies in the request
-      },
-      body: JSON.stringify(formData),
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.target as HTMLFormElement;
+    const requiredFields = form.querySelectorAll("[required]") as NodeListOf<HTMLInputElement | HTMLTextAreaElement>;
+    let allFieldsValid = true;
+
+    requiredFields.forEach((field) => {
+      const errorElement = field.nextElementSibling as HTMLElement;
+      if (!field.value.trim()) {
+        allFieldsValid = false;
+        if (errorElement && field.previousElementSibling) {
+          const labelText = (field.previousElementSibling as HTMLElement).textContent?.replace('*', '').trim();
+          errorElement.textContent = `${labelText} is required.`;
+          field.classList.add('focus:ring-red-500');
+          field.classList.add('focus:border-red-500');
+        }
+      } else {
+        if (errorElement) {
+          errorElement.textContent = "";
+          field.classList.remove('focus:ring-red-500');
+          field.classList.remove('focus:border-red-500');
+        }
+      }
     });
 
-    if (response.ok) {
-      setStatus('Solheim Technologies has received!');
-      setIsSuccess(true);
-    } else if (response.status === 404) {
-      setStatus('Form submission endpoint not found (404).');
-      setIsSuccess(false);
-    } else {
-      setStatus('Failed to submit the form.');
-      setIsSuccess(false);
+    if (!allFieldsValid) {
+      return;
     }
-  } catch (error) {
-    console.error('Error submitting form:', error);
-    setStatus('Failed to submit the form.');
-    setIsSuccess(false);
-  }
-};
 
+    if (typeof window.grecaptcha !== 'undefined') {
+      const recaptchaToken = await window.grecaptcha.execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY, { action: 'submit' });
 
+      const formData = {
+        firstName,
+        lastName,
+        email,
+        phone,
+        company,
+        message,
+        'g-recaptcha-response': recaptchaToken
+      };
+
+      console.log('Form Data from page.tsx:', formData);
+      try {
+        const response = await fetch('/api/submit-contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Cookie': document.cookie // Include cookies in the request
+          },
+          body: JSON.stringify(formData),
+        });
+
+        if (response.ok) {
+          setStatus('Solheim Technologies has received!');
+          setIsSuccess(true);
+        } else if (response.status === 404) {
+          setStatus('Form submission endpoint not found (404).');
+          setIsSuccess(false);
+        } else {
+          const errorData = await response.json();
+          console.error('Error response:', errorData);
+          setStatus('Failed to submit the form.');
+          setIsSuccess(false);
+        }
+      } catch (error) {
+        console.error('Error submitting form:', error);
+        setStatus('Failed to submit the form.');
+        setIsSuccess(false);
+      }
+    } else {
+      console.error('reCAPTCHA not loaded');
+      setStatus('Failed to load reCAPTCHA.');
+      setIsSuccess(false);
+      return;
+    }
+  };
 
   return (
     <div className="container mx-auto px-4 py-8 md:px-6 text-white pt-[8rem] lg:pt-[0rem]">

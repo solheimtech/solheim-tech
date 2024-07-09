@@ -19,7 +19,7 @@ export async function POST(request: Request) {
 
   if (recaptchaData.success) {
     // Proceed with form processing
-    console.log('Form Data from /api/submit-form:', formData);
+    console.log('Form Data from /api/submit-contact:', formData);
 
     // Create OAuth2 client
     const oauth2Client = new google.auth.OAuth2(
@@ -50,17 +50,13 @@ export async function POST(request: Request) {
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: process.env.EMAIL_USER,
-      subject: 'New Lead from Website',
+      subject: `Form Submission from Contact Page on ${new Date().toLocaleString()}`,
       text: `You have received a new lead from the website. Here are the details:\n\n` +
             `First Name: ${formData.firstName}\n` +
             `Last Name: ${formData.lastName}\n` +
             `Email: ${formData.email}\n` +
             `Phone: ${formData.phone}\n` +
             `Company: ${formData.company}\n` +
-            `Company Domain: ${formData.companyDomain}\n` +
-            `Budget: ${formData.budget}\n` +
-            `How did you hear about us: ${formData.question}\n` +
-            `Requested Services: ${formData.services}\n` +
             `Message: ${formData.message}\n\n` +
             `Please follow up with this lead as soon as possible.`,
     };
