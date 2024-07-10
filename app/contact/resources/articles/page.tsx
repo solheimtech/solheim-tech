@@ -8,7 +8,7 @@ import { PlaceholdersAndVanishInput } from "../../../components/ui/placeholder-i
 import placeholderImage from "@/public/assets/images/City-at-Dusk-BW.jpg"
 import Tilt from 'react-parallax-tilt';
 
-export function PlaceholdersAndVanishInputDemo() {
+function PlaceholdersAndVanishInputDemo() {
   const placeholders = useMemo(() => [
     "What's the first rule of Fight Club?",
     "Who is Tyler Durden?",

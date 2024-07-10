@@ -11,7 +11,7 @@ const PhotoDetail = () => {
     return <div className="text-center">There is no ID found</div>;
   }
 
-  const item = items.find(item => item.slug === slug);
+  const item = items.context.find(item => item.slug === slug);
 
   if (!item) {
     return <div className="text-center">Item not found</div>;

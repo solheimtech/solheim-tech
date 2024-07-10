@@ -13,7 +13,7 @@ const LogoDetail = () => {
     return <div className="text-center">There is no ID found</div>;
   }
 
-  const item = items.find(item => item.slug === slug);
+  const item = items.context.find((item: { slug: string }) => item.slug === slug);
 
   if (!item) {
     return <div className="text-center">Item not found</div>;
@@ -35,7 +35,7 @@ const LogoDetail = () => {
           style={{ aspectRatio: '1 / 1' }}
         />
         <div className="flex space-x-2 mt-2 overflow-x-auto">
-          {item.images.map((img, index) => (
+          {item.images.map((img: { src: string, alt?: string }, index: number) => (
             <Image 
               key={index} 
               src={img.src} 

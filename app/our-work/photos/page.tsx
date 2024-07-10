@@ -6,7 +6,7 @@ import { DirectionAwareHover } from "../../components/ui/img-video-card-hover";
 import { usePhotoContents } from '@/app/contents/PhotoContents';
 
 export default function PhotosPage() {
-  const items = usePhotoContents();
+  const { context: items } = usePhotoContents();
 
   return (
     <div className='pt-[8rem] md:pt-[0rem]'>
