@@ -123,29 +123,41 @@ export const useWebsiteContents = () => {
 
   useEffect(() => {
     const videoElements: HTMLVideoElement[] = [];
+    const cachedSrcs = new Set(cachedVideos.map(video => video.src));
+    const localStorageKey = 'cachedWebsiteVideoSrcs';
+
+    // Retrieve cached video sources from localStorage
+    const storedCachedSrcs = JSON.parse(localStorage.getItem(localStorageKey) || '[]');
+
     context.forEach(item => {
-      const video = document.createElement('video');
-      video.src = item.src;
-      video.preload = 'auto';
+      if (!cachedSrcs.has(item.src) && !storedCachedSrcs.includes(item.src)) {
+        const video = document.createElement('video');
+        video.src = item.src;
+        video.preload = 'auto';
 
-      video.onloadeddata = () => {
-        console.log(`Video ${item.src} preloaded successfully.`);
-      };
+        video.onloadeddata = () => {
+          console.log(`Video ${item.src} preloaded successfully.`);
+        };
+        video.onerror = (e) => {
+          console.error(`Error preloading video ${item.src}`, e);
+        };
 
-      video.onerror = (e) => {
-        console.error(`Error preloading video ${item.src}`, e);
-      };
-
-      videoElements.push(video);
+        videoElements.push(video);
+      }
     });
 
-    setCachedVideos(videoElements);
+    if (videoElements.length > 0) {
+      setCachedVideos(prev => [...prev, ...videoElements]);
+      // Update localStorage with new cached video sources
+      const newCachedSrcs = [...storedCachedSrcs, ...videoElements.map(video => video.src)];
+      localStorage.setItem(localStorageKey, JSON.stringify(newCachedSrcs));
+    }
 
     // Cleanup function to remove video elements
     return () => {
       videoElements.forEach(video => video.remove());
     };
-  }, [context]);
+  }, [context, cachedVideos]);
 
   return { context, cachedVideos };
 };

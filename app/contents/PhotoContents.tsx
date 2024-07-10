@@ -1,4 +1,4 @@
-import { createContext, useContext, ReactNode } from 'react';
+import { createContext, useContext, ReactNode, useEffect, useState } from 'react';
 
 type Item = {
   id: number;
@@ -87,7 +87,50 @@ const items: Item[] = [
 
 const PhotoContentsContext = createContext<Item[]>(items);
 
-export const usePhotoContents = () => useContext(PhotoContentsContext);
+export const usePhotoContents = () => {
+  const context = useContext(PhotoContentsContext);
+  const [cachedPhotos, setCachedPhotos] = useState<HTMLImageElement[]>([]);
+
+  useEffect(() => {
+    const imageElements: HTMLImageElement[] = [];
+    const cachedSrcs = new Set(cachedPhotos.map(image => image.src));
+    const localStorageKey = 'cachedPhotoSrcs';
+
+    // Retrieve cached photo sources from localStorage
+    const storedCachedSrcs = JSON.parse(localStorage.getItem(localStorageKey) || '[]');
+
+    context.forEach(item => {
+      if (!cachedSrcs.has(item.src) && !storedCachedSrcs.includes(item.src)) {
+        const image = new Image();
+        image.src = item.src;
+
+        image.onload = () => {
+          console.log(`Image ${item.src} preloaded successfully.`);
+        };
+
+        image.onerror = (e) => {
+          console.error(`Error preloading image ${item.src}`, e);
+        };
+
+        imageElements.push(image);
+      }
+    });
+
+    if (imageElements.length > 0) {
+      setCachedPhotos(prev => [...prev, ...imageElements]);
+      // Update localStorage with new cached photo sources
+      const newCachedSrcs = [...storedCachedSrcs, ...imageElements.map(image => image.src)];
+      localStorage.setItem(localStorageKey, JSON.stringify(newCachedSrcs));
+    }
+
+    // Cleanup function to remove image elements
+    return () => {
+      imageElements.forEach(image => image.remove());
+    };
+  }, [context, cachedPhotos]);
+
+  return { context, cachedPhotos };
+};
 
 export const PhotoContentsProvider = ({ children }: { children: ReactNode }) => {
   return (

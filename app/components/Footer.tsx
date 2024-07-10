@@ -10,7 +10,7 @@ import backgroundImage from '../../public/assets/images/City-at-Dusk-BW.jpg';
 
 const Footer = () => {
   return (
-    <footer className="bg-black bg-opacity-75 text-white py-8 mt-auto w-full absolute" style={{ backgroundImage: `url(${backgroundImage.src})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+    <footer className="bg-black bg-opacity-75 text-white py-12 mt-auto w-full absolute" style={{ backgroundImage: `url(${backgroundImage.src})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <div className="absolute inset-0 bg-black opacity-70"></div> {/* Overlay */}
       <div className="container mx-auto px-4 relative z-10"> {/* Added relative z-10 to ensure content is above overlay */}
         <div className="flex flex-col md:flex-row justify-between items-center md:items-start space-y-6 md:space-y-0">

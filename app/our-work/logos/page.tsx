@@ -5,14 +5,14 @@ import { DirectionAwareHover } from "../../components/ui/card-hover";
 import { useLogoContents } from '../../contents/LogoContents';
 
 export default function LogosPage() {
-  const items = useLogoContents();
+  const { context: items } = useLogoContents();
 
   return (
     <div className='pt-[8rem] lg:pt-[0rem]'>
     <ParallaxProvider>
       <h1 className='text-white text-[2.5rem] sm:text-[5rem] font-bold text-center pt-8 pb-[4rem]'>Logos</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4">
-        {items.map(item => (
+        {items.map((item: any) => (
           <Parallax key={item.id}>
             <Link href={`/our-work/logos/${item.slug}`} passHref>
               <DirectionAwareHover src={item.images[0].src} type="image">

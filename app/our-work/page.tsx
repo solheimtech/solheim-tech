@@ -10,8 +10,8 @@ import CountUp from 'react-countup';
 
 export default function OurWork() {
   const websiteContents = useWebsiteContents().context;
-  const logoContents = useLogoContents();
-  const photoContents = usePhotoContents();
+  const logoContents = useLogoContents().context;
+  const photoContents = usePhotoContents().context;
   const videoContents = useVideoContents().context;
  
   const firstFourWebsiteContents = websiteContents.slice(0, 4);

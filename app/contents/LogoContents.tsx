@@ -1,4 +1,4 @@
-import { createContext, useContext, ReactNode } from 'react';
+import { createContext, useContext, ReactNode, useEffect, useState } from 'react';
 
 type ImageType = {
   src: string;
@@ -121,12 +121,57 @@ const items: Item[] = [
         alt: "A beautiful landscape"
       }
     ]
-  },
+  }
 ];
 
 const LogoContentsContext = createContext<Item[]>(items);
 
-export const useLogoContents = () => useContext(LogoContentsContext);
+export const useLogoContents = () => {
+  const context = useContext(LogoContentsContext);
+  const [cachedImages, setCachedImages] = useState<HTMLImageElement[]>([]);
+
+  useEffect(() => {
+    const imageElements: HTMLImageElement[] = [];
+    const cachedSrcs = new Set(cachedImages.map(image => image.src));
+    const localStorageKey = 'cachedLogoImageSrcs';
+
+    // Retrieve cached image sources from localStorage
+    const storedCachedSrcs = JSON.parse(localStorage.getItem(localStorageKey) || '[]');
+
+    context.forEach(item => {
+      item.images.forEach(image => {
+        if (!cachedSrcs.has(image.src) && !storedCachedSrcs.includes(image.src)) {
+          const img = new Image();
+          img.src = image.src;
+
+          img.onload = () => {
+            console.log(`Image ${image.src} preloaded successfully.`);
+          };
+
+          img.onerror = (e) => {
+            console.error(`Error preloading image ${image.src}`, e);
+          };
+
+          imageElements.push(img);
+        }
+      });
+    });
+
+    if (imageElements.length > 0) {
+      setCachedImages(prev => [...prev, ...imageElements]);
+      // Update localStorage with new cached image sources
+      const newCachedSrcs = [...storedCachedSrcs, ...imageElements.map(image => image.src)];
+      localStorage.setItem(localStorageKey, JSON.stringify(newCachedSrcs));
+    }
+
+    // Cleanup function to remove image elements
+    return () => {
+      imageElements.forEach(image => image.remove());
+    };
+  }, [context, cachedImages]);
+
+  return { context, cachedImages };
+};
 
 export const LogoContentsProvider = ({ children }: { children: ReactNode }) => {
   return (
