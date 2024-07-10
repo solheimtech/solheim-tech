@@ -55,12 +55,12 @@ const WorkDisplayCard: FC<{ project: Project }> = ({ project }) => {
               animate={{ opacity: hovered ? 0 : 1, transition: { duration: 2.5 } }}
               exit={{ opacity: 0, transition: { duration: 1.5, delay: 0.2 } }} // Adjusted duration for slow fade away
             >
-              <SmokeEffect />
+              {!isMobile && <SmokeEffect />}
             </motion.div>
             <motion.div
               className="absolute inset-0 bg-gray-300 grid grid-cols-2 grid-rows-2 gap-0 overflow-hidden"
               initial={{ opacity: 0 }}
-              animate={{ opacity: hovered ? 1 : 0, transition: { duration: 1.5 } }}
+              animate={{ opacity: hovered || isMobile ? 1 : 0, transition: { duration: 1.5 } }}
               exit={{ opacity: 0, transition: { duration: 1.5, delay: 0.2 } }}
             >
               {project.preview.slice(0, 4).map((image, index) => {
