@@ -43,7 +43,7 @@ const StatusSubmission: React.FC<StatusSubmissionProps> = ({ isSuccess, onClose 
             <Image src={gifUrl} alt="Failure Gif" className="w-full h-auto mb-4" width={500} height={500} unoptimized={true}/>
             <div className="flex items-center">
               <GoXCircle className="w-6 h-6 text-red-500" />
-              <p className="ml-2">We're so sorry, but something went wrong with your submission. Please try again.</p>
+              <p className="ml-2">We&apos;re so sorry, but something went wrong with your submission. Please try again.</p>
             </div>
           </>
         )}
