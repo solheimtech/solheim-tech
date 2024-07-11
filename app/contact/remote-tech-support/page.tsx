@@ -11,33 +11,33 @@ import { FaRaspberryPi } from "react-icons/fa";
 const osVersion = [
   {
     title: "Windows",
-    link: "https://stripe.com",
-    icon: <FaWindows style={{ height: '100px', width: '100px' }} />,
+    link: "https://my.anydesk.com/v2/api/v2/custom-clients/downloads/public/GF7DUQLUBZUP/SolheimTechnologiesSupport.exe",
+    icon: <FaWindows className="mx-auto" style={{ height: '100px', width: '100px' }} />,
   },
   {
-    title: "Apple",
-    link: "https://netflix.com",
-    icon: <FaApple style={{ height: '100px', width: '100px' }} />,
+    title: "MacOS",
+    link: "https://my.anydesk.com/v2/api/v2/custom-clients/downloads/public/JDWGWGBKIQVJ/SolheimTechnologiesSupport.dmg",
+    icon: <FaApple className="mx-auto" style={{ height: '100px', width: '100px' }} />,
   },
   {
     title: "Linux",
-    link: "https://google.com",
-    icon: <FaLinux style={{ height: '100px', width: '100px' }} />,
+    link: "https://my.anydesk.com/v2/api/v2/custom-clients/downloads/public/AYPRNSOOHWYT/SolheimTechnologiesSupport.tar.gz",
+    icon: <FaLinux className="mx-auto" style={{ height: '100px', width: '100px' }} />,
   },
   {
     title: "Android",
-    link: "https://meta.com",
-    icon: <IoLogoAndroid style={{ height: '100px', width: '100px' }} />,
+    link: "https://my.anydesk.com/v2/api/v2/custom-clients/downloads/public/OPFYRQIRRRVR/SolheimTechnologiesSupport.apk",
+    icon: <IoLogoAndroid className="mx-auto" style={{ height: '100px', width: '100px' }} />,
   },
   {
     title: "IOS",
-    link: "https://amazon.com",
-    icon: <FaAppStoreIos style={{ height: '100px', width: '100px' }} />,
+    link: "/meeting/free-consultation",
+    icon: <FaAppStoreIos className="mx-auto" style={{ height: '100px', width: '100px' }} />,
   },
   {
     title: "Raspberry Pi",
-    link: "https://microsoft.com",
-    icon: <FaRaspberryPi style={{ height: '100px', width: '100px' }} />,
+    link: "https://my.anydesk.com/v2/api/v2/custom-clients/downloads/public/BVJ5LRQZWC70/SolheimTechnologiesSupport.tar.gz",
+    icon: <FaRaspberryPi className="mx-auto" style={{ height: '100px', width: '100px' }} />,
   },
 ];
 
