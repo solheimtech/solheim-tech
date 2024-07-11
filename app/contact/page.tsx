@@ -1,9 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { CiCircleCheck } from "react-icons/ci";
-import { GoXCircle } from "react-icons/go";
-import dotenv from 'dotenv';
+import StatusSubmission from '@/app/components/ui/status-submission';
 
 declare global {
   interface Window {
@@ -18,8 +16,8 @@ const ContactPage = () => {
   const [phone, setPhone] = useState('');
   const [company, setCompany] = useState('');
   const [message, setMessage] = useState('');
-  const [status, setStatus] = useState('');
   const [isSuccess, setIsSuccess] = useState(true);
+  const [isFormVisible, setIsFormVisible] = useState(true);
 
   useEffect(() => {
     const loadRecaptcha = () => {
@@ -109,28 +107,34 @@ const ContactPage = () => {
         });
 
         if (response.ok) {
-          setStatus('Solheim Technologies has received!');
           setIsSuccess(true);
         } else if (response.status === 404) {
-          setStatus('Form submission endpoint not found (404).');
           setIsSuccess(false);
         } else {
           const errorData = await response.json();
           console.error('Error response:', errorData);
-          setStatus('Failed to submit the form.');
           setIsSuccess(false);
         }
       } catch (error) {
         console.error('Error submitting form:', error);
-        setStatus('Failed to submit the form.');
         setIsSuccess(false);
       }
+      setIsFormVisible(false);
     } else {
       console.error('reCAPTCHA not loaded');
-      setStatus('Failed to load reCAPTCHA.');
       setIsSuccess(false);
       return;
     }
+  };
+
+  const handleClose = () => {
+    setFirstName('');
+    setLastName('');
+    setEmail('');
+    setPhone('');
+    setCompany('');
+    setMessage('');
+    setIsFormVisible(true);
   };
 
   return (
@@ -157,71 +161,55 @@ const ContactPage = () => {
         </div>
 
         {/* Contact Form */}
-        <div className="w-full md:w-1/2 bg-white p-10 rounded-lg">
-          <h2 className="text-3xl font-semibold mb-4 text-black">Get in Touch</h2>
-          <form className="space-y-4" onSubmit={handleSubmit}>
-            <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
-              <div className="w-full md:w-1/2">
-                <label htmlFor="first-name" className="block text-sm font-medium text-black">First Name <span className="text-red-500">*</span></label>
-                <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} id="first-name" name="first-name" className="text-black mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-black focus:border-black sm:text-sm" required onBlur={handleBlur} />
-                <p className="text-red-500 text-sm mt-1"></p>
-              </div>
-              <div className="w-full md:w-1/2">
-                <label htmlFor="last-name" className="block text-sm font-medium text-black">Last Name <span className="text-red-500">*</span></label>
-                <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} id="last-name" name="last-name" className="text-black mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-black focus:border-black sm:text-sm" required onBlur={handleBlur} />
-                <p className="text-red-500 text-sm mt-1"></p>
-              </div>
-            </div>
-            <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
-              <div className="w-full md:w-1/2">
-                <label htmlFor="email" className="block text-sm font-medium text-black">Email Address <span className="text-red-500">*</span></label>
-                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} id="email" name="email" className="text-black mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-black focus:border-black sm:text-sm" required onBlur={handleBlur} />
-                <p className="text-red-500 text-sm mt-1"></p>
-              </div>
-              <div className="w-full md:w-1/2">
-                <label htmlFor="phone" className="block text-sm font-medium text-black">Phone Number <span className="text-red-500">*</span></label>
-                <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} id="phone" name="phone" className="text-black mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-black focus:border-black sm:text-sm" required onBlur={handleBlur} />
-                <p className="text-red-500 text-sm mt-1"></p>
-              </div>
-            </div>
-            <div className="w-full">
-              <label htmlFor="company" className="block text-sm font-medium text-black">Company Name</label>
-              <input type="text" value={company} onChange={(e) => setCompany(e.target.value)} id="company" name="company" className="text-black mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-black focus:border-black sm:text-sm" onBlur={handleBlur} />
-              <p className="text-red-500 text-sm mt-1 hidden"></p>
-            </div>
-            <div>
-              <label htmlFor="message" className="block text-sm font-medium text-black">Message <span className="text-red-500">*</span></label>
-              <textarea id="message" value={message} onChange={(e) => setMessage(e.target.value)} name="message" rows={4} className="text-black mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-black focus:border-black sm:text-sm" required onBlur={handleBlur}></textarea>
-              <p className="text-red-500 text-sm mt-1"></p>
-            </div>
-            
-            <div>
-              <button type="submit" className="w-full inline-flex justify-center py-2 px-4 shadow-sm text-sm font-medium rounded-md text-black bg-white border-black border hover:bg-black hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black">
-                Send Message
-              </button>
-            </div>
-            {status && status !== '' && (
-              <div className="fixed inset-0 flex items-center justify-center z-50">
-                <div className="bg-white p-6 rounded shadow-lg text-black">
-                  <div className="flex items-center">
-                    {isSuccess ? (
-                      <CiCircleCheck className="w-6 h-6 text-green-500" />
-                    ) : (
-                      <GoXCircle className="w-6 h-6 text-red-500" />
-                    )}
-                    <p className="ml-2">{status}</p>
-                  </div>
-                  <button
-                    onClick={() => setStatus('')}
-                    className="mt-4 px-4 py-2 text-black bg-white border-black border hover:bg-black hover:text-white rounded"
-                  >
-                    Close
-                  </button>
+        {isFormVisible ? (
+          <div className="w-full md:w-1/2 bg-white p-10 rounded-lg">
+            <h2 className="text-3xl font-semibold mb-4 text-black">Get in Touch</h2>
+            <form className="space-y-4" onSubmit={handleSubmit}>
+              <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
+                <div className="w-full md:w-1/2">
+                  <label htmlFor="first-name" className="block text-sm font-medium text-black">First Name <span className="text-red-500">*</span></label>
+                  <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} id="first-name" name="first-name" className="text-black mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-black focus:border-black sm:text-sm" required onBlur={handleBlur} />
+                  <p className="text-red-500 text-sm mt-1"></p>
+                </div>
+                <div className="w-full md:w-1/2">
+                  <label htmlFor="last-name" className="block text-sm font-medium text-black">Last Name <span className="text-red-500">*</span></label>
+                  <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} id="last-name" name="last-name" className="text-black mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-black focus:border-black sm:text-sm" required onBlur={handleBlur} />
+                  <p className="text-red-500 text-sm mt-1"></p>
                 </div>
               </div>
-            )}
-          </form>
-        </div>
+              <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
+                <div className="w-full md:w-1/2">
+                  <label htmlFor="email" className="block text-sm font-medium text-black">Email Address <span className="text-red-500">*</span></label>
+                  <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} id="email" name="email" className="text-black mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-black focus:border-black sm:text-sm" required onBlur={handleBlur} />
+                  <p className="text-red-500 text-sm mt-1"></p>
+                </div>
+                <div className="w-full md:w-1/2">
+                  <label htmlFor="phone" className="block text-sm font-medium text-black">Phone Number <span className="text-red-500">*</span></label>
+                  <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} id="phone" name="phone" className="text-black mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-black focus:border-black sm:text-sm" required onBlur={handleBlur} />
+                  <p className="text-red-500 text-sm mt-1"></p>
+                </div>
+              </div>
+              <div className="w-full">
+                <label htmlFor="company" className="block text-sm font-medium text-black">Company Name</label>
+                <input type="text" value={company} onChange={(e) => setCompany(e.target.value)} id="company" name="company" className="text-black mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-black focus:border-black sm:text-sm" onBlur={handleBlur} />
+                <p className="text-red-500 text-sm mt-1 hidden"></p>
+              </div>
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-black">Message <span className="text-red-500">*</span></label>
+                <textarea id="message" value={message} onChange={(e) => setMessage(e.target.value)} name="message" rows={4} className="text-black mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-black focus:border-black sm:text-sm" required onBlur={handleBlur}></textarea>
+                <p className="text-red-500 text-sm mt-1"></p>
+              </div>
+              
+              <div>
+                <button type="submit" className="w-full inline-flex justify-center py-2 px-4 shadow-sm text-sm font-medium rounded-md text-black bg-white border-black border hover:bg-black hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black">
+                  Send Message
+                </button>
+              </div>
+            </form>
+          </div>
+        ) : (
+          <StatusSubmission isSuccess={isSuccess} onClose={handleClose} />
+        )}
       </div>
     </div>
   );
