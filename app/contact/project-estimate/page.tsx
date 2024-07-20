@@ -18,6 +18,7 @@ const ContactPage = () => {
   const [companyDomain, setCompanyDomain] = useState('');
   const [message, setMessage] = useState('');
   const [isSuccess, setIsSuccess] = useState(true);
+  const [isRateLimited, setIsRateLimited] = useState(false);
   const [isFormVisible, setIsFormVisible] = useState(true);
   const [question, setQuestion] = useState<string[]>([]);
   const [budget, setBudget] = useState<string[]>([]);
@@ -142,6 +143,9 @@ const ContactPage = () => {
         if (response.ok) {
           setIsSuccess(true);
         } else if (response.status === 404) {
+          setIsSuccess(false);
+        } else if (response.status === 429) {
+          setIsRateLimited(true);
           setIsSuccess(false);
         } else {
           const errorData = await response.json();
@@ -312,7 +316,7 @@ const ContactPage = () => {
             </form>
           </div>
         ) : (
-          <StatusSubmission isSuccess={isSuccess} onClose={handleClose} />
+          <StatusSubmission isSuccess={isSuccess} onClose={handleClose} isRateLimited={isRateLimited}/>
         )}
       </div>
     </div>

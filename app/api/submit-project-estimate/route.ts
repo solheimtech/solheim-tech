@@ -1,10 +1,25 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
+import { RateLimiterMemory } from 'rate-limiter-flexible';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+// Create a rate limiter allowing 5 requests per day per IP address
+const rateLimiter = new RateLimiterMemory({
+  points: 5, // Number of points
+  duration: 86400, // Per second(s)
+});
+
 export async function POST(request: Request) {
   try {
+    const ip = request.headers.get('x-forwarded-for') || request.headers.get('remote-addr') || '';
+
+    try {
+      await rateLimiter.consume(ip); // Consume 1 point per request
+    } catch (rateLimiterRes) {
+      return NextResponse.json({ error: 'rate_limit_exceeded' }, { status: 429 });
+    }
+
     const formData = await request.json();
     const recaptchaToken = formData['g-recaptcha-response'];
 
