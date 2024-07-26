@@ -24,9 +24,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Navbar />
         </header>
         <div className="relative z-0">
-          <LayoutWrapper>{children}</LayoutWrapper>
+          <LayoutWrapper>
+            {children}
+          </LayoutWrapper>
         </div>
-        <div className="relative z-9">
+        <div className="relative z-10">
           <Footer />
         </div>
       </body>

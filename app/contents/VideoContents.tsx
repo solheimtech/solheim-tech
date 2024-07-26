@@ -50,7 +50,7 @@ const items: Item[] = [
   },
   {
     id: 5,
-    slug: "piefection",
+    slug: "piefection-az",
     src: "https://cefqtkkupjodlfz5.public.blob.vercel-storage.com/assets/videos/Piefection-vQzIwIIBiy5amguHMYaYPgGUqJNF9K.mp4",
     type: "video",
     title: "Piefection",
@@ -90,18 +90,14 @@ const VideoContentsContext = createContext<Item[]>(items);
 
 export const useVideoContents = () => {
   const context = useContext(VideoContentsContext);
-  const [cachedVideos, setCachedVideos] = useState<HTMLVideoElement[]>([]);
+  const [cachedVideos, setCachedVideos] = useState<Set<string>>(new Set());
 
   useEffect(() => {
     const videoElements: HTMLVideoElement[] = [];
-    const cachedSrcs = new Set(cachedVideos.map(video => video.src));
-    const localStorageKey = 'cachedVideoSrcs';
-
-    // Retrieve cached video sources from localStorage
-    const storedCachedSrcs = JSON.parse(localStorage.getItem(localStorageKey) || '[]');
+    const newCachedVideos = new Set(cachedVideos);
 
     context.forEach(item => {
-      if (!cachedSrcs.has(item.src) && !storedCachedSrcs.includes(item.src)) {
+      if (!newCachedVideos.has(item.src)) {
         const video = document.createElement('video');
         video.src = item.src;
         video.preload = 'auto';
@@ -115,21 +111,19 @@ export const useVideoContents = () => {
         };
 
         videoElements.push(video);
+        newCachedVideos.add(item.src);
       }
     });
 
     if (videoElements.length > 0) {
-      setCachedVideos(prev => [...prev, ...videoElements]);
-      // Update localStorage with new cached video sources
-      const newCachedSrcs = [...storedCachedSrcs, ...videoElements.map(video => video.src)];
-      localStorage.setItem(localStorageKey, JSON.stringify(newCachedSrcs));
+      setCachedVideos(newCachedVideos);
     }
 
     // Cleanup function to remove video elements
     return () => {
       videoElements.forEach(video => video.remove());
     };
-  }, [context, cachedVideos]);
+  }, [context]);
 
   return { context, cachedVideos };
 };

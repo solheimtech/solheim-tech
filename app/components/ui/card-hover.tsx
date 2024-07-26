@@ -7,6 +7,7 @@ import { cn } from "../../utils/cn";
 
 export const DirectionAwareHover = ({
   src,
+  alt,
   type,
   children,
   childrenClassName,
@@ -14,6 +15,7 @@ export const DirectionAwareHover = ({
   className,
 }: {
   src: string;
+  alt: string;
   type: "image" | "video";
   children: React.ReactNode | string;
   childrenClassName?: string;
@@ -78,10 +80,9 @@ export const DirectionAwareHover = ({
           whileHover={direction}
           exit="exit"
         >
-          <motion.div className="group-hover/card:block hidden absolute inset-0 w-full h-full bg-black/40 z-10 transition duration-500" />
           <motion.div
             variants={variants}
-            className="h-full w-full relative bg-gray-50 dark:bg-black"
+            className="h-full w-full relative"
             transition={{
               duration: 0.2,
               ease: "easeOut",
@@ -89,9 +90,9 @@ export const DirectionAwareHover = ({
           >
             {type === "image" ? (
               <Image
-                alt="image"
+                alt={alt}
                 className={cn(
-                  "h-full w-full object-cover scale-[1.15]",
+                  "h-full w-full object-contain",
                   imageClassName
                 )}
                 width="1000"
@@ -101,14 +102,14 @@ export const DirectionAwareHover = ({
             ) : (
               <video
                 className={cn(
-                  "h-full w-full object-cover scale-[1.15]",
+                  "h-full w-full object-contain",
                   imageClassName
                 )}
                 autoPlay
                 loop
                 muted
-                width="100%"
-                height="100%"
+                width="1000"
+                height="1000"
               >
                 <source src={src} type="video/mp4" />
               </video>

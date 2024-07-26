@@ -76,6 +76,13 @@
   * {
     @apply border-border;
   }
+
+  ::selection {
+    background: rgba(255, 255, 255);
+    color: black;
+    mix-blend-mode: difference; /* Inverts the color */
+  }
+
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-primary);
@@ -83,7 +90,7 @@
 }
 
 @layer components {
-  .nav-priamry {
+  .nav-primary {
     @apply text-white focus:bg-black bg-black hover:bg-black;
   }
 }

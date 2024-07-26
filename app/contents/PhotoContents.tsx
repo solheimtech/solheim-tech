@@ -89,47 +89,41 @@ const PhotoContentsContext = createContext<Item[]>(items);
 
 export const usePhotoContents = () => {
   const context = useContext(PhotoContentsContext);
-  const [cachedPhotos, setCachedPhotos] = useState<HTMLImageElement[]>([]);
+  const [cachedImages, setCachedImages] = useState<Set<string>>(new Set());
 
   useEffect(() => {
     const imageElements: HTMLImageElement[] = [];
-    const cachedSrcs = new Set(cachedPhotos.map(image => image.src));
-    const localStorageKey = 'cachedPhotoSrcs';
-
-    // Retrieve cached photo sources from localStorage
-    const storedCachedSrcs = JSON.parse(localStorage.getItem(localStorageKey) || '[]');
+    const newCachedImages = new Set(cachedImages);
 
     context.forEach(item => {
-      if (!cachedSrcs.has(item.src) && !storedCachedSrcs.includes(item.src)) {
-        const image = new Image();
-        image.src = item.src;
+      if (!newCachedImages.has(item.src)) {
+        const img = new window.Image();
+        img.src = item.src;
 
-        image.onload = () => {
+        img.onload = () => {
           console.log(`Image ${item.src} preloaded successfully.`);
         };
 
-        image.onerror = (e) => {
+        img.onerror = (e: any) => {
           console.error(`Error preloading image ${item.src}`, e);
         };
 
-        imageElements.push(image);
+        imageElements.push(img);
+        newCachedImages.add(item.src);
       }
     });
 
     if (imageElements.length > 0) {
-      setCachedPhotos(prev => [...prev, ...imageElements]);
-      // Update localStorage with new cached photo sources
-      const newCachedSrcs = [...storedCachedSrcs, ...imageElements.map(image => image.src)];
-      localStorage.setItem(localStorageKey, JSON.stringify(newCachedSrcs));
+      setCachedImages(newCachedImages);
     }
 
     // Cleanup function to remove image elements
     return () => {
       imageElements.forEach(image => image.remove());
     };
-  }, [context, cachedPhotos]);
+  }, [context]);
 
-  return { context, cachedPhotos };
+  return { context, cachedImages };
 };
 
 export const PhotoContentsProvider = ({ children }: { children: ReactNode }) => {

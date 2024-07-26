@@ -147,6 +147,13 @@ const Navbar = () => {
           </ul>
         </div>
 
+        <div>
+          <Link href="/case-studies" className="flex items-center space-x-1 text-white hover:font-semibold relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-gray-50 after:transition-all after:duration-300 hover:after:w-full">
+            <span>Case Studies</span>
+          </Link>
+        </div>
+
+
         <div
           className="relative group"
           onMouseEnter={() => setOurWorkSubmenuOpen(true)}
