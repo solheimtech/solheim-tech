@@ -14,11 +14,11 @@ export default function WebsitesPage() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 p-4">
         {items.map((item: any) => (
           <Parallax key={item.id}>
-            <Link href={`${item.url}`} passHref>
+            <Link href={`${item.url}`} target="_blank" rel="noopener noreferrer" passHref>
               <DirectionAwareHover 
                 src={item.src} 
                 imgSrc={item.imgSrc || ''} 
-                type={item.type} 
+                type={item.type}
                 title={item.title || ''}>
                 <p className="font-bold text-lg md:text-xl">{item.title}</p>
                 <p className="font-normal text-xs md:text-sm">{item.description}</p>

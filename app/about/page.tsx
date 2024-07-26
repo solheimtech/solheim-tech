@@ -78,7 +78,7 @@ const AboutUs: NextPage = () => {
       
 
       <div className="h-[40rem] rounded-md flex flex-col antialiased items-center justify-center relative overflow-hidden">
-        <p className="text-white text-3xl font-bold pb-5">Customer Review</p>
+        <p className="text-white text-3xl font-bold pb-5">Customer Reviews</p>
 
         {/* Import Reviews */}
         <InfiniteMovingCards

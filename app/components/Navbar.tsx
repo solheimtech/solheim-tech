@@ -11,6 +11,8 @@ const Navbar = () => {
   const [servicesSubmenuOpen, setServicesSubmenuOpen] = useState(false);
   const [contactSubmenuOpen, setContactSubmenuOpen] = useState(false);
   const [ourWorkSubmenuOpen, setOurWorkSubmenuOpen] = useState(false);
+  const [membershipSubmenuOpen, setMembershipSubmenuOpen] = useState(false);
+  const [componentsSubmenuOpen, setComponentsSubmenuOpen] = useState(false);
 
   return (
     <>
@@ -32,7 +34,7 @@ const Navbar = () => {
               <ChevronDownIcon className="h-4 w-4 text-white" />
             )}
           </Link>
-          <ul className={`absolute left-0 top-full bg-black transition-all duration-300 ease-in-out p-2 ${aboutSubmenuOpen ? 'block' : 'hidden'}`} style={{ width: '200px' }}>
+          <ul className={`absolute left-0 top-full bg-black transition-all duration-300 ease-in-out p-2 ${aboutSubmenuOpen ? 'block' : 'hidden'}`} style={{ width: '200px', zIndex: 10 }}>
             <li className="mb-2">
               <Link href="/about/team" className="text-white hover:font-semibold whitespace-nowrap">
               Meet the Team
@@ -59,7 +61,7 @@ const Navbar = () => {
               <ChevronDownIcon className="h-4 w-4 text-white" />
             )}
           </Link>
-          <ul className={`absolute left-0 top-full bg-black transition-all duration-300 ease-in-out p-2 ${servicesSubmenuOpen ? 'block' : 'hidden'}`} style={{ width: '200px' }}>
+          <ul className={`absolute left-0 top-full bg-black transition-all duration-300 ease-in-out p-2 ${servicesSubmenuOpen ? 'block' : 'hidden'}`} style={{ width: '200px', zIndex: 10 }}>
             <li className="mb-2">
               <Link href="/services/website-design" className="text-white hover:font-semibold whitespace-nowrap">
                 Website Design
@@ -70,17 +72,80 @@ const Navbar = () => {
                 Local SEO Pro
               </Link>
             </li>
+            <li className="mb-2">
+              <Link href="/services/cloud-hosting" className="text-white hover:font-semibold whitespace-nowrap">
+                Cloud Hosting
+              </Link>
+            </li>
+            <li className="mb-2">
+              <Link href="/services/content-marketing" className="text-white hover:font-semibold whitespace-nowrap">
+                Content Marketing
+              </Link>
+            </li>
+            <li className="mb-2">
+              <Link href="/services/graphic-design" className="text-white hover:font-semibold whitespace-nowrap">
+                Graphic Design
+              </Link>
+            </li>
+            <li className="mb-2">
+              <Link href="/services/search-engine-optimization" className="text-white hover:font-semibold whitespace-nowrap">
+                Search Engine Optimization
+              </Link>
+            </li>
+            <li className="mb-2">
+              <Link href="/services/social-media" className="text-white hover:font-semibold whitespace-nowrap">
+                Social Media
+              </Link>
+            </li>
+            <li className="mb-2">
+              <Link href="/services/technology-management" className="text-white hover:font-semibold whitespace-nowrap">
+                Technology Management
+              </Link>
+            </li>
+            <li className="mb-2">
+              <Link href="/services/website-management" className="text-white hover:font-semibold whitespace-nowrap">
+                Website Management
+              </Link>
+            </li>
             <li>
               <Link href="/services/aerial-photography-and-videography" className="text-white hover:font-semibold whitespace-nowrap">
-              Aerial Photos and Videos
+                Aerial Photos and Videos
               </Link>
             </li>
           </ul>
         </div>
 
-        <Link href="/membership" className="text-white hover:font-semibold relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-gray-50 after:transition-all after:duration-300 hover:after:w-full">
-          Membership
-        </Link>
+        <div
+          className="relative group"
+          onMouseEnter={() => setMembershipSubmenuOpen(true)}
+          onMouseLeave={() => setMembershipSubmenuOpen(false)}
+        >
+          <Link href="/membership" className="flex items-center space-x-1 text-white hover:font-semibold relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-gray-50 after:transition-all after:duration-300 hover:after:w-full">
+            <span>Membership</span>
+            {membershipSubmenuOpen ? (
+              <ChevronUpIcon className="h-4 w-4 text-white" />
+            ) : (
+              <ChevronDownIcon className="h-4 w-4 text-white" />
+            )}
+          </Link>
+          <ul className={`absolute left-0 top-full bg-black transition-all duration-300 ease-in-out p-2 ${membershipSubmenuOpen ? 'block' : 'hidden'}`} style={{ width: '200px', zIndex: 10 }}>
+            <li className="mb-2">
+              <Link href="/membership/benefits" className="text-white hover:font-semibold whitespace-nowrap">
+                Benefits
+              </Link>
+            </li>
+            <li className="mb-2">
+              <Link href="/membership/components" className="text-white hover:font-semibold whitespace-nowrap">
+                Components
+              </Link>
+            </li>
+            <li className="mb-2">
+              <Link href="/membership/testimonials" className="text-white hover:font-semibold whitespace-nowrap">
+                Testimonials
+              </Link>
+            </li>
+          </ul>
+        </div>
 
         <div
           className="relative group"
@@ -95,7 +160,7 @@ const Navbar = () => {
               <ChevronDownIcon className="h-4 w-4 text-white" />
             )}
           </Link>
-          <ul className={`absolute left-0 top-full bg-black transition-all duration-300 ease-in-out p-2 ${ourWorkSubmenuOpen ? 'block' : 'hidden'}`} style={{ width: '200px' }}>
+          <ul className={`absolute left-0 top-full bg-black transition-all duration-300 ease-in-out p-2 ${ourWorkSubmenuOpen ? 'block' : 'hidden'}`} style={{ width: '200px', zIndex: 10 }}>
             <li className="mb-2">
               <Link href="/our-work/websites" className="text-white hover:font-semibold whitespace-nowrap">
                 Websites
@@ -132,7 +197,7 @@ const Navbar = () => {
               <ChevronDownIcon className="h-4 w-4 text-white" />
             )}
           </Link>
-          <ul className={`absolute left-0 top-full bg-black transition-all duration-300 ease-in-out p-2 ${contactSubmenuOpen ? 'block' : 'hidden'}`} style={{ width: '200px' }}>
+          <ul className={`absolute left-0 top-full bg-black transition-all duration-300 ease-in-out p-2 ${contactSubmenuOpen ? 'block' : 'hidden'}`} style={{ width: '200px', zIndex: 10 }}>
             <li className="mb-2">
               <Link href="/meeting/free-consultation" className="text-white hover:font-semibold whitespace-nowrap">
                 Free Consultation

@@ -10,8 +10,8 @@ import backgroundImage from '../../public/assets/images/City-at-Dusk-BW.jpg';
 
 const Footer = () => {
   return (
-    <footer className="bg-black bg-opacity-75 text-white py-12 mt-auto w-full relative" style={{ backgroundImage: `url(${backgroundImage.src})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-      <div className="absolute inset-0 bg-gradient-to-b from-black to-transparent opacity-100"></div> {/* Gradient overlay moved higher */}
+    <footer className="bg-black bg-opacity-100 text-white py-12 mt-auto w-full relative" style={{ backgroundImage: `url(${backgroundImage.src})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+      <div className="absolute inset-x-0 bottom-0 top-0 bg-gradient-to-b from-black to-transparent opacity-100"></div> {/* Gradient overlay starts from the top */}
       <div className="container mx-auto px-4 relative z-10"> {/* Added relative z-10 to ensure content is above overlay */}
         <div className="flex flex-col md:flex-row justify-between items-center md:items-start space-y-6 md:space-y-0">
           <div className="flex flex-col items-center text-center md:items-start md:text-left">
@@ -85,7 +85,7 @@ const Footer = () => {
             <SiX />
           </Link>
           <Link
-            href="https://www.youtube.com/channel/UCUfRXnvKwTJbLh5Mu5_qRYw"
+            href="https://www.youtube.com/@solheimtech"
             target="_blank"
             rel="noopener noreferrer"
             className="text-white hover:text-gray-300"
@@ -102,9 +102,9 @@ const Footer = () => {
           </Link>
           </div>
           <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4 mb-4 text-center md:text-left">
-            <Link href="/privacy-policy" className="text-white hover:underline font-thin text-xs">Privacy Policy</Link>
-            <Link href="/terms-of-service" className="text-white hover:underline font-thin text-xs">Terms of Service</Link>
-            <Link href="/website-accessibility-statement" className="text-white hover:underline font-thin text-xs">Website Accessibility Statement</Link>
+            <Link href="/privacy-policy" className="text-white hover:underline font-bold text-xs">Privacy Policy</Link>
+            <Link href="/terms-of-service" className="text-white hover:underline font-bold text-xs">Terms of Service</Link>
+            <Link href="/website-accessibility-statement" className="text-white hover:underline font-bold text-xs">Website Accessibility Statement</Link>
           </div>
           <p className='font-bold text-center md:text-left'>© 2024 Solheim Technologies, All Rights Reserved.</p>
         </div>
