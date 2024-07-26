@@ -131,7 +131,7 @@ const Navbar = () => {
           <ul className={`absolute left-0 top-full bg-black transition-all duration-300 ease-in-out p-2 ${membershipSubmenuOpen ? 'block' : 'hidden'}`} style={{ width: '200px', zIndex: 10 }}>
             <li className="mb-2">
               <Link href="/membership/benefits" className="text-white hover:font-semibold whitespace-nowrap">
-                Benefits
+                How it Works
               </Link>
             </li>
             <li className="mb-2">
