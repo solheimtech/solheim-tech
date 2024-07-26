@@ -13,6 +13,7 @@ const MobileNav = () => {
     const [subMenuOpen, setSubMenuOpen] = useState({
         about: false,
         services: false,
+        membership: false,
         ourWork: false,
         contact: false,
     });
@@ -116,7 +117,7 @@ const MobileNav = () => {
                                                 animate={{ height: 'auto', opacity: 1 }}
                                                 exit={{ height: 0, opacity: 0 }}
                                                 transition={{ duration: 0.3 }}
-                                                className="overflow-hidden"
+                                                className="overflow-hidden pl-4"
                                             >
                                                 <li className="mb-2">
                                                     <Link href="/about/team" className={`text-white hover:font-semibold whitespace-nowrap ${currentPath === '/about/team' ? 'font-bold' : ''}`} onClick={() => setMobileNavOpen(false)}>
@@ -166,7 +167,7 @@ const MobileNav = () => {
                                                 animate={{ height: 'auto', opacity: 1 }}
                                                 exit={{ height: 0, opacity: 0 }}
                                                 transition={{ duration: 0.3 }}
-                                                className="overflow-hidden"
+                                                className="overflow-hidden pl-4"
                                             >
                                                 <li className="mb-2">
                                                     <Link href="/services/website-design" className={`text-white hover:font-semibold whitespace-nowrap ${currentPath === '/services/website-design' ? 'font-bold' : ''}`} onClick={() => setMobileNavOpen(false)}>
@@ -179,18 +180,43 @@ const MobileNav = () => {
                                                     </Link>
                                                 </li>
                                                 <li className="mb-2">
-                                                    <Link href="/services/aerial-photography-and-videography" className={`text-white hover:font-semibold whitespace-nowrap ${currentPath === '/services/aerial-photography-and-videography' ? 'font-bold' : ''}`} onClick={() => setMobileNavOpen(false)}>
-                                                        Aerial Photos and Videos
+                                                    <Link href="/services/cloud-hosting" className={`text-white hover:font-semibold whitespace-nowrap ${currentPath === '/services/cloud-hosting' ? 'font-bold' : ''}`} onClick={() => setMobileNavOpen(false)}>
+                                                        Cloud Hosting
                                                     </Link>
                                                 </li>
                                                 <li className="mb-2">
-                                                    <Link href="/contact/resources" className={`text-white hover:font-semibold whitespace-nowrap ${currentPath === '/contact/resources' ? 'font-bold' : ''}`} onClick={() => setMobileNavOpen(false)}>
-                                                        Resources Center
+                                                    <Link href="/services/content-management" className={`text-white hover:font-semibold whitespace-nowrap ${currentPath === '/services/content-management' ? 'font-bold' : ''}`} onClick={() => setMobileNavOpen(false)}>
+                                                        Content Marketing
+                                                    </Link>
+                                                </li>
+                                                <li className="mb-2">
+                                                    <Link href="/services/graphic-design" className={`text-white hover:font-semibold whitespace-nowrap ${currentPath === '/services/graphic-design' ? 'font-bold' : ''}`} onClick={() => setMobileNavOpen(false)}>
+                                                        Graphic Design
+                                                    </Link>
+                                                </li>
+                                                <li className="mb-2">
+                                                    <Link href="/services/search-engine-optimization" className={`text-white hover:font-semibold whitespace-nowrap ${currentPath === '/services/search-engine-optimization' ? 'font-bold' : ''}`} onClick={() => setMobileNavOpen(false)}>
+                                                        Search Engine Opimization
+                                                    </Link>
+                                                </li>
+                                                <li className="mb-2">
+                                                    <Link href="/services/social-media" className={`text-white hover:font-semibold whitespace-nowrap ${currentPath === '/services/social-media' ? 'font-bold' : ''}`} onClick={() => setMobileNavOpen(false)}>
+                                                        Social Media
+                                                    </Link>
+                                                </li>
+                                                <li className="mb-2">
+                                                    <Link href="/services/technoloy-management" className={`text-white hover:font-semibold whitespace-nowrap ${currentPath === '/services/technoloy-management' ? 'font-bold' : ''}`} onClick={() => setMobileNavOpen(false)}>
+                                                        Technology Management
+                                                    </Link>
+                                                </li>
+                                                <li className="mb-2">
+                                                    <Link href="/services/website-management" className={`text-white hover:font-semibold whitespace-nowrap ${currentPath === '/services/website-management' ? 'font-bold' : ''}`} onClick={() => setMobileNavOpen(false)}>
+                                                        Website Management
                                                     </Link>
                                                 </li>
                                                 <li>
-                                                    <Link href="/contact/resources/articles" className={`text-white hover:font-semibold whitespace-nowrap ${currentPath === '/contact/resources/articles' ? 'font-bold' : ''}`} onClick={() => setMobileNavOpen(false)}>
-                                                        Articles
+                                                    <Link href="/services/aerial-photography-and-videography" className={`text-white hover:font-semibold whitespace-nowrap ${currentPath === '/services/aerial-photography-and-videography' ? 'font-bold' : ''}`} onClick={() => setMobileNavOpen(false)}>
+                                                        Aerial Photos and Videos
                                                     </Link>
                                                 </li>
                                             </motion.ul>
@@ -198,10 +224,59 @@ const MobileNav = () => {
                                     </AnimatePresence>
                                 </div>
 
-                                <div className="my-2">
-                                    <Link href="/membership" className={`text-white hover:font-semibold ${currentPath === '/membership' ? 'font-bold' : ''}`} onClick={() => setMobileNavOpen(false)}>
-                                        Membership
-                                    </Link>
+                                <div className="relative group">
+                                    <div className="flex items-center justify-between">
+                                        <motion.div
+                                            initial={{ textDecoration: 'none' }}
+                                            animate={{ textDecoration: subMenuOpen.membership ? 'underline' : 'none' }}
+                                            transition={{ duration: 0.3 }}
+                                        >
+                                            <Link href="/membership" className={`text-white flex items-center space-x-1 ${currentPath === '/membership' ? 'font-bold' : ''}`} onClick={() => setMobileNavOpen(false)}>
+                                                <span>Membership</span>
+                                            </Link>
+                                        </motion.div>
+                                        <motion.div
+                                            initial={{ rotate: 0 }}
+                                            animate={{ rotate: subMenuOpen.membership ? 180 : 0 }}
+                                            transition={{ duration: 0.3 }}
+                                        >
+                                            <Button
+                                                variant="ghost"
+                                                size="icon"
+                                                className='bg-transparent hover:bg-transparent active:bg-transparent focus:bg-transparent'
+                                                onClick={() => toggleSubMenu('membership')}
+                                            >
+                                                {subMenuOpen.membership ? <MinusIcon className="h-6 w-6 text-white" /> : <PlusIcon className="h-6 w-6 text-white" />}
+                                            </Button>
+                                        </motion.div>
+                                    </div>
+                                    <AnimatePresence>
+                                        {subMenuOpen.membership && (
+                                            <motion.ul
+                                                initial={{ height: 0, opacity: 0 }}
+                                                animate={{ height: 'auto', opacity: 1 }}
+                                                exit={{ height: 0, opacity: 0 }}
+                                                transition={{ duration: 0.3 }}
+                                                className="overflow-hidden pl-4"
+                                            >
+                                                <li className="mb-2">
+                                                    <Link href="/services/website-design" className={`text-white hover:font-semibold whitespace-nowrap ${currentPath === '/services/website-design' ? 'font-bold' : ''}`} onClick={() => setMobileNavOpen(false)}>
+                                                        How It Works
+                                                    </Link>
+                                                </li>
+                                                <li className="mb-2">
+                                                    <Link href="/services/local-seo-pro" className={`text-white hover:font-semibold whitespace-nowrap ${currentPath === '/services/local-seo-pro' ? 'font-bold' : ''}`} onClick={() => setMobileNavOpen(false)}>
+                                                        Components
+                                                    </Link>
+                                                </li>
+                                                <li>
+                                                    <Link href="/services/aerial-photography-and-videography" className={`text-white hover:font-semibold whitespace-nowrap ${currentPath === '/services/aerial-photography-and-videography' ? 'font-bold' : ''}`} onClick={() => setMobileNavOpen(false)}>
+                                                        Testimonials
+                                                    </Link>
+                                                </li>
+                                            </motion.ul>
+                                        )}
+                                    </AnimatePresence>
                                 </div>
                                 
                                 <div className="relative group">
@@ -237,7 +312,7 @@ const MobileNav = () => {
                                                 animate={{ height: 'auto', opacity: 1 }}
                                                 exit={{ height: 0, opacity: 0 }}
                                                 transition={{ duration: 0.3 }}
-                                                className="overflow-hidden"
+                                                className="overflow-hidden pl-4"
                                             >
                                                 <li className="mb-2">
                                                     <Link href="/our-work/websites" className={`text-white hover:font-semibold whitespace-nowrap ${currentPath === '/our-work/websites' ? 'font-bold' : ''}`} onClick={() => setMobileNavOpen(false)}>
@@ -296,7 +371,7 @@ const MobileNav = () => {
                                                 animate={{ height: 'auto', opacity: 1 }}
                                                 exit={{ height: 0, opacity: 0 }}
                                                 transition={{ duration: 0.3 }}
-                                                className="overflow-hidden"
+                                                className="overflow-hidden pl-4"
                                             >
                                                 <li className="mb-2">
                                                     <Link href="/contact/free-consultation" className={`text-white hover:font-semibold whitespace-nowrap ${currentPath === '/contact/free-consultation' ? 'font-bold' : ''}`} onClick={() => setMobileNavOpen(false)}>
