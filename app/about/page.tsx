@@ -1,11 +1,29 @@
-"use client";
+// "use client";
 
 import { NextPage } from "next";
-import React, { useRef } from "react";
+import React from "react";
+import Head from "next/head";
 import Image from "next/image";
 import { InfiniteMovingCards } from "../components/ui/infinite-moving-cards";
+import Link from "next/link";
 
-
+export const metadata = {
+  title: "About Solheim Technologies",
+  description: "Learn more about Solheim Technologies, our mission, and our team.",
+  openGraph: {
+    title: "About Us | Solheim Technologies",
+    description: "Learn more about Solheim Technologies, our mission, and our team.",
+    url: 'https://solheimtech.com/about',
+    images: [
+      {
+        url: 'https://solheimtech.com/assets/images/ST-Icon.jpg',
+        width: 600,
+        height: 600,
+        alt: 'Solheim Technologies Logo',
+      },
+    ],
+  },
+};
 
 const testimonials = [
   {
@@ -44,50 +62,42 @@ const testimonials = [
     name: "Dan Christman",
     rating: 5,
   },
-  
 ];
-
-
 
 const AboutUs: NextPage = () => {
   return (
-    <div className="flex flex-col items-center justify-start pt-[8rem] lg:pt-[0rem] z-10">
-      <h1 className="text-[2.5rem] sm:text-[5rem] text-white font-bold">About Us</h1>
-      <p className="text-white text-md font-light pt-3 text-center">As a tech solutions company, we are committed to your businesses tech needs</p>
+      <div className="flex flex-col items-center justify-start pt-[8rem] lg:pt-[0rem] z-10">
+        <h1 className="text-[2.5rem] sm:text-[5rem] text-white font-bold">About Us</h1>
+        <p className="text-white text-md font-light pt-3 text-center">As a tech solutions company, we are committed to your businesses tech needs</p>
 
-      <div className="flex flex-col md:flex-row items-start justify-center p-2 md:p-[5rem] md:mb-10">
-        <div className="md:w-1/2 p-4">
-          <Image src="https://solheimtech.com/wp-content/uploads/2022/09/Solheim-Family-Grand-Tetons.jpeg" alt="Meteor" width={800} height={800} className="rounded-lg"/>
+        <div className="flex flex-col md:flex-row items-start justify-center p-2 md:p-[5rem] md:mb-10">
+          <div className="md:w-1/2 p-4">
+            <Image src="https://solheimtech.com/wp-content/uploads/2022/09/Solheim-Family-Grand-Tetons.jpeg" alt="Meteor" width={800} height={800} className="rounded-lg"/>
+          </div>
+          <div className="md:w-1/2 p-4">
+            <p className="text-white text-md font-normal leading-[2rem] mb-8">
+              David and Angela met in high school, and our relationship can be pretty much summed up as "high school sweethearts". In June 2012 we were married, and our first daughter arrived in August 2014.
+              While we were living with Angela's parents in 2014, we started a company called Global Web Pros, servicing websites and offering technology support. Over the years we were getting feedback that our clients had other tech companies managing their computer systems, email, and other systems, so we decided that we needed to change our name.
+              In January 2020 we rebranded to Solheim Technologies, and have been loving the refreshed image.
+              We are currently living in San Tan Valley, Arizona with our 2 daughters and son, and enjoy spending time together as a family. As always, we are here to help, whether that is in-person or remotely.
+            </p>
+            <Link href="/contact" className="px-6 py-3 rounded-lg text-black hover:border-2 bg-white border-2 border-white hover:bg-black hover:text-white hover:border-white">
+              Work with us
+            </Link>
+          </div>
         </div>
-        <div className="md:w-1/2 p-4">
-          <p className="text-white text-md font-normal leading-[2rem]">
-            David and Angela met in high school, and our relationship can be pretty much summed up as “high school sweethearts”. In June 2012 we were married, and our first daughter arrived in August 2014.
-            While we were living with Angela’s parents in 2014, we started a company called Global Web Pros, servicing websites and offering technology support. Over the years we were getting feedback that our clients had other tech companies managing their computer systems, email, and other systems, so we decided that we needed to change our name.
-            In January 2020 we rebranded to Solheim Technologies, and have been loving the refreshed image.
-            We are currently living in San Tan Valley, Arizona with our 2 daughters and son, and enjoy spending time together as a family. As always, we are here to help, whether that is in-person or remotely.
-          </p>
-          <button 
-            className="mt-8 px-6 py-3 rounded-lg text-black hover:border-2 bg-white border-2 border-white hover:bg-black hover:text-white hover:border-white"
-            onClick={() => window.location.href = '/contact'}
-          >
-            Work with us
-          </button>
+
+        <div className="h-[40rem] rounded-md flex flex-col antialiased items-center justify-center relative overflow-hidden">
+          <p className="text-white text-3xl font-bold pb-5">Customer Reviews</p>
+
+          {/* Import Reviews */}
+          <InfiniteMovingCards
+            items={testimonials}
+            direction="right"
+            speed="slow"
+          />
         </div>
       </div>
-
-      
-
-      <div className="h-[40rem] rounded-md flex flex-col antialiased items-center justify-center relative overflow-hidden">
-        <p className="text-white text-3xl font-bold pb-5">Customer Reviews</p>
-
-        {/* Import Reviews */}
-        <InfiniteMovingCards
-          items={testimonials}
-          direction="right"
-          speed="slow"
-        />
-      </div>
-    </div>
   );
 };
 
