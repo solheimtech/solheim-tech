@@ -59,7 +59,7 @@ export default function Home() {
             <p className="max-w-[800px] mx-auto text-gray-200 text-base sm:text-2xl">
               Discover the power of our cutting-edge technology solutions and elevate your business to new heights.
             </p>
-            <div className="flex flex-col gap-4 sm:flex-row justify-center animate-fade-in-up">
+            <div className="flex flex-col gap-8 sm:flex-row justify-center animate-fade-in-up">
               <Link
                 href="/meeting/free-consultation"
                 className="relative z-10"
@@ -81,9 +81,9 @@ export default function Home() {
                 <motion.div
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
-                  className="relative inline-flex h-12 items-center justify-center rounded-md bg-white px-6 sm:px-10 text-lg font-medium text-black border-2 border-black shadow transition-colors hover:bg-black hover:text-white focus-visible:outline-none"
+                  className="relative inline-flex h-12 items-center justify-center rounded-md bg-white px-6 sm:px-10 text-lg font-medium text-black border-2 border-black shadow transition-colors hover:bg-black hover:text-white hover:border-white focus-visible:outline-none"
                 >
-                  Learn More
+                  About Solheim Technologies
                 </motion.div>
               </Link>
             </div>
