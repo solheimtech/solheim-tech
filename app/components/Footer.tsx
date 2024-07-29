@@ -66,7 +66,7 @@ const Footer = () => {
             rel="noopener noreferrer"
             className="text-white hover:text-gray-300"
           >
-            <FaFacebookF />
+            <FaFacebookF aria-label="Solheim Technologies on Facebook" />
           </Link>
           <Link
             href="https://www.instagram.com/solheimtech/"
@@ -74,7 +74,7 @@ const Footer = () => {
             rel="noopener noreferrer"
             className="text-white hover:text-gray-300"
           >
-            <FaInstagram />
+            <FaInstagram aria-label="Solheim Technologies on Instagram"/>
           </Link>
           <Link
             href="https://x.com/solheimtech"
@@ -82,7 +82,7 @@ const Footer = () => {
             rel="noopener noreferrer"
             className="text-white hover:text-gray-300"
           >
-            <SiX />
+            <SiX aria-label="Solheim Technologies on X"/>
           </Link>
           <Link
             href="https://www.youtube.com/@solheimtech"
@@ -90,7 +90,7 @@ const Footer = () => {
             rel="noopener noreferrer"
             className="text-white hover:text-gray-300"
           >
-            <FaYoutube />
+            <FaYoutube aria-label="Solheim Technologies on Youtube"/>
           </Link>
           <Link
             href="https://www.linkedin.com/company/solheimtech/"
@@ -98,7 +98,7 @@ const Footer = () => {
             rel="noopener noreferrer"
             className="text-white hover:text-gray-300"
           >
-            <FaLinkedinIn />
+            <FaLinkedinIn aria-label="Solheim Technologies on LinkedIn"/>
           </Link>
           </div>
           <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4 mb-4 text-center md:text-left">
