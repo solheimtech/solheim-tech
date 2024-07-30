@@ -1,32 +1,23 @@
-"use client";
-import { useParams } from 'next/navigation';
-import { useVideoContents } from '../../../contents/VideoContents';
+import VideosSlug from "@/app/components/VideosSlug";
 
-const VideoDetail = () => {
-  const { slug } = useParams();
-  const { context: items } = useVideoContents();
-
-  if (!slug) {
-    return <div>There is no ID found</div>;
-  }
-
-  const item = items.find((item: { slug: string }) => item.slug === slug);
-
-  if (!item) {
-    return <div>Item not found</div>;
-  }
-
-  return (
-    <div className='py-10 pt-[8rem] md:pt-[0rem]'>
-        <div className="flex justify-center">
-          <video controls autoPlay className='w-[80%]'>
-            <source src={item.src} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <p className="text-lg font-semibold text-center mt-4 text-white">{item.description}</p>
-    </div>
-  );
+export const metadata = {
+  title: "Video Detail | Solheim Technologies",
+  description: "Watch our video stories and explore the work we've done.",
+  openGraph: {
+    title: "Video Detail | Solheim Technologies",
+    description: "Watch our video stories and explore the work we've done.",
+    url: 'https://solheimtech.com/our-work/videos/[slug]',
+    images: [
+      {
+        url: 'https://solheimtech.com/assets/images/ST-Icon.jpg',
+        width: 600,
+        height: 600,
+        alt: 'Solheim Technologies Logo',
+      },
+    ],
+  },
 };
 
-export default VideoDetail;
+export default function VideosSlugPage() {
+  return <VideosSlug />;
+}

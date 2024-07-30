@@ -1,60 +1,24 @@
-"use client";
-import { useParams } from 'next/navigation';
-import Image from 'next/image';
-import { useLogoContents } from '../../../contents/LogoContents';
-import { useState } from 'react';
+import LogosSlug from "@/app/components/LogosSlug";
 
-const LogoDetail = () => {
-  const { slug } = useParams();
-  const items = useLogoContents();
-  const [selectedImage, setSelectedImage] = useState(0);
-
-  if (!slug) {
-    return <div className="text-center">There is no ID found</div>;
-  }
-
-  const item = items.context.find((item: { slug: string }) => item.slug === slug);
-
-  if (!item) {
-    return <div className="text-center">Item not found</div>;
-  }
-
-  const handleImageClick = (index: number) => {
-    setSelectedImage(index);
-  };
-
-  return (
-    <div className="flex flex-col md:flex-row items-center p-4 text-center pt-[8rem] lg:pt-[0rem]">
-      <div className="flex flex-col items-center mb-4 w-full md:w-1/2">
-        <Image 
-          src={item.images[selectedImage].src} 
-          alt={item.images[selectedImage].alt || 'Image description not available'} 
-          width={300} 
-          height={300} 
-          className="rounded-lg shadow-lg mb-4"
-          style={{ aspectRatio: '1 / 1' }}
-        />
-        <div className="flex space-x-2 mt-2 overflow-x-auto">
-          {item.images.map((img: { src: string, alt?: string }, index: number) => (
-            <Image 
-              key={index} 
-              src={img.src} 
-              alt={img.alt || 'Thumbnail'} 
-              width={50} 
-              height={50} 
-              className={`cursor-pointer ${selectedImage === index ? 'border-2 border-white' : ''} rounded-lg`}
-              style={{ aspectRatio: '1 / 1' }}
-              onClick={() => handleImageClick(index)}
-            />
-          ))}
-        </div>
-      </div>
-      <div className="text-center md:text-left w-full md:w-1/2 md:pl-4">
-        <p className='text-2xl md:text-3xl text-white font-bold mb-2'>{item.title}</p>
-        <p className="text-base md:text-lg text-white">{item.description}</p>
-      </div>
-    </div>
-  );
+export const metadata = {
+  title: "Logo Details | Solheim Technologies",
+  description: "View the details of our logo designs and creative work.",
+  openGraph: {
+    title: "Logo Details | Solheim Technologies",
+    description: "View the details of our logo designs and creative work.",
+    url: 'https://solheimtech.com/our-work/logos/[slug]',
+    images: [
+      {
+        url: 'https://solheimtech.com/assets/images/ST-Icon.jpg',
+        width: 600,
+        height: 600,
+        alt: 'Solheim Technologies Logo',
+      },
+    ],
+  },
 };
 
-export default LogoDetail;
+
+export default function LogosPage() {
+  return <LogosSlug />;
+}
