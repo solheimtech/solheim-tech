@@ -1,9 +1,25 @@
-"use client";
-
 import { NextPage } from "next";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+
+export const metadata = {
+  title: "Cloud Hosting | Solheim Technologies",
+  description: "Reliable and scalable cloud hosting solutions for your business.",
+  openGraph: {
+    title: "Cloud Hosting | Solheim Technologies",
+    description: "Reliable and scalable cloud hosting solutions for your business.",
+    url: 'https://solheimtech.com/services/cloud-hosting',
+    images: [
+      {
+        url: 'https://solheimtech.com/assets/images/ST-Icon.jpg',
+        width: 600,
+        height: 600,
+        alt: 'Solheim Technologies Logo',
+      },
+    ],
+  },
+};
 
 const CloudHosting: NextPage = () => {
   return (
@@ -22,12 +38,10 @@ const CloudHosting: NextPage = () => {
           <p className="text-white text-md font-normal leading-[2rem] mt-4">
             Our team of experts is dedicated to providing you with the best possible service, ensuring that your website and applications are always available and performing at their best. Whether you are a small business or a large enterprise, we have the right cloud hosting solution for you.
           </p>
-          <button 
-            className="mt-8 px-6 py-3 rounded-lg text-black hover:border-2 bg-white border-2 border-white hover:bg-black hover:text-white hover:border-white"
-            onClick={() => window.location.href = '/contact'}
-          >
-            Get Started
-          </button>
+          <Link href="/contact" className="mt-8 px-6 py-3 rounded-lg text-black hover:border-2 bg-white border-2 border-white hover:bg-black hover:text-white hover:border-white">
+              Get Started
+
+          </Link>
         </div>
       </div>
 

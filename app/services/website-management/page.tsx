@@ -1,9 +1,25 @@
-"use client";
-
 import { NextPage } from "next";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+
+export const metadata = {
+  title: "Website Management | Solheim Technologies",
+  description: "Ensure your website runs smoothly with our expert website management services",
+  openGraph: {
+    title: "Website Management | Solheim Technologies",
+    description: "Ensure your website runs smoothly with our expert website management services",
+    url: 'https://solheimtech.com/services/website-management',
+    images: [
+      {
+        url: 'https://solheimtech.com/assets/images/ST-Icon.jpg',
+        width: 600,
+        height: 600,
+        alt: 'Solheim Technologies Logo',
+      },
+    ],
+  },
+};
 
 const WebsiteManagement: NextPage = () => {
   return (
@@ -22,12 +38,9 @@ const WebsiteManagement: NextPage = () => {
           <p className="text-white text-md font-normal leading-[2rem] mt-4">
             From content updates and technical support to SEO and analytics, we provide a full range of website management services tailored to meet your unique needs. Let us help you maintain a professional and effective online presence.
           </p>
-          <button 
-            className="mt-8 px-6 py-3 rounded-lg text-black hover:border-2 bg-white border-2 border-white hover:bg-black hover:text-white hover:border-white"
-            onClick={() => window.location.href = '/contact'}
-          >
+          <Link href="/contact" className="mt-8 px-6 py-3 rounded-lg text-black hover:border-2 bg-white border-2 border-white hover:bg-black hover:text-white hover:border-white">
             Get Started
-          </button>
+          </Link>
         </div>
       </div>
 

@@ -1,9 +1,25 @@
-"use client";
-
 import { NextPage } from "next";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+
+export const metadata = {
+  title: "Graphic Design | Solheim Technologies",
+  description: "Creative and impactful graphic design solutions for your business.",
+  openGraph: {
+    title: "Graphic Design | Solheim Technologies",
+    description: "Creative and impactful graphic design solutions for your business.",
+    url: 'https://solheimtech.com/services/graphic-design',
+    images: [
+      {
+        url: 'https://solheimtech.com/assets/images/ST-Icon.jpg',
+        width: 600,
+        height: 600,
+        alt: 'Solheim Technologies Logo',
+      },
+    ],
+  },
+};
 
 const GraphicDesign: NextPage = () => {
   return (
@@ -22,12 +38,9 @@ const GraphicDesign: NextPage = () => {
           <p className="text-white text-md font-normal leading-[2rem] mt-4">
             From logos and branding to marketing materials and web design, we provide a comprehensive range of graphic design services tailored to meet your unique needs. Let us help you create a strong visual identity that resonates with your audience.
           </p>
-          <button 
-            className="mt-8 px-6 py-3 rounded-lg text-black hover:border-2 bg-white border-2 border-white hover:bg-black hover:text-white hover:border-white"
-            onClick={() => window.location.href = '/contact'}
-          >
-            Get Started
-          </button>
+          <Link href="/contact" className="mt-8 px-6 py-3 rounded-lg text-black hover:border-2 bg-white border-2 border-white hover:bg-black hover:text-white hover:border-white">
+              Get Started
+          </Link>
         </div>
       </div>
 

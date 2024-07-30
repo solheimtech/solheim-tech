@@ -1,5 +1,23 @@
 import React from 'react';
 
+export const metadata = {
+  title: "Privacy Policy | Solheim Technologies",
+  description: "Read the privacy policy of Solheim Technologies.",
+  openGraph: {
+    title: "Privacy Policy | Solheim Technologies",
+    description: "Read the privacy policy of Solheim Technologies.",
+    url: 'https://solheimtech.com/privacy-policy',
+    images: [
+      {
+        url: 'https://solheimtech.com/assets/images/ST-Icon.jpg',
+        width: 600,
+        height: 600,
+        alt: 'Solheim Technologies Logo',
+      },
+    ],
+  },
+};
+
 const PrivacyPolicyPage = () => {
   return (
     <div className='text-white p-6 max-w-4xl mx-auto pt-[8rem] lg:pt-[2rem]'>

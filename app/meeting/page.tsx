@@ -1,5 +1,23 @@
 import Link from "next/link";
 
+export const metadata = {
+  title: "Schedule a Meeting | Solheim Technologies",
+  description: "Schedule a meeting with Solheim Technologies.",
+  openGraph: {
+    title: "Schedule a Meeting | Solheim Technologies",
+    description: "Schedule a meeting with Solheim Technologies.",
+    url: 'https://solheimtech.com/meeting',
+    images: [
+      {
+        url: 'https://solheimtech.com/assets/images/ST-Icon.jpg',
+        width: 600,
+        height: 600,
+        alt: 'Solheim Technologies Logo',
+      },
+    ],
+  },
+};
+
 export default function Meeting() {
   return (
     <div className="container mx-auto py-12 pt-16 md:pt-16 sm:pt-16">

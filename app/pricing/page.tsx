@@ -1,81 +1,67 @@
-"use client";
-
-import React from 'react';
-import Link from 'next/link';
-
-interface PricingPlan {
-  id: number;
-  name: string;
-  price: string;
-  features: string[];
-  link: string;
-}
-
-const pricingPlans: PricingPlan[] = [
-  {
-    id: 1,
-    name: "Basic",
-    price: "$19.99/month",
-    features: [
-      "Feature 1",
-      "Feature 2",
-      "Feature 3",
+export const metadata = {
+  title: "Pricing | Solheim Technologies",
+  description: "Explore our pricing plans and choose the best one for your needs.",
+  openGraph: {
+    title: "Pricing | Solheim Technologies",
+    description: "Explore our pricing plans and choose the best one for your needs.",
+    url: 'https://solheimtech.com/pricing',
+    images: [
+      {
+        url: 'https://solheimtech.com/assets/images/ST-Icon.jpg',
+        width: 600,
+        height: 600,
+        alt: 'Solheim Technologies Logo',
+      },
     ],
-    link: "/pricing/basic",
   },
-  {
-    id: 2,
-    name: "Standard",
-    price: "$49.99/month",
-    features: [
-      "Feature 1",
-      "Feature 2",
-      "Feature 3",
-      "Feature 4",
-    ],
-    link: "/pricing/standard",
-  },
-  {
-    id: 3,
-    name: "Premium",
-    price: "$99.99/month",
-    features: [
-      "Feature 1",
-      "Feature 2",
-      "Feature 3",
-      "Feature 4",
-      "Feature 5",
-    ],
-    link: "/pricing/premium",
-  },
-];
-
-const Pricing: React.FC = () => {
-  return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold text-center mb-8">Our Pricing Plans</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {pricingPlans.map((plan) => (
-          <div key={plan.id} className="bg-white shadow-md rounded-lg overflow-hidden">
-            <div className="p-4">
-              <h2 className="text-xl font-bold mb-2">{plan.name}</h2>
-              <p className="text-gray-700 mb-4">{plan.price}</p>
-              <ul className="mb-4">
-                {plan.features.map((feature, index) => (
-                  <li key={index} className="text-gray-700">
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-              <Link href={plan.link} className="text-blue-500 hover:underline">
-                Learn More
-              </Link>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
 };
 
-export default Pricing;
+export default function PricingPage() {
+  return (
+    <div className='text-white p-6 max-w-4xl mx-auto pt-[8rem] lg:pt-[2rem]'>
+      <h1 className='text-3xl font-bold mb-4'>Pricing Plans</h1>
+      <p className='mb-4'>
+        Explore our pricing plans and choose the best one for your needs. We offer a variety of plans to suit different requirements and budgets.
+      </p>
+      <section className='mb-6'>
+        <h2 className='text-2xl font-semibold mb-2'>Basic Plan</h2>
+        <p className='mb-4'>
+          Our Basic Plan is perfect for individuals and small businesses. It includes essential features to get you started.
+        </p>
+        <ul className='list-disc list-inside mb-4'>
+          <li>Feature 1</li>
+          <li>Feature 2</li>
+          <li>Feature 3</li>
+        </ul>
+        <p className='font-bold'>$9.99/month</p>
+      </section>
+      <section className='mb-6'>
+        <h2 className='text-2xl font-semibold mb-2'>Pro Plan</h2>
+        <p className='mb-4'>
+          Our Pro Plan is designed for growing businesses. It includes advanced features to help you scale.
+        </p>
+        <ul className='list-disc list-inside mb-4'>
+          <li>Feature 1</li>
+          <li>Feature 2</li>
+          <li>Feature 3</li>
+          <li>Feature 4</li>
+        </ul>
+        <p className='font-bold'>$29.99/month</p>
+      </section>
+      <section className='mb-6'>
+        <h2 className='text-2xl font-semibold mb-2'>Enterprise Plan</h2>
+        <p className='mb-4'>
+          Our Enterprise Plan is tailored for large organizations. It includes all features and premium support.
+        </p>
+        <ul className='list-disc list-inside mb-4'>
+          <li>Feature 1</li>
+          <li>Feature 2</li>
+          <li>Feature 3</li>
+          <li>Feature 4</li>
+          <li>Feature 5</li>
+        </ul>
+        <p className='font-bold'>$99.99/month</p>
+      </section>
+    </div>
+  );
+}

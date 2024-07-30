@@ -1,5 +1,23 @@
 import React from 'react';
 
+export const metadata = {
+  title: "Terms of Service | Solheim Technologies",
+  description: "Read the terms of service for Solheim Technologies.",
+  openGraph: {
+    title: "Terms of Service | Solheim Technologies",
+    description: "Read the terms of service for Solheim Technologies.",
+    url: 'https://solheimtech.com/terms-of-service',
+    images: [
+      {
+        url: 'https://solheimtech.com/assets/images/ST-Icon.jpg',
+        width: 600,
+        height: 600,
+        alt: 'Solheim Technologies Logo',
+      },
+    ],
+  },
+};
+
 const TermsOfServicePage = () => {
   return (
     <div className='text-white p-6 max-w-4xl mx-auto pt-[8rem] lg:pt-[2rem]'>

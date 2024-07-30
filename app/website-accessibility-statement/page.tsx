@@ -1,5 +1,23 @@
 import React from 'react';
 
+export const metadata = {
+  title: "Website Accessibility Statement | Solheim Technologies",
+  description: "Read the website accessibility statement for Solheim Technologies.",
+  openGraph: {
+    title: "Website Accessibility Statement | Solheim Technologies",
+    description: "Read the website accessibility statement for Solheim Technologies.",
+    url: 'https://solheimtech.com/website-accessibility-statement',
+    images: [
+      {
+        url: 'https://solheimtech.com/assets/images/ST-Icon.jpg',
+        width: 600,
+        height: 600,
+        alt: 'Solheim Technologies Logo',
+      },
+    ],
+  },
+};
+
 const WebsiteAccessibilityStatementPage = () => {
   return (
     <div className='text-white p-6 max-w-4xl mx-auto pt-[8rem] lg:pt-[2rem]'>
