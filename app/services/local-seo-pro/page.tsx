@@ -1,4 +1,5 @@
 import React from "react";
+import { LocalSeoPro } from "@/app/components/LocalSeoPro";
 
 export const metadata = {
   title: "Local SEO Pro | Solheim Technologies",
@@ -18,6 +19,10 @@ export const metadata = {
   },
 };
 
-export default function LocalSEOPro() {
-  return <div>LocalSEOPro</div>;
+export default function LocalSEOProPage() {
+  return (
+    <div>
+      <LocalSeoPro />
+    </div>
+  );
 }
