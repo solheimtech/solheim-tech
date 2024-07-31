@@ -4,12 +4,12 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import StarsBackground from "./components/StarsBackground";
-import logo from "../public/assets/images/ST-Icon.jpg";
+import { Metadata } from "next";
 
-export const metadata = {
+const defaultMetadata: Metadata = {
   title: {
     template: '%s | Solheim Technologies',
-    default: "Solheim Technologies | Custom Software Development", // a default is required when creating a template
+    default: "Solheim Technologies | Custom Software Development",
   },
   description: "Solheim Technologies is a software development company that provides custom software development, web development, and digital marketing solutions.",
   
@@ -31,6 +31,10 @@ export const metadata = {
     ],
   },
 };
+
+export async function generateMetadata(): Promise<Metadata> {
+  return defaultMetadata;
+}
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

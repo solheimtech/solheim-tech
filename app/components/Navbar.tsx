@@ -36,16 +36,16 @@ const Navbar = () => {
       isOpen: servicesSubmenuOpen,
       setIsOpen: setServicesSubmenuOpen,
       sublinks: [
-        { label: "Website Design", href: "/services/website-design" },
-        { label: "Local SEO Pro", href: "/services/local-seo-pro" },
-        { label: "Cloud Hosting", href: "/services/cloud-hosting" },
-        { label: "Content Marketing", href: "/services/content-marketing" },
-        { label: "Graphic Design", href: "/services/graphic-design" },
-        { label: "Search Engine Optimization", href: "/services/search-engine-optimization" },
-        { label: "Social Media", href: "/services/social-media" },
-        { label: "Technology Management", href: "/services/technology-management" },
-        { label: "Website Management", href: "/services/website-management" },
-        { label: "Aerial Photos and Videos", href: "/services/aerial-photography-and-videography" }
+        { label: "Website Design", href: "/services/website-design", slug: "website-design" },
+        { label: "Local SEO Pro", href: "/services/local-seo-pro", slug: "local-seo-pro" },
+        { label: "Cloud Hosting", href: "/services/cloud-hosting", slug: "cloud-hosting" },
+        { label: "Content Marketing", href: "/services/content-marketing", slug: "content-marketing" },
+        { label: "Graphic Design", href: "/services/graphic-design", slug: "graphic-design" },
+        { label: "Search Engine Optimization", href: "/services/search-engine-optimization", slug: "search-engine-optimization" },
+        { label: "Social Media", href: "/services/social-media", slug: "social-media" },
+        { label: "Technology Management", href: "/services/technology-management", slug: "technology-management" },
+        { label: "Website Management", href: "/services/website-management", slug: "website-management" },
+        { label: "Aerial Photos and Videos", href: "/services/aerial-photography-and-videography", slug: "aerial-photography-and-videography" }
       ]
     },
     {

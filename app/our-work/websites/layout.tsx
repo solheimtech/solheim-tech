@@ -8,4 +8,3 @@ export const generateMetadata = async (): Promise<Metadata> => {
 export default function WebsitesLayout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
- 
