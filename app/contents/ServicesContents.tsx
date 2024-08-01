@@ -25,7 +25,7 @@ const serviceItems: ServiceItem[] = [
     id: 1,
     slug: "local-seo-pro",
     modelUrl: '/assets/3d/scene.gltf',
-    imgSrc: "/assets/images/unlock-potential.png",
+    imgSrc: "/assets/images/local-seo-pro.svg",
     alt: "A service image",
     header: {
         title: "Dominate Local Search with Our SEO Expertise",
@@ -51,7 +51,7 @@ const serviceItems: ServiceItem[] = [
   {
     id: 2,
     slug: "website-design",
-    imgSrc: "/assets/images/website-design.png",
+    imgSrc: "/assets/images/web-design.svg",
     alt: "A website design service image",
     header: {
         title: "Transform Your Online Presence with Our Website Design Services",
@@ -77,7 +77,7 @@ const serviceItems: ServiceItem[] = [
   {
     id: 3,
     slug: "cloud-hosting",
-    imgSrc: "/assets/images/cloud-hosting.png",
+    imgSrc: "/assets/images/cloud-hosting.svg",
     alt: "A cloud hosting service image",
     header: {
         title: "Reliable and Scalable Cloud Hosting Solutions",
@@ -103,7 +103,7 @@ const serviceItems: ServiceItem[] = [
   {
     id: 4,
     slug: "content-marketing",
-    imgSrc: "/assets/images/content-marketing.png",
+    imgSrc: "/assets/images/content-marketing.svg",
     alt: "A content marketing service image",
     header: {
         title: "Craft Compelling Content to Engage Your Audience",
@@ -129,7 +129,7 @@ const serviceItems: ServiceItem[] = [
   {
     id: 5,
     slug: "graphic-design",
-    imgSrc: "/assets/images/graphic-design.png",
+    imgSrc: "/assets/images/graphic-design.svg",
     alt: "A graphic design service image",
     header: {
         title: "Elevate Your Brand with Our Graphic Design Services",
@@ -155,7 +155,7 @@ const serviceItems: ServiceItem[] = [
   {
     id: 6,
     slug: "search-engine-optimization",
-    imgSrc: "/assets/images/search-engine-optimization.png",
+    imgSrc: "/assets/images/search-engine-optimization.svg",
     alt: "A search engine optimization service image",
     header: {
         title: "Boost Your Online Visibility with SEO",
@@ -181,7 +181,7 @@ const serviceItems: ServiceItem[] = [
   {
     id: 7,
     slug: "social-media",
-    imgSrc: "/assets/images/social-media.png",
+    imgSrc: "/assets/images/social-media.svg",
     alt: "A social media service image",
     header: {
         title: "Grow Your Online Presence with Social Media",
@@ -207,7 +207,7 @@ const serviceItems: ServiceItem[] = [
   {
     id: 8,
     slug: "technology-management",
-    imgSrc: "/assets/images/technology-management.png",
+    imgSrc: "/assets/images/technology-management.svg",
     alt: "A technology management service image",
     header: {
         title: "Streamline Your Technology Operations",
@@ -233,7 +233,7 @@ const serviceItems: ServiceItem[] = [
   {
     id: 9,
     slug: "website-management",
-    imgSrc: "/assets/images/website-management.png",
+    imgSrc: "/assets/images/website-management.svg",
     alt: "A website management service image",
     header: {
         title: "Maximize Your Website's Potential",
@@ -259,7 +259,7 @@ const serviceItems: ServiceItem[] = [
   {
     id: 10,
     slug: "aerial-photography-and-videography",
-    imgSrc: "/assets/images/aerial-photography-and-videography.png",
+    imgSrc: "/assets/images/aerial-photography-and-videography.svg",
     alt: "An aerial photography and videography service image",
     header: {
         title: "Capture Your Business from a New Perspective",

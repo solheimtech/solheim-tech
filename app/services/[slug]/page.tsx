@@ -20,17 +20,17 @@ const ServiceDetail = () => {
   }
 
   return (
-    <div className="flex flex-col min-h-[100dvh]">
+    <div className="flex flex-col min-h-[100dvh] pt-[8rem] lg:pt-[0rem]">
     <main className="flex-1 relative overflow-hidden">
       <div className="absolute right-0 top-[-60%] w-1/2 h-[150%] hidden lg:block z-20 pointer-events-auto">
         {item.modelUrl && <SpinningModel url={item.modelUrl} />}
       </div>
       <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 relative z-10">
         <div className="container px-4 md:px-6">
-          <div className="max-w-[50%]">
+          <div className="max-w-full md:max-w-[70%] lg:max-w-[50%]">
             <div className="flex flex-col justify-center space-y-4">
               <div className="space-y-2">
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-white">
+                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-6xl/none text-white">
                   {item.header.title}
                 </h1>
                 <p className="max-w-[600px] text-gray-200 md:text-xl">
@@ -75,14 +75,26 @@ const ServiceDetail = () => {
                   </li>
                 ))}
               </ul>
+              <div className="flex flex-col gap-2 min-[400px]:flex-row pt-4">
+                <Link
+                  href="/meeting/free-consultation"
+                  prefetch={false}
+                  className="inline-flex items-center justify-center rounded-md bg-transparent px-6 py-2 text-lg font-medium text-black border-2 border-black shadow transition-colors hover:bg-black hover:text-white hover:border-white focus-visible:outline-none"
+                >
+                    Schedule a Consultation
+                </Link>
+              </div>
             </div>
-            <Image
-              src={item.imgSrc}
-              width="500"
-              height="500"
-              alt="Features"
-              className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
-            />
+            <div className="w-full max-w-2xl mx-auto" style={{ maxHeight: '500px' }}>
+              <Image
+                src={item.imgSrc}
+                width={400}
+                height={400}
+                alt="Features"
+                className="mx-auto w-full h-auto rounded-xl object-contain sm:w-full lg:order-last"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
+            </div>
           </div>
         </div>
       </section>
