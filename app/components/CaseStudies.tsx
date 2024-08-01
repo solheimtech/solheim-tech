@@ -28,7 +28,18 @@ export default function Component() {
           {caseStudies.map((caseStudy, index) => (
             <Link key={index} href={`/case-studies/${caseStudy.slug}`}>
               <Tilt className="group rounded-lg border bg-background p-6 shadow-sm transition-all hover:border-primary hover:shadow-md">
-                <video src={caseStudy.src} autoPlay muted loop playsInline className="w-full h-full object-cover" />
+                <video
+                  src={caseStudy.src}
+                  muted
+                  loop
+                  playsInline
+                  className="w-full h-full object-cover"
+                  onMouseEnter={(e) => e.currentTarget.play()}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.pause();
+                    e.currentTarget.currentTime = 0;
+                  }}
+                />
                 <div className="space-y-2">
                   <h3 className="text-xl font-semibold group-hover:text-primary pt-4">{caseStudy.title}</h3>
                   <p className="text-muted-foreground">{caseStudy.description}</p>
