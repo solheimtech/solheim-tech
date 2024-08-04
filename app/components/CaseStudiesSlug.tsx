@@ -128,7 +128,7 @@ const CaseStudies: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="flex flex-col items-center w-full mb-8">
               <h3 className="text-lg font-semibold mb-2">User Visits per Month</h3>
-              <ResponsiveContainer width="100%" height={400}>
+              <ResponsiveContainer width="100%" height={400} className="mb-4">
                 <LineChart
                   data={cData}
                   margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
@@ -145,7 +145,7 @@ const CaseStudies: React.FC = () => {
             </div>
             <div className="flex flex-col items-center w-full">
               <h3 className="text-lg font-semibold mb-2">Est. Monthly SEO Clicks Value</h3>
-              <ResponsiveContainer width="100%" height={400}>
+              <ResponsiveContainer width="100%" height={400} className="mb-4">
                 <LineChart
                   data={rData}
                   margin={{ top: 5, right: 30, left: 20, bottom: 5 }}

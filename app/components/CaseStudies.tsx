@@ -33,6 +33,7 @@ export default function Component() {
                   muted
                   loop
                   playsInline
+                  autoPlay={window.innerWidth <= 768}
                   className="w-full h-full object-cover"
                   onMouseEnter={(e) => e.currentTarget.play()}
                   onMouseLeave={(e) => {
