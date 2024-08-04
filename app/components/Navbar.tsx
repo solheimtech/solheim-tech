@@ -62,7 +62,6 @@ const Navbar = () => {
     {
       label: "Case Studies",
       href: "/case-studies",
-      sublinks: []
     },
     {
       label: "Our Work",
@@ -107,13 +106,13 @@ const Navbar = () => {
             >
               <Link href={item.href} className="flex items-center space-x-1 text-white hover:font-semibold relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-gray-50 after:transition-all after:duration-300 hover:after:w-full">
                 <span>{item.label}</span>
-                {item.sublinks.length > 0 && (item.isOpen ? (
+                {item.sublinks && item.sublinks.length > 0 && (item.isOpen ? (
                   <ChevronUpIcon className="h-4 w-4 text-white" />
                 ) : (
                   <ChevronDownIcon className="h-4 w-4 text-white" />
                 ))}
               </Link>
-              {item.sublinks.length > 0 && (
+              {item.sublinks && item.sublinks.length > 0 && (
                 <AnimatePresence>
                   {item.isOpen && (
                     <motion.ul
@@ -140,7 +139,7 @@ const Navbar = () => {
           ))}
         </nav>
       </div>
-      <MobileNav />
+      <MobileNav menuItems={menuItems} />
     </>
   );
 };
