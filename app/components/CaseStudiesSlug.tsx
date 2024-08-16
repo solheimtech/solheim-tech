@@ -8,7 +8,7 @@ import { useWebsiteContents } from '@/app/contents/WebsiteContents';
 import { useLogoContents } from '@/app/contents/LogoContents';
 import { useVideoContents } from '@/app/contents/VideoContents';
 import { motion, AnimatePresence } from 'framer-motion';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine, ResponsiveContainer } from 'recharts';
+import Link from 'next/link';
 
 const CaseStudies: React.FC = () => {
   const { slug } = useParams();
@@ -123,43 +123,15 @@ const CaseStudies: React.FC = () => {
       <section className="w-full py-10 bg-white">
         <div className="container px-4 md:px-6">
           <h2 className="text-[1.75rem] sm:text-[2.5rem] font-bold tracking-tighter text-black text-center pb-4">
-            Performance
+            Schedule a Free Consultation
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="flex flex-col items-center w-full mb-8">
-              <h3 className="text-lg font-semibold mb-2">User Visits per Month</h3>
-              <ResponsiveContainer width="100%" height={400} className="mb-4">
-                <LineChart
-                  data={cData}
-                  margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-                >
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="month" interval={0} tick={{ transform: 'translate(10, 0)' }} />
-                  <YAxis />
-                  <Tooltip />
-                  <Legend />
-                  {caseStudy && <ReferenceLine x={caseStudy.takeover} stroke="red" label="ST Take Over" />}
-                  <Line type="monotone" dataKey="clicks" stroke="#8884d8" activeDot={{ r: 8 }} />
-                </LineChart>
-              </ResponsiveContainer>
-            </div>
-            <div className="flex flex-col items-center w-full">
-              <h3 className="text-lg font-semibold mb-2">Est. Monthly SEO Clicks Value</h3>
-              <ResponsiveContainer width="100%" height={400} className="mb-4">
-                <LineChart
-                  data={rData}
-                  margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-                >
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="month" interval={0} tick={{ transform: 'translate(10, 0)' }} />
-                  <YAxis tickFormatter={(value) => `$${value}`} />
-                  <Tooltip formatter={(value) => `$${value}`} />
-                  <Legend />
-                  {caseStudy && <ReferenceLine x={caseStudy.takeover} stroke="red" label="ST Take Over" />}
-                  <Line type="monotone" dataKey="revenue" stroke="#82ca9d" activeDot={{ r: 8 }} />
-                </LineChart>
-              </ResponsiveContainer>
-            </div>
+          <div className="flex flex-col items-center justify-center space-y-4 text-center">
+            <p className="text-lg text-gray-700">
+              Ready to take your business to the next level? Schedule a free consultation with our experts today and discover how we can help you achieve your goals.
+            </p>
+            <Link href="/meeting/free-consultation" className="px-6 py-3 bg-primary text-white font-semibold rounded-md shadow-md hover:bg-primary-dark transition-all" passHref>
+                Schedule Now
+            </Link>
           </div>
         </div>
       </section>
