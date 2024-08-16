@@ -122,7 +122,7 @@ const Navbar = () => {
                       animate="open"
                       exit="closed"
                       variants={submenuVariants}
-                      transition={{ duration: 0.3 }}
+                      transition={{ duration: 0.05 }}
                     >
                       {item.sublinks.map((sublink, subIndex) => (
                         <li key={subIndex} className="mb-2 last:mb-0">
