@@ -1,11 +1,11 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Membership Plans | Solheim Technologies",
-    description: "Explore our membership plans and choose the best one for your needs.",
+    title: "Solheim Technologies Membership",
+    description: "Get started with a Solheim Technologies Membership for exclusive access to expert technology services, support, and resources tailored for your business growth.",
     openGraph: {
-      title: "Membership Plans | Solheim Technologies",
-      description: "Explore our membership plans and choose the best one for your needs.",
+      title: "Solheim Technologies Membership",
+      description: "Get started with a Solheim Technologies Membership for exclusive access to expert technology services, support, and resources tailored for your business growth.",
       url: 'https://solheimtech.com/membership',
       images: [
         {

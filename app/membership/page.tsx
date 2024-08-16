@@ -26,10 +26,10 @@ const membershipPlans: MembershipPlan[] = [
     description: "5 hours of service with active rollover, WordPress Website Hosting, monthly 30-minute strategy call, graphic design, Local SEO Pro for 1 location, remote PC/Mac support, and technology assistance.",
     price: "$499/month",
     features: [
-      "5 Active Hours of Monthly Service ($750 Value)",
+      "5 Hours of Monthly Service ($750 Value)",
       "Unused Hours Roll Over While Membership Remains Active",
       "Small Business Website Hosting ($49 Value)",
-      "Monthly 30-Minute Strategy Call",
+      "Optional 30-Minute Strategy Call",
       "Priority Support",
       "Graphic Design",
       "Local SEO Pro",
@@ -48,21 +48,21 @@ const membershipPlans: MembershipPlan[] = [
     description: "10 hours of service with active rollover, monthly 30-minute strategy call, communication space, social media management, graphic design, reputation management, review response, SEO, remote PC/Mac support, and technology assistance.",
     price: "$999/month",
     features: [
-      "10 Active Hours of Monthly Service ($1,500 Value)",
+      "10 Hours of Monthly Service ($1,500 Value)",
       "Unused Hours Roll Over While Membership Remains Active",
       "Small Business Website Hosting ($49 Value)",
-      "Monthly 30-Minute Strategy Call",
+      "Optional 30-Minute Strategy Call",
       "Search Engine Optimization (SEO)",
       "Priority Support",
       "Graphic Design",
+      "Local SEO Pro",
       "Reputation Management",
       "Google Business Profile Review Response",
       "Remote PC/Mac Support",
       "Technology Support",
       "Communication Space",
       "Social Media Management",
-      "Website Updates",
-      "Local SEO Pro"
+      "Website Updates"
     ],
     link: "https://pay.solheimtech.com/b/5kA8zB9iA4kL4h25kU",
   },
@@ -76,18 +76,18 @@ const membershipPlans: MembershipPlan[] = [
       "20 Hours of Monthly Service ($3,000 Value)",
       "Unused Hours Roll Over While Membership Remains Active",
       "Small Business Website Hosting ($49 Value)",
-      "Twice Monthly 30-Minute Strategy Calls",
+      "Optional Twice Monthly 30-Minute Strategy Calls",
       "Search Engine Optimization (SEO)",
       "Priority Support",
       "Graphic Design",
+      "Local SEO Pro",
       "Reputation Management",
       "Google Business Profile Review Response",
       "Remote PC/Mac Support",
       "Technology Support",
       "Communication Space",
       "Social Media Management",
-      "Website Updates",
-      "Local SEO Pro"
+      "Website Updates"
     ],
     link: "https://pay.solheimtech.com/b/3cs3fhbqIeZp00M00z",
   },
@@ -108,8 +108,8 @@ export default function Membership() {
     <div className="text-center pb-[10rem] pt-[8rem] lg:pt-[0rem]">
       <div className="flex flex-col items-center justify-start h-[70vh] pt-[8rem]">
         <h1 className="mb-4 text-[2.5rem] sm:text-[5rem] font-bold text-white pb-8">Solheim Technologies Membership</h1>
-        <h2 className="text-[1.5rem] lg:text-[2rem] font-bold text-white pb-8">Unmatched Website Support.  Business & Technology Consulting</h2>
-        <p className="text-white font-light w-[50%]">In the ever-evolving technological landscape, robust support and expert guidance are crucial for success. Recognizing this, Solheim Technologies has created the Solheim Technologies Membership, a subscription offering unparalleled service, strategic benefits, and cutting-edge Search Engine Optimization – all designed to propel your business to the forefront of your industry</p>
+        <h2 className="text-[1.5rem] lg:text-[2rem] font-bold text-white pb-8">Priority Website and Business Technology Management</h2>
+        <p className="text-white font-light w-[50%]">In the rapidly changing digital landscape, comprehensive support and expert guidance are essential for business success. Recognizing this, Solheim Technologies has created the Solheim Technologies Membership, a subscription offering unparalleled service in Website Management, Pay-Per-Click (PPC) advertising, Local SEO, and much more. Our Membership provides strategic benefits and cutting-edge Search Engine Optimization techniques, along with dedicated website maintenance – all designed to elevate your online presence and propel your business to the forefront of your industry.</p>
       </div>
       <div className="flex flex-col items-center justify-center">
         <h2 className="mb-4 text-[2.5rem] lg:text-[3rem] font-bold text-white pb-8">Choose Your Membership Plan</h2>
