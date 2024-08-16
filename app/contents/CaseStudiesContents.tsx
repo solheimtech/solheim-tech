@@ -48,7 +48,7 @@ const items: Item[] = [
     url: "https://chairandtablerentals.com/",
     title: "Royalty Rentals",
     description: "High-quality rental tables, chairs, linens, and more for your event.",
-    result: "25% increase in conversions",
+    result: "Website, SEO, Videography, Technology Consulting",
     type: "video",
     src: "https://cefqtkkupjodlfz5.public.blob.vercel-storage.com/assets/videos/Royalty-Rentals-Website-jRneFuxBSJ5az70PDb5LuCOlOi1tti.mp4",
     imgSrc: "https://solheimtech.com/wp-content/uploads/2023/03/Superstitions-2000.jpg",
@@ -76,7 +76,7 @@ const items: Item[] = [
     url: "https://www.brondeblvdsalon.com/",
     title: "Bronde Blvd Salon",
     description: "Your salon destination for blondes, brunettes, extensions & everything hair!",
-    result: "25% increase in conversions",
+    result: "Website, SEO",
     type: "video",
     src: "https://cefqtkkupjodlfz5.public.blob.vercel-storage.com/assets/videos/Brond-Blvd-Salon-HBb6ebFnXfhGrJbehiBywWN2vE8JvI.mp4",
     imgSrc: "https://solheimtech.com/wp-content/uploads/2023/03/Superstitions-2000.jpg",
@@ -104,7 +104,7 @@ const items: Item[] = [
     url: "https://piefectionaz.com/",
     title: "Piefection AZ",
     description: "Welcome to PIEfection, where pies are made from scratch, with love.",
-    result: "25% increase in conversions",
+    result: "Website, Local SEO",
     type: "video",
     src: "https://cefqtkkupjodlfz5.public.blob.vercel-storage.com/assets/videos/Piefection_Done-HXVCCN8ACm6km38mrN338Ydroy9Pf2.mp4",
     imgSrc: "https://solheimtech.com/wp-content/uploads/2023/03/Superstitions-2000.jpg",
@@ -132,7 +132,7 @@ const items: Item[] = [
     url: "https://sodarush.com/",
     title: "SodaRush",
     description: "Delicious sodas and treats to satisfy your cravings.",
-    result: "25% increase in conversions",
+    result: "Website, SEO, Technology Consulting",
     type: "video",
     src: "https://cefqtkkupjodlfz5.public.blob.vercel-storage.com/assets/videos/SodaRush-pGQgVs3zgbtuKatbjFUjQ4IXzpGvKB.mp4",
     imgSrc: "https://solheimtech.com/wp-content/uploads/2023/03/Superstitions-2000.jpg",
@@ -160,7 +160,7 @@ const items: Item[] = [
     url: "https://rockitlandscapematerials.com/",
     title: "Rock It Landscaping",
     description: "High-quality landscaping materials for your outdoor spaces.",
-    result: "25% increase in conversions",
+    result: "Website, SEO, Logo",
     type: "video",
     src: "https://cefqtkkupjodlfz5.public.blob.vercel-storage.com/assets/videos/Rock-It-F8qCgRF167S6RwyXJ1n5wrj8O9Uzk7.mp4",
     imgSrc: "https://solheimtech.com/wp-content/uploads/2023/03/Superstitions-2000.jpg",
@@ -188,7 +188,7 @@ const items: Item[] = [
     url: "https://tucsoncrowns.com/",
     title: "Tucson Crowns",
     description: "If you are looking to get a dental cap or crown, you have come to the right place.",
-    result: "25% increase in conversions",
+    result: "Website, SEO, Local SEO",
     type: "video",
     src: "https://cefqtkkupjodlfz5.public.blob.vercel-storage.com/assets/videos/Tucson-Crowns-7WS2Zzk822WN2J7VmTqEvTlkLh67o7.mp4",
     imgSrc: "https://solheimtech.com/wp-content/uploads/2023/03/Superstitions-2000.jpg",
@@ -216,7 +216,7 @@ const items: Item[] = [
     url: "https://voicesofchristmas.org/",
     title: "Voices of Christmas",
     description: "Religious community Christmas choir and orchestra.",
-    result: "25% increase in conversions",
+    result: "Non-profit, Website",
     type: "video",
     src: "https://cefqtkkupjodlfz5.public.blob.vercel-storage.com/assets/videos/Voices-Of-Christmas-1Ub6lPZyjlzWCiN3fGxi1wCLSbH0NS.mp4",
     imgSrc: "https://solheimtech.com/wp-content/uploads/2023/03/Superstitions-2000.jpg",
@@ -244,7 +244,7 @@ const items: Item[] = [
     url: "https://vigilantmortgageconsulting.com/",
     title: "Vigilant Mortgage Consulting",
     description: "Expert Mortgage Consulting for Realtors, Home Owners, and Professionals.",
-    result: "25% increase in conversions",
+    result: "Website, Logo",
     type: "video",
     src: "https://cefqtkkupjodlfz5.public.blob.vercel-storage.com/assets/videos/Vigilant-Mortgage-Consult-HZpwLAyvPm4UHC1RPjRysDdyUWZIap.mp4",
     imgSrc: "https://solheimtech.com/wp-content/uploads/2023/03/Superstitions-2000.jpg",
@@ -272,7 +272,7 @@ const items: Item[] = [
     url: "https://showtimeautoglass.us/",
     title: "Showtime Auto Glass",
     description: "ShowTime Auto Glass is your premier family owned & operated auto glass company.",
-    result: "25% increase in conversions",
+    result: "Website, SEO, Local SEO, Google Ads",
     type: "video",
     src: "https://cefqtkkupjodlfz5.public.blob.vercel-storage.com/assets/videos/Showtime-Auto-Glass-WpfVw58K8zdrstUHsxeZIR5BdnDdVU.mp4",
     imgSrc: "https://solheimtech.com/wp-content/uploads/2023/03/Superstitions-2000.jpg",
@@ -296,12 +296,12 @@ const items: Item[] = [
     }
   },
 ];
-
 const CaseStudiesContentsContext = createContext<Item[]>(items);
 
 export const useCaseStudiesContents = () => {
   const context = useContext(CaseStudiesContentsContext);
   const [cachedVideos, setCachedVideos] = useState<Set<string>>(new Set());
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   useEffect(() => {
     const videoElements: HTMLVideoElement[] = [];
@@ -335,7 +335,44 @@ export const useCaseStudiesContents = () => {
     };
   }, [context, cachedVideos]);
 
-  return { context, cachedVideos };
+  const handleCardHover = (id: number | null) => {
+    setHoveredCard(id);
+    if (id !== null) {
+      playVideo(id);
+    } else {
+      pauseAllVideos();
+    }
+  };
+
+  const playVideo = (id: number) => {
+    const videoElement = document.querySelector(`#video-${id}`) as HTMLVideoElement;
+    if (videoElement) {
+      videoElement.play().catch(error => console.error('Error playing video:', error));
+    }
+  };
+
+  const pauseVideo = (id: number) => {
+    const videoElement = document.querySelector(`#video-${id}`) as HTMLVideoElement;
+    if (videoElement) {
+      videoElement.pause();
+      videoElement.currentTime = 0;
+    }
+  };
+
+  const pauseAllVideos = () => {
+    context.forEach(item => {
+      pauseVideo(item.id);
+    });
+  };
+
+  return { 
+    context, 
+    cachedVideos, 
+    hoveredCard, 
+    handleCardHover,
+    playVideo,
+    pauseVideo
+  };
 };
 
 export const CaseStudiesContentsProvider = ({ children }: { children: ReactNode }) => {
