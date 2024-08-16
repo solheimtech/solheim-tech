@@ -51,13 +51,6 @@ const Navbar = () => {
     {
       label: "Membership",
       href: "/membership",
-      isOpen: membershipSubmenuOpen,
-      setIsOpen: setMembershipSubmenuOpen,
-      sublinks: [
-        { label: "How it Works", href: "/membership/benefits" },
-        { label: "Components", href: "/membership/components" },
-        { label: "Testimonials", href: "/membership/testimonials" }
-      ]
     },
     {
       label: "Case Studies",
