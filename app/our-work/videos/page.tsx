@@ -1,5 +1,5 @@
 import Videos from "@/app/components/Videos";
-
+import CallToAction from "@/app/components/CallToAction";
 export const metadata = {
   title: "Videos | Solheim Technologies",
   description: "Explore our video gallery and watch the stories we've captured.",
@@ -19,5 +19,15 @@ export const metadata = {
 };
 
 export default function VideosPage() {
-  return <Videos />;
+  return (
+    <>
+      <Videos />
+      <CallToAction
+        title="Ready to get started?"
+        description="Schedule your free consultation today!"
+        buttonText="Schedule Your Free Consultation"
+        buttonLink="/meeting/free-consultation"
+      />
+    </>
+  );
 }

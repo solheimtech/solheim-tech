@@ -64,7 +64,6 @@ const Navbar = () => {
       sublinks: [
         { label: "Websites", href: "/our-work/websites" },
         { label: "Logos", href: "/our-work/logos" },
-        { label: "Photos", href: "/our-work/photos" },
         { label: "Videos", href: "/our-work/videos" }
       ]
     },

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { Parallax, ParallaxProvider } from "react-scroll-parallax";
 import { DirectionAwareHover } from "@/app/components/ui/img-web-card-hover";
 import { useWebsiteContents } from '@/app/contents/WebsiteContents';
-
+import CallToAction from "@/app/components/CallToAction";
 export default function WebsitesPage() {
   const { context: items } = useWebsiteContents();
 
@@ -28,7 +28,13 @@ export default function WebsitesPage() {
           </Parallax>
         ))}
       </div>
-    </ParallaxProvider>
+      </ParallaxProvider>
+      <CallToAction
+        title="Ready to get started?"
+        description="Schedule your free consultation today!"
+        buttonText="Schedule Your Free Consultation"
+        buttonLink="/meeting/free-consultation"
+      />
     </div>
   );
 }

@@ -7,7 +7,7 @@ import { useLogoContents } from "@/app/contents/LogoContents";
 import { usePhotoContents } from "@/app/contents/PhotoContents";
 import { useVideoContents } from "@/app/contents/VideoContents";
 import CountUp from 'react-countup';
-
+import CallToAction from "@/app/components/CallToAction";
 const OurWork = () => {
   const websiteContents = useWebsiteContents().context;
   const logoContents = useLogoContents().context;
@@ -31,11 +31,6 @@ const OurWork = () => {
       title: "Logos",
     },
     {
-      slug: "photos",
-      preview: firstFourPhotoContents.length > 0 ? firstFourPhotoContents.map((content: any) => content.src).filter((src: any): src is string => !!src ) : [],
-      title: "Photos",
-    },
-    {
       slug: "videos",
       preview: firstFourVideoContents.length > 0 ? firstFourVideoContents.map((content: any) => content.src).filter((src: any): src is string => !!src) : [],
       title: "Videos",
@@ -45,7 +40,7 @@ const OurWork = () => {
   const completedWork = useMemo(() => [
     {
       title: "Monthly Managed Sites",
-      number: 80,
+      number: 117,
     },
     {
       title: "Completed Projects",
@@ -53,11 +48,11 @@ const OurWork = () => {
     },
     {
       title: "Years in Business",
-      number: 11,
+      number: 12,
     },
     {
       title: "Projects in Development",
-      number: 5,
+      number: 7,
     }
   ], []);
 
@@ -90,7 +85,7 @@ const OurWork = () => {
         <h1 className="text-[2.5rem] sm:text-[5rem] text-white font-bold text-center">Our Work</h1>
         <p className="text-center text-gray-200">We have worked with many clients and have a wide range of projects.</p>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
         {projects.map((project, index) => (
           <WorkDisplayCard key={`${project.slug}-${index}`} project={{ ...project, preview: project.preview.filter((video: any) => video !== undefined) }} />
         ))}
@@ -110,6 +105,12 @@ const OurWork = () => {
           </div>
         ))}
       </div>
+      <CallToAction
+        title="Ready to get started?"
+        description="Schedule your free consultation today!"
+        buttonText="Schedule Your Free Consultation"
+        buttonLink="/meeting/free-consultation"
+      />  
     </div>
   );
 }

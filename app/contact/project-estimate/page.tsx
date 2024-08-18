@@ -184,7 +184,7 @@ const ProjectEstimate = () => {
       <div className="flex justify-center">
         {isFormVisible ? (
           <div className="w-full md:w-1/2 bg-white p-10 rounded-lg">
-            <h2 className="text-2xl font-semibold mb-4 text-black">Get a quote today!</h2>
+            <h2 className="text-2xl font-semibold mb-4 text-black">Provide Your Project Details</h2>
             <form className="space-y-4" onSubmit={handleSubmit}>
               <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
                 <div className="w-full md:w-1/2">
@@ -268,15 +268,15 @@ const ProjectEstimate = () => {
                 <div className="mt-1">
                   <div className="flex items-center">
                     <input type="checkbox" id="service1" name="service" value="wordpress-website-design" className="text-black" onChange={handleCheckboxChange} />
-                    <label htmlFor="service1" className="ml-2 block text-sm text-black">WordPress Website Design & Build</label>
+                    <label htmlFor="service1" className="ml-2 block text-sm text-black">Website Design & Build (WordPress or Next.js)</label>
                   </div>
                   <div className="flex items-center mt-2">
                     <input type="checkbox" id="service2" name="service" value="wordpress-hosting" className="text-black" onChange={handleCheckboxChange} />
-                    <label htmlFor="service2" className="ml-2 block text-sm text-black">WordPress Hosting</label>
+                    <label htmlFor="service2" className="ml-2 block text-sm text-black">Hosting (WordPress or Next.js)</label>
                   </div>
                   <div className="flex items-center mt-2">
                     <input type="checkbox" id="service3" name="service" value="wordpress-management" className="text-black" onChange={handleCheckboxChange} />
-                    <label htmlFor="service3" className="ml-2 block text-sm text-black">WordPress Website Management</label>
+                    <label htmlFor="service3" className="ml-2 block text-sm text-black">Website Management (WordPress or Next.js)</label>
                   </div>
                   <div className="flex items-center mt-2">
                     <input type="checkbox" id="service4" name="service" value="local-seo-pro" className="text-black" onChange={handleCheckboxChange} />
@@ -310,7 +310,7 @@ const ProjectEstimate = () => {
               
               <div>
                 <button type="submit" className="w-full inline-flex justify-center py-2 px-4 shadow-sm text-sm font-medium rounded-md text-black bg-white border-black border hover:bg-black hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black">
-                  Send Message
+                  Submit Project Details
                 </button>
               </div>
             </form>

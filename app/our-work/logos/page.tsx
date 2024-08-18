@@ -1,4 +1,6 @@
 import Logos from "@/app/components/Logos";
+import CallToAction from "@/app/components/CallToAction";
+
 export const metadata = {
   title: "Logos | Solheim Technologies",
   description: "Explore our logo designs and see the creative work we've done.",
@@ -18,5 +20,15 @@ export const metadata = {
 };
 
 export default function LogosPage() {
-  return <Logos />;
+  return (
+    <>
+      <Logos />
+      <CallToAction
+        title="Ready to get started?"
+        description="Schedule your free consultation today!"
+        buttonText="Schedule Your Free Consultation"
+        buttonLink="/meeting/free-consultation"
+      />
+    </>
+  );
 }
