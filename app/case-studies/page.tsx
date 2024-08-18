@@ -1,5 +1,5 @@
 import CaseStudies from '@/app/components/CaseStudies';
-
+import CallToAction from '@/app/components/CallToAction';
 export const metadata = {
   title: "Case Studies | Solheim Technologies",
   description: "Explore our case studies and see how we've helped businesses succeed.",
@@ -24,6 +24,12 @@ export default function Component() {
   return (
     <div>
       <CaseStudies />
+      <CallToAction
+        title="Ready to get started?"
+        description="Schedule your free consultation today!"
+        buttonText="Schedule Your Free Consultation"
+        buttonLink="/meeting/free-consultation"
+      />
     </div>
   );
 }

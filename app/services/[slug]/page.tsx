@@ -4,7 +4,7 @@ import { useServicesContents } from '@/app/contents/ServicesContents';
 import Image from 'next/image';
 import Link from 'next/link';
 import SpinningModel from '@/app/components/ThreeDModelSpinning';
-
+import CallToAction from '@/app/components/CallToAction';
 const ServiceDetail = () => {
   const { slug } = useParams();
   const { context: items } = useServicesContents();
@@ -21,7 +21,7 @@ const ServiceDetail = () => {
 
   return (
     <div className="flex flex-col min-h-[100dvh] pt-[8rem] lg:pt-[0rem]">
-    <main className="flex-1 relative overflow-hidden">
+    <div className="flex-1 relative overflow-hidden">
       <div className="absolute right-0 top-[-60%] w-1/2 h-[150%] hidden lg:block z-20 pointer-events-auto">
         {item.modelUrl && <SpinningModel url={item.modelUrl} />}
       </div>
@@ -98,8 +98,14 @@ const ServiceDetail = () => {
           </div>
         </div>
       </section>
-    </main>
-  </div>
+    </div>
+    <CallToAction 
+      title="Ready to get started?"
+      description="Schedule your free consultation today!"
+      buttonText="Schedule Your Free Consultation"
+      buttonLink="/meeting/free-consultation"
+    /> 
+    </div>
   );
 };
 
