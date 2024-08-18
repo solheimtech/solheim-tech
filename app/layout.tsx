@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import StarsBackground from "./components/StarsBackground";
 import { Metadata } from "next";
+import { Analytics } from '@vercel/analytics/react';
 
 const defaultMetadata: Metadata = {
   title: {
@@ -40,6 +41,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
+        
         <StarsBackground />
         <header className="relative z-10">
           <Header />
@@ -52,7 +54,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </div>
         <div className="relative z-10">
           <Footer />
+          
         </div>
+        <Analytics />
       </body>
     </html>
   );
