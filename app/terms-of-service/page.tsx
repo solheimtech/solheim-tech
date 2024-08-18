@@ -21,13 +21,13 @@ export const metadata = {
 const TermsOfServicePage = () => {
   return (
     <div className='text-white p-6 max-w-4xl mx-auto pt-[8rem] lg:pt-[2rem]'>
-      <h1 className='text-3xl font-bold mb-4'>GENERAL TERMS OF SERVICE</h1>
-      <p className='mb-4'>Last Updated 9/14/23</p>
+      <h1 className='text-3xl font-bold mb-4'>TERMS OF SERVICE</h1>
+      <p className='mb-4'>Last Updated 08/18/24</p>
       
       <section className='mb-6'>
         <h2 className='text-2xl font-semibold mb-2'>OVERVIEW</h2>
         <p className='mb-4'>
-          This website is operated by Solheim Technologies. Throughout the site, the terms “we”, “us” and “our” refer to Solheim Technologies. Solheim Technologies offers this website, including all information, tools and services available from this site to you, the user, conditioned upon your acceptance of all terms, conditions, policies and notices stated here. By visiting our site and/ or purchasing something from us, you engage in our “Service” and agree to be bound by the following terms and conditions (“Terms of Service”, “Terms”), including those additional terms and conditions and policies referenced herein and/or available by hyperlink. These Terms of Service apply to all users of the site, including without limitation users who are browsers, vendors, customers, merchants, and/ or contributors of content. Please read these Terms of Service carefully before accessing or using our website. By accessing or using any part of the site, you agree to be bound by these Terms of Service. If you do not agree to all the terms and conditions of this agreement, then you may not access the website or use any services. If these Terms of Service are considered an offer, acceptance is expressly limited to these Terms of Service. Any new features or tools which are added to the current site shall also be subject to the Terms of Service. You can review the most current version of the Terms of Service at any time on this page. We reserve the right to update, change or replace any part of these Terms of Service by posting updates and/or changes to our website. It is your responsibility to check this page periodically for changes. Your continued use of or access to the website following the posting of any changes constitutes acceptance of those changes.
+          This website is operated by Solheim Technologies. Throughout the site, the terms &quot;we&quot;, &quot;us&quot; and &quot;our&quot; refer to Solheim Technologies. Solheim Technologies offers this website, including all information, tools and services available from this site to you, the user, conditioned upon your acceptance of all terms, conditions, policies and notices stated here. By visiting our site and/ or purchasing something from us, you engage in our &quot;Service&quot; and agree to be bound by the following terms and conditions (&quot;Terms of Service&quot;, &quot;Terms&quot;), including those additional terms and conditions and policies referenced herein and/or available by hyperlink. These Terms of Service apply to all users of the site, including without limitation users who are browsers, vendors, customers, merchants, and/ or contributors of content. Please read these Terms of Service carefully before accessing or using our website. By accessing or using any part of the site, you agree to be bound by these Terms of Service. If you do not agree to all the terms and conditions of this agreement, then you may not access the website or use any services. If these Terms of Service are considered an offer, acceptance is expressly limited to these Terms of Service. Any new features or tools which are added to the current site shall also be subject to the Terms of Service. You can review the most current version of the Terms of Service at any time on this page. We reserve the right to update, change or replace any part of these Terms of Service by posting updates and/or changes to our website. It is your responsibility to check this page periodically for changes. Your continued use of or access to the website following the posting of any changes constitutes acceptance of those changes.
         </p>
       </section>
 
@@ -62,21 +62,21 @@ const TermsOfServicePage = () => {
       <section className='mb-6'>
         <h2 className='text-2xl font-semibold mb-2'>SECTION 5 – PRODUCTS OR SERVICES</h2>
         <p className='mb-4'>
-          Certain products or services may be available exclusively online through the website. These products or services may have limited quantities and are subject to return or exchange only according to our Return Policy. We have made every effort to display as accurately as possible the colors and images of our products that appear at the store. We cannot guarantee that your computer monitor’s display of any color will be accurate. We reserve the right, but are not obligated, to limit the sales of our products or Services to any person, geographic region or jurisdiction. We may exercise this right on a case-by-case basis. We reserve the right to limit the quantities of any products or services that we offer. All descriptions of products or product pricing are subject to change at anytime without notice, at the sole discretion of us. We reserve the right to discontinue any product at any time. Any offer for any product or service made on this site is void where prohibited. We do not warrant that the quality of any products, services, information, or other material purchased or obtained by you will meet your expectations, or that any errors in the Service will be corrected.
+          Certain products or services may be available exclusively online through the website. These products or services may have limited quantities and are subject to return or exchange only according to our Return Policy. We have made every effort to display as accurately as possible the colors and images of our products that appear at the store. We cannot guarantee that your computer monitor&apos;s display of any color will be accurate. We reserve the right, but are not obligated, to limit the sales of our products or Services to any person, geographic region or jurisdiction. We may exercise this right on a case-by-case basis. We reserve the right to limit the quantities of any products or services that we offer. All descriptions of products or product pricing are subject to change at anytime without notice, at the sole discretion of us. We reserve the right to discontinue any product at any time. Any offer for any product or service made on this site is void where prohibited. We do not warrant that the quality of any products, services, information, or other material purchased or obtained by you will meet your expectations, or that any errors in the Service will be corrected.
         </p>
       </section>
 
       <section className='mb-6'>
         <h2 className='text-2xl font-semibold mb-2'>SECTION 5.1 YOUR WEBSITE DEFINITION AND TERMS</h2>
         <p className='mb-4'>
-          You understand that “Your Website” refers to the website that Solheim Technologies creates for the client. You understand that we may use pictures and content from Your Website to promote our products and or services. You understand that you may discontinue service with Solheim Technologies at any time, and request a copy of your website in the form of a downloadable link prior to the transfer.
+          You understand that &quot;Your Website&quot; refers to the website that Solheim Technologies creates for the client. You understand that we may use pictures and content from Your Website to promote our products and/or services. You understand that you may discontinue service with Solheim Technologies at any time, and request a copy of your website in the form of a downloadable link prior to the transfer.
         </p>
       </section>
 
       <section className='mb-6'>
         <h2 className='text-2xl font-semibold mb-2'>SECTION 5.2 BILLING AND SUBSCRIPTION TO YOUR WEBSITE</h2>
         <p className='mb-4'>
-          You understand that your website monthly pricing is defined by the options selected during checkout, and there is no refund of monthly services, as it is a digital service that is rendered. Should you wish to cancel your subscription, please call (480) 864-5117 between the hours of 9 AM and 5 PM Arizona Mountain Standard Time Monday through Friday. We have a You’ll Love It™ guarantee, and as such any amount billed for monthly service is non-refundable.
+          You understand that your website monthly pricing is defined by the options selected during checkout, and there is no refund of monthly services, as it is a digital service that is rendered. Should you wish to cancel your subscription, please call (480) 864-5117 between the hours of 9 AM and 5 PM Arizona Mountain Standard Time Monday through Friday. We have a You&apos;ll Love It™ guarantee, and as such any amount billed for monthly service is non-refundable.
         </p>
       </section>
 
@@ -90,21 +90,21 @@ const TermsOfServicePage = () => {
       <section className='mb-6'>
         <h2 className='text-2xl font-semibold mb-2'>SECTION 7 – OPTIONAL TOOLS</h2>
         <p className='mb-4'>
-          We may provide you with access to third-party tools over which we neither monitor nor have any control nor input. You acknowledge and agree that we provide access to such tools ”as is” and “as available” without any warranties, representations or conditions of any kind and without any endorsement. We shall have no liability whatsoever arising from or relating to your use of optional third-party tools. Any use by you of optional tools offered through the site is entirely at your own risk and discretion and you should ensure that you are familiar with and approve of the terms on which tools are provided by the relevant third-party provider(s). We may also, in the future, offer new services and/or features through the website (including, the release of new tools and resources). Such new features and/or services shall also be subject to these Terms of Service.
+          We may provide you with access to third-party tools over which we neither monitor nor have any control nor input. You acknowledge and agree that we provide access to such tools &quot;as is&quot; and &quot;as available&quot; without any warranties, representations or conditions of any kind and without any endorsement. We shall have no liability whatsoever arising from or relating to your use of optional third-party tools. Any use by you of optional tools offered through the site is entirely at your own risk and discretion and you should ensure that you are familiar with and approve of the terms on which tools are provided by the relevant third-party provider(s). We may also, in the future, offer new services and/or features through the website (including, the release of new tools and resources). Such new features and/or services shall also be subject to these Terms of Service.
         </p>
       </section>
 
       <section className='mb-6'>
         <h2 className='text-2xl font-semibold mb-2'>SECTION 8 – THIRD-PARTY LINKS</h2>
         <p className='mb-4'>
-          Certain content, products and services available via our Service may include materials from third-parties. Third-party links on this site may direct you to third-party websites that are not affiliated with us. We are not responsible for examining or evaluating the content or accuracy and we do not warrant and will not have any liability or responsibility for any third-party materials or websites, or for any other materials, products, or services of third-parties. We are not liable for any harm or damages related to the purchase or use of goods, services, resources, content, or any other transactions made in connection with any third-party websites. Please review carefully the third-party’s policies and practices and make sure you understand them before you engage in any transaction. Complaints, claims, concerns, or questions regarding third-party products should be directed to the third-party.
+          Certain content, products and services available via our Service may include materials from third-parties. Third-party links on this site may direct you to third-party websites that are not affiliated with us. We are not responsible for examining or evaluating the content or accuracy and we do not warrant and will not have any liability or responsibility for any third-party materials or websites, or for any other materials, products, or services of third-parties. We are not liable for any harm or damages related to the purchase or use of goods, services, resources, content, or any other transactions made in connection with any third-party websites. Please review carefully the third-party&apos;s policies and practices and make sure you understand them before you engage in any transaction. Complaints, claims, concerns, or questions regarding third-party products should be directed to the third-party.
         </p>
       </section>
 
       <section className='mb-6'>
         <h2 className='text-2xl font-semibold mb-2'>SECTION 9 – USER COMMENTS, FEEDBACK AND OTHER SUBMISSIONS</h2>
         <p className='mb-4'>
-          If, at our request, you send certain specific submissions (for example contest entries) or without a request from us you send creative ideas, suggestions, proposals, plans, or other materials, whether online, by email, by postal mail, or otherwise (collectively, ‘comments’), you agree that we may, at any time, without restriction, edit, copy, publish, distribute, translate and otherwise use in any medium any comments that you forward to us. We are and shall be under no obligation (1) to maintain any comments in confidence; (2) to pay compensation for any comments; or (3) to respond to any comments. We may, but have no obligation to, monitor, edit or remove content that we determine in our sole discretion are unlawful, offensive, threatening, libelous, defamatory, pornographic, obscene or otherwise objectionable or violates any party’s intellectual property or these Terms of Service. You agree that your comments will not violate any right of any third-party, including copyright, trademark, privacy, personality or other personal or proprietary right. You further agree that your comments will not contain libelous or otherwise unlawful, abusive or obscene material, or contain any computer virus or other malware that could in any way affect the operation of the Service or any related website. You may not use a false e-mail address, pretend to be someone other than yourself, or otherwise mislead us or third-parties as to the origin of any comments. You are solely responsible for any comments you make and their accuracy. We take no responsibility and assume no liability for any comments posted by you or any third-party.
+          If, at our request, you send certain specific submissions (for example contest entries) or without a request from us you send creative ideas, suggestions, proposals, plans, or other materials, whether online, by email, by postal mail, or otherwise (collectively, &#39;comments&#39;), you agree that we may, at any time, without restriction, edit, copy, publish, distribute, translate and otherwise use in any medium any comments that you forward to us. We are and shall be under no obligation (1) to maintain any comments in confidence; (2) to pay compensation for any comments; or (3) to respond to any comments. We may, but have no obligation to, monitor, edit or remove content that we determine in our sole discretion are unlawful, offensive, threatening, libelous, defamatory, pornographic, obscene or otherwise objectionable or violates any party&#39;s intellectual property or these Terms of Service. You agree that your comments will not violate any right of any third-party, including copyright, trademark, privacy, personality or other personal or proprietary right. You further agree that your comments will not contain libelous or otherwise unlawful, abusive or obscene material, or contain any computer virus or other malware that could in any way affect the operation of the Service or any related website. You may not use a false e-mail address, pretend to be someone other than yourself, or otherwise mislead us or third-parties as to the origin of any comments. You are solely responsible for any comments you make and their accuracy. We take no responsibility and assume no liability for any comments posted by you or any third-party.
         </p>
       </section>
 
@@ -185,11 +185,11 @@ const TermsOfServicePage = () => {
         </p>
       </section>
 
-      <section className='mb-6'>
+      <section className='mt-20 mb-6'>
         <h2 className='text-2xl font-semibold mb-2'>Terms of Service for Solheim Technologies Membership Plans</h2>
         <h3 className='text-xl font-semibold mb-2'>Introduction</h3>
         <p className='mb-4'>
-          This Terms of Service Agreement (“Agreement”) governs your membership with Solheim Technologies (“the Company,” “we,” “us,” or “our”) and outlines the benefits and obligations associated with your membership. By purchasing and utilizing a Solheim Technologies membership, you (“Member,” “you,” or “your”) agree to comply with the terms and conditions set forth herein.
+          This Terms of Service Agreement (&quot;Agreement&quot;) governs your membership with Solheim Technologies (&quot;the Company,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) and outlines the benefits and obligations associated with your membership. By purchasing and utilizing a Solheim Technologies membership, you (&quot;Member,&quot; &quot;you,&quot; or &quot;your&quot;) agree to comply with the terms and conditions set forth herein.
         </p>
       </section>
 
@@ -199,117 +199,78 @@ const TermsOfServicePage = () => {
           <strong>1.1 Types of Membership Plans:</strong> Solheim Technologies offers various tiered membership plans, each featuring a predetermined number of monthly service hours and associated benefits. The membership plans are categorized as follows:
         </p>
         <ul className='list-disc list-inside mb-4'>
-          <li>Basic Membership: $500 per month, inclusive of 5 active service hours valued at $750.</li>
-          <li>Premium Membership: $1,000 per month, inclusive of 10 active service hours valued at $1,500.</li>
-          <li>Pro Membership: $2,000 per month, inclusive of 20 active service hours valued at $3,000.</li>
-          <li>Elite Membership: $4,000 per month, inclusive of 40 active service hours valued at $6,000.</li>
+          <li>Basic Membership: $499 per month, inclusive of 5 active service hours valued at $750.</li>
+          <li>Premium Membership: $999 per month, inclusive of 10 active service hours valued at $1,500.</li>
+          <li>Pro Membership: $1,999 per month, inclusive of 20 active service hours valued at $3,000.</li>
+          <li>Elite Membership: $3,999 per month, inclusive of 40 active service hours valued at $6,000.</li>
         </ul>
         <p className='mb-4'>
-          <strong>1.2 Payment and Refunds:</strong> Membership fees are non-refundable and will be billed monthly in advance.
+          <strong>1.2 Primary and Secondary Hours:</strong> Each membership plan includes a set number of guaranteed &quot;primary&quot; hours per month:
+        </p>
+        <ul className='list-disc list-inside mb-4'>
+          <li>Basic Membership: 5 primary hours</li>
+          <li>Premium Membership: 10 primary hours</li>
+          <li>Pro Membership: 20 primary hours</li>
+          <li>Elite Membership: 40 primary hours</li>
+        </ul>
+        <p className='mb-4'>
+          <strong>1.3 Rollover and Secondary Hours:</strong> Any unused primary hours at the end of each month will automatically roll over into a reserve account, becoming &quot;secondary&quot; hours. These secondary hours can be used in future months if primary hours are exhausted.
         </p>
         <p className='mb-4'>
-          <strong>1.3 Price Adjustments:</strong> Solheim Technologies reserves the right to modify the pricing and benefits of the membership plans, effective upon providing a 30-day written notice to existing members.
+          <strong>1.4 Hour Usage Priority:</strong> Primary hours are always used first and are prioritized across all client accounts. Once primary hours are exhausted for a given month, secondary hours will be used.
+        </p>
+        <p className='mb-4'>
+          <strong>1.5 Secondary Hour Retention and Forfeiture:</strong> Secondary hours do not expire as long as the membership remains active. However, to retain accrued secondary hours, members must maintain an active membership without interruption. If a membership is cancelled or terminated for any reason, all accrued secondary hours will be immediately forfeited without compensation.
+        </p>
+        <p className='mb-4'>
+          <strong>1.6 Payment and Refunds:</strong> Membership fees are non-refundable and will be billed monthly in advance. The membership fee secures your primary hours for the month, regardless of usage.
+        </p>
+        <p className='mb-4'>
+          <strong>1.7 Price Adjustments:</strong> Solheim Technologies reserves the right to modify the pricing, number of primary hours, and benefits of the membership plans, effective upon providing a 30-day written notice to existing members.
         </p>
       </section>
 
       <section className='mb-6'>
         <h2 className='text-2xl font-semibold mb-2'>SECTION 2 – MEMBERSHIP BENEFITS</h2>
         <p className='mb-4'>
-          <strong>2.1 Priority Support:</strong> Members receive expedited assistance to ensure optimal business performance.
+          <strong>2.1 Service Hours:</strong> Members receive a set number of primary service hours each month as outlined in the &quot;Primary and Secondary Hours&quot; section. These hours can be used for various services provided by Solheim Technologies, including but not limited to:
+        </p>
+        <ul className='list-disc list-inside mb-4'>
+          <li>Website development and maintenance</li>
+          <li>Graphic design</li>
+          <li>SEO (Search Engine Optimization)</li>
+          <li>Social media management</li>
+          <li>Technology support</li>
+        </ul>
+        <p className='mb-4'>
+          <strong>2.2 Priority Support:</strong> Members receive expedited assistance to ensure optimal business performance. Primary hours are prioritized over secondary hours, and over non-member requests.
         </p>
         <p className='mb-4'>
-          <strong>2.2 Monthly Strategy Calls:</strong> Basic and Premium members are entitled to one strategy call per month, valued at $250. Pro members receive two strategy calls per month and Elite members receive four strategy calls per month.
+          <strong>2.3 Communication Methods:</strong> Solheim Technologies utilizes synchronous communication tools such as email and video walkthroughs to provide efficient and effective service. These methods allow for clear communication and documentation of tasks and progress.
         </p>
         <p className='mb-4'>
-          <strong>2.3 Search Engine Optimization (SEO):</strong> Expert SEO services are provided to enhance your online visibility and organic traffic.
+          <strong>2.4 Usage of Hours:</strong> Primary and secondary hours can be used for executing tasks and projects as communicated through our synchronous tools, as well as for ongoing maintenance and support of your digital presence.
         </p>
         <p className='mb-4'>
-          <strong>2.4 Graphic Design:</strong> Professional design services are available to elevate your brand’s visual identity.
-        </p>
-        <p className='mb-4'>
-          <strong>2.5 Reputation Management:</strong> Proactive online reputation management services are included.
-        </p>
-        <p className='mb-4'>
-          <strong>2.6 Review Response:</strong> We will respond to online reviews on your behalf, maintaining a positive digital footprint.
-        </p>
-        <p className='mb-4'>
-          <strong>2.7 Remote PC/Mac Support:</strong> Instant remote support for your computer systems is available.
-        </p>
-        <p className='mb-4'>
-          <strong>2.8 Technology Support:</strong> Expert resolution of technology issues is provided to ensure seamless business operations.
-        </p>
-        <p className='mb-4'>
-          <strong>2.9 Communication Space:</strong> Access to streamlined communication channels for efficient collaboration.
-        </p>
-        <p className='mb-4'>
-          <strong>2.10 Social Media Management:</strong> Strategic social media management services are included to foster engagement and brand presence.
-        </p>
-        <p className='mb-4'>
-          <strong>2.11 Website Updates:</strong> Regular updates to your website to keep it current and engaging.
+          <strong>2.5 Unused Hours:</strong> While primary hours roll over into secondary hours if unused, we encourage members to fully utilize their primary hours each month to maximize the value of their membership. Members must maintain an active membership to retain and utilize accrued secondary hours.
         </p>
       </section>
 
       <section className='mb-6'>
-        <h2 className='text-2xl font-semibold mb-2'>SECTION 3 – MEMBERSHIP DURATION AND TERMINATION</h2>
+        <h2 className='text-2xl font-semibold mb-2'>SECTION 3 – TERMINATION OF MEMBERSHIP</h2>
         <p className='mb-4'>
-          <strong>3.1 Membership Tenure:</strong> Memberships are active on a month-to-month basis, commencing from the date of enrollment.
-        </p>
-        <p className='mb-4'>
-          <strong>3.2 Termination:</strong> Either party may terminate the membership by providing a 30-day written notice.
-        </p>
-        <p className='mb-4'>
-          <strong>3.3 Immediate Termination:</strong> Solheim Technologies reserves the right to terminate or suspend a membership immediately for violations of this Agreement.
+          Members may terminate their membership at any time by providing notice as specified in the Termination section of the general Terms of Service. Upon termination, any unused primary or secondary hours will be forfeited without compensation.
         </p>
       </section>
 
       <section className='mb-6'>
-        <h2 className='text-2xl font-semibold mb-2'>SECTION 4 – LIMITATIONS OF LIABILITY AND DISCLAIMERS</h2>
+        <h2 className='text-2xl font-semibold mb-2'>SECTION 4 – APPLICABILITY OF GENERAL TERMS</h2>
         <p className='mb-4'>
-          <strong>4.1 No Warranties:</strong> Solheim Technologies provides its services “as is,” “with all faults,” and “as available,” without making any warranties, either express or implied, including but not limited to implied warranties of merchantability, fitness for a particular purpose, or non-infringement. While we strive to deliver the services outlined in this Agreement, we make no promises or guarantees about the accuracy, reliability, or timeliness of the services.
-        </p>
-        <p className='mb-4'>
-          <strong>4.2 No Guaranteed Outcomes:</strong> Solheim Technologies does not warrant or guarantee any specific outcomes, rankings, or increased revenue as a result of using our services. Any statements or testimonials by Solheim Technologies or its representatives are examples of what may be achievable but should not be considered guarantees.
-        </p>
-        <p className='mb-4'>
-          <strong>4.3 Limitation on Types of Damages:</strong> Solheim Technologies shall not be liable for any indirect, incidental, special, punitive, exemplary, or consequential damages, including but not limited to loss of profits, data, or use, whether in an action in contract, tort (including but not limited to negligence), or otherwise, arising out of or in any way connected with the use of or inability to use our services.
-        </p>
-        <p className='mb-4'>
-          <strong>4.4 Cap on Liability:</strong> To the extent permitted by applicable law, the total liability of Solheim Technologies for any claims under this Agreement, including for any implied warranties, is limited to the amount you paid us to use the services.
-        </p>
-        <p className='mb-4'>
-          <strong>4.5 Indemnification:</strong> You agree to indemnify, defend, and hold harmless Solheim Technologies, its officers, directors, employees, agents, and third parties, for any losses, costs, liabilities, and expenses (including reasonable attorney’s fees) relating to or arising out of your use of or inability to use the services, your violation of any terms of this Agreement, or your violation of any rights of a third party or your violation of any applicable laws, rules, or regulations.
-        </p>
-        <p className='mb-4'>
-          <strong>4.6 Force Majeure:</strong> Solheim Technologies shall not be liable for any failure or delay in performance due in whole or in part to any cause beyond the reasonable control of Solheim Technologies, such as acts of God, labor disruptions, governmental decrees or controls, insurrections, war risks, terrorist attacks, or any other force majeure events.
-        </p>
-        <p className='mb-4'>
-          <strong>4.7 Severability:</strong> If any part of this limitation of liability is found to be invalid or unenforceable for any reason, then the aggregate liability of Solheim Technologies under such circumstances for liabilities that otherwise would have been limited shall not exceed the amount paid by the customer for the services.
+          All sections of the general Terms of Service apply to memberships unless explicitly contradicted by the terms in this Membership Terms of Service.
         </p>
       </section>
-
-      <section className='mb-6'>
-        <h2 className='text-2xl font-semibold mb-2'>SECTION 5 – GENERAL PROVISIONS</h2>
-        <p className='mb-4'>
-          <strong>5.1 Entire Agreement:</strong> This Agreement constitutes the complete understanding between you and Solheim Technologies concerning your membership.
-        </p>
-        <p className='mb-4'>
-          <strong>5.2 Modifications:</strong> We reserve the right to modify these terms at any time, with such changes becoming effective upon posting on our website or notifying members.
-        </p>
-        <p className='mb-4'>
-          <strong>5.3 Governing Law:</strong> This Agreement is governed by the laws of the jurisdiction in which Solheim Technologies is registered.
-        </p>
-        <p className='mb-4'>
-          By proceeding with the purchase of a Solheim Technologies membership, you acknowledge that you have read, understood, and agree to be bound by the terms and conditions of this Agreement.
-        </p>
-      </section>
-
-    <section className='mb-6'>
-      <p className='mb-4'>
-        By proceeding with the purchase of a Solheim Technologies membership, you acknowledge that you have read, understood, and agree to be bound by the terms and conditions of this Agreement.
-      </p>
-    </section>
     </div>
-  );
-};
+  )
+}
 
-export default TermsOfServicePage;
+export default TermsOfServicePage

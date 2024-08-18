@@ -43,7 +43,7 @@ const ServiceDetail = () => {
                   prefetch={false}
                   className="inline-flex items-center justify-center rounded-md bg-white px-6 py-2 text-lg font-medium text-black border-2 border-black shadow transition-colors hover:bg-black hover:text-white hover:border-white focus-visible:outline-none"
                 >
-                    Schedule a Consultation
+                    Schedule Your Free Consultation
                 </Link>
               </div>
             </div>
@@ -81,7 +81,7 @@ const ServiceDetail = () => {
                   prefetch={false}
                   className="inline-flex items-center justify-center rounded-md bg-transparent px-6 py-2 text-lg font-medium text-black border-2 border-black shadow transition-colors hover:bg-black hover:text-white hover:border-white focus-visible:outline-none"
                 >
-                    Schedule a Consultation
+                    Schedule Your Free Consultation
                 </Link>
               </div>
             </div>

@@ -1,3 +1,5 @@
+import CallToAction from '@/app/components/CallToAction';
+
 export const metadata = {
   title: "Pricing | Solheim Technologies",
   description: "Explore our pricing plans and choose the best one for your needs.",
@@ -15,53 +17,68 @@ export const metadata = {
     ],
   },
 };
-
 export default function PricingPage() {
   return (
     <div className='text-white p-6 max-w-4xl mx-auto pt-[8rem] lg:pt-[2rem]'>
       <h1 className='text-3xl font-bold mb-4'>Pricing Plans</h1>
       <p className='mb-4'>
-        Explore our pricing plans and choose the best one for your needs. We offer a variety of plans to suit different requirements and budgets.
+        Explore our pricing plans and choose the best one for your needs. We offer a variety of services to suit different requirements and budgets.
       </p>
       <section className='mb-6'>
-        <h2 className='text-2xl font-semibold mb-2'>Basic Plan</h2>
-        <p className='mb-4'>
-          Our Basic Plan is perfect for individuals and small businesses. It includes essential features to get you started.
-        </p>
+        <h2 className='text-2xl font-semibold mb-2'>Memberships</h2>
         <ul className='list-disc list-inside mb-4'>
-          <li>Feature 1</li>
-          <li>Feature 2</li>
-          <li>Feature 3</li>
+          <li>Standard Membership - $499 / month</li>
+          <li>Premium Membership - $999 / month</li>
+          <li>Pro Membership - $1,999 / month</li>
+          <li>Elite Membership - $3,999 / month</li>
         </ul>
-        <p className='font-bold'>$9.99/month</p>
       </section>
       <section className='mb-6'>
-        <h2 className='text-2xl font-semibold mb-2'>Pro Plan</h2>
-        <p className='mb-4'>
-          Our Pro Plan is designed for growing businesses. It includes advanced features to help you scale.
-        </p>
+        <h2 className='text-2xl font-semibold mb-2'>Next.js Websites</h2>
         <ul className='list-disc list-inside mb-4'>
-          <li>Feature 1</li>
-          <li>Feature 2</li>
-          <li>Feature 3</li>
-          <li>Feature 4</li>
+          <li>1-5 Pages - $1,500 / page</li>
+          <li>6-10 Pages - $1,300 / page</li>
+          <li>11-20 Pages - $1,100 / page</li>
+          <li>21+ Pages - $900 / page</li>
         </ul>
-        <p className='font-bold'>$29.99/month</p>
       </section>
       <section className='mb-6'>
-        <h2 className='text-2xl font-semibold mb-2'>Enterprise Plan</h2>
-        <p className='mb-4'>
-          Our Enterprise Plan is tailored for large organizations. It includes all features and premium support.
-        </p>
+        <h2 className='text-2xl font-semibold mb-2'>WordPress Websites</h2>
         <ul className='list-disc list-inside mb-4'>
-          <li>Feature 1</li>
-          <li>Feature 2</li>
-          <li>Feature 3</li>
-          <li>Feature 4</li>
-          <li>Feature 5</li>
+          <li>1-5 Pages - $750 / page</li>
+          <li>6-10 Pages - $650 / page</li>
+          <li>11-20 Pages - $550 / page</li>
+          <li>21+ Pages - $450 / page</li>
         </ul>
-        <p className='font-bold'>$99.99/month</p>
       </section>
+      <section className='mb-6'>
+        <h2 className='text-2xl font-semibold mb-2'>Hosting</h2>
+        <ul className='list-disc list-inside mb-4'>
+          <li>Hosting - $49 / month</li>
+          <li>Hosting+ - $99 / month</li>
+        </ul>
+      </section>
+      <section className='mb-6'>
+        <h2 className='text-2xl font-semibold mb-2'>Local SEO Pro</h2>
+        <ul className='list-disc list-inside mb-4'>
+          <li>1 Location - $299 / month</li>
+          <li>2+ Locations - $249 / month</li>
+        </ul>
+      </section>
+      <section className='mb-6'>
+        <h2 className='text-2xl font-semibold mb-2'>Local SEO Pro+</h2>
+        <ul className='list-disc list-inside mb-4'>
+          <li>1 Location - $399 / month</li>
+          <li>2+ Locations - $349 / month</li>
+        </ul>
+      </section>
+      <CallToAction
+    title="Ready to get started?"
+    description="Contact us today to learn more about our services and pricing."
+    buttonText="Contact Us"
+    buttonLink="/meeting/free-consultation"
+  />
     </div>
+    
   );
 }

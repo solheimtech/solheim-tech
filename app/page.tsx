@@ -8,7 +8,7 @@ import DesignIcon from "@/public/assets/icons/web-design.svg";
 import HostingIcon from "@/public/assets/icons/web-hosting.svg";
 import SeoIcon from "@/public/assets/icons/seo.svg";
 import Image from "next/image";
-
+import CallToAction from "@/app/components/CallToAction";
 export default function Home() {
   const words = useMemo(() => ["to innovation", "to excellence", "to your success"], []);
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
@@ -124,27 +124,12 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="w-full py-12 sm:py-24">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center text-center">
-            <div className="max-w-2xl mx-auto">
-              <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">Schedule Your Free Consultation</h2>
-              <p className="text-sm sm:text-base text-white mb-6">
-                Talk with one of our Digital Solutions Engineers about how we can help your business.
-              </p>
-              <Link href="/meeting/free-consultation" className="relative z-10">
-                <motion.div
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="relative inline-flex h-12 items-center justify-center rounded-md bg-white px-6 sm:px-10 text-lg font-medium text-black border-2 border-white shadow transition-colors hover:bg-transparent hover:text-white focus-visible:outline-none"
-                >
-                  Schedule Your Free Consultation
-                </motion.div>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CallToAction
+        title="Ready to get started?"
+        description="Contact us today to learn more about our services and pricing."
+        buttonText="Contact Us"
+        buttonLink="/meeting/free-consultation"
+      />
     </main>
   );
 }

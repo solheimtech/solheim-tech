@@ -13,7 +13,7 @@ import { FaChartLine } from "react-icons/fa";
 import { FaRegNewspaper } from "react-icons/fa6";
 import { HiOutlineInformationCircle } from "react-icons/hi2";
 import { CiMobile3 } from "react-icons/ci";
-
+import CallToAction from "@/app/components/CallToAction";
 const ServiceCard: React.FC<{ service: any }> = ({ service }) => {
   return (
     <div className="w-full sm:w-auto px-4 sm:px-0">
@@ -146,6 +146,12 @@ export default function Services() {
           ))}
         </div>
       </div>
+      <CallToAction
+        title="Ready to get started?"
+        description="Contact us today to learn more about our services and pricing."
+        buttonText="Contact Us"
+        buttonLink="/meeting/free-consultation"
+      />  
     </div>
   );
 }
