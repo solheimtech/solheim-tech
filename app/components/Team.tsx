@@ -29,7 +29,7 @@ const OurTeam = () => {
         name: "Soren Reber",
         image: "https://solheimtech.com/wp-content/uploads/2022/11/Soren.jpg",
         role: "Head of Technology",
-        description: "Soren has always loved computers but didn’t discover his love for working on them until high school where he took classes refurbishing donated computers. While not initially following up on that passion, he eventually got a degree where he learned more about computer support, network design and management, and even a little coding. As a technology specialist he is helping with clients computer and website needs.",
+        description: "Soren has always loved computers but didn't discover his love for working on them until high school where he took classes refurbishing donated computers. While not initially following up on that passion, he eventually got a degree where he learned more about computer support, network design and management, and even a little coding. As a technology specialist he is helping with clients computer and website needs.",
         facebook: "https://www.facebook.com/solheimtech",
         twitter: "https://x.com/SolheimTechDSE1",
         linkedin: "https://www.linkedin.com/in/soren-r-bb8r2d2/"
@@ -45,7 +45,12 @@ const OurTeam = () => {
         <div className="flex flex-col md:flex-row justify-center md:space-x-8 overflow-x-auto p-4">
           {users.map((user, index) => (
             <div key={index} className="p-2">
-              <Card user={user} expandedUser={expandedUser} onExpand={setExpandedUser} />
+              <Card 
+                user={user} 
+                expandedUser={expandedUser} 
+                onExpand={setExpandedUser} 
+                socialLinkProps={{ target: "_blank", rel: "noopener noreferrer" }}
+              />
             </div>
           ))}
         </div>

@@ -17,7 +17,7 @@ const partnerships: Partnership[] = [
   {
     id: 1,
     title: "Kinsta",
-    link: "https://kinsta.com/",
+    link: "https://kinsta.com/agency-directory/solheim-technologies-llc-2/",
     imageUrl: "https://solheimtech.com/wp-content/uploads/2024/02/kinsta-partner-vertical-black.png",
     width: 250,
     height: 200,

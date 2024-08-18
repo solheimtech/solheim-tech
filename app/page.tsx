@@ -126,72 +126,21 @@ export default function Home() {
       </section>
       <section className="w-full py-12 sm:py-24">
         <div className="container px-4 md:px-6">
-          <div className="flex flex-col lg:flex-row items-center justify-between">
-            <div className="lg:w-1/2 lg:pr-12 mb-8 lg:mb-0">
-              <h2 className="text-lg sm:text-xl font-bold text-white mb-4">Membership</h2>
+          <div className="flex flex-col items-center justify-center text-center">
+            <div className="max-w-2xl mx-auto">
+              <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">Schedule Your Free Consultation</h2>
               <p className="text-sm sm:text-base text-white mb-6">
-                Join our membership program to access exclusive resources and support for your business.
+                Talk with one of our Digital Solutions Engineers about how we can help your business.
               </p>
-              <Link href="/membership/get-started" className="relative z-10">
+              <Link href="/meeting/free-consultation" className="relative z-10">
                 <motion.div
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
-                  className="relative inline-flex h-12 items-center justify-center rounded-md bg-white px-6 sm:px-10 text-lg font-medium text-black border-2 border-white shadow transition-colors hover:bg-black hover:text-white focus-visible:outline-none"
+                  className="relative inline-flex h-12 items-center justify-center rounded-md bg-white px-6 sm:px-10 text-lg font-medium text-black border-2 border-white shadow transition-colors hover:bg-transparent hover:text-white focus-visible:outline-none"
                 >
-                  Get Started
+                  Schedule Your Free Consultation
                 </motion.div>
               </Link>
-            </div>
-            <div className="lg:w-1/2 lg:pl-12">
-              {/* Add an image or illustration related to membership here */}
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="w-full py-12 sm:py-24">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col lg:flex-row-reverse items-center justify-between">
-            <div className="lg:w-1/2 lg:pl-12 mb-8 lg:mb-0">
-              <h2 className="text-lg sm:text-xl font-bold text-white mb-4">Case Studies</h2>
-              <p className="text-sm sm:text-base text-white mb-6">
-                Explore our case studies and see how we&apos;ve helped businesses succeed.
-              </p>
-              <Link href="/case-studies" className="relative z-10">
-                <motion.div
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="relative inline-flex h-12 items-center justify-center rounded-md bg-white px-6 sm:px-10 text-lg font-medium text-black border-2 border-white shadow transition-colors hover:bg-black hover:text-white focus-visible:outline-none"
-                >
-                  View Case Studies
-                </motion.div>
-              </Link>
-            </div>
-            <div className="lg:w-1/2 lg:pr-12">
-              {/* Add an image or illustration related to case studies here */}
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="w-full py-12 sm:py-24">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col lg:flex-row items-center justify-between">
-            <div className="lg:w-1/2 lg:pr-12 mb-8 lg:mb-0">
-              <h2 className="text-lg sm:text-xl font-bold text-white mb-4">Contact Us</h2>
-              <p className="text-sm sm:text-base text-white mb-6">
-                Get in touch with us for all your website and business technology needs.
-              </p>
-              <Link href="/contact" className="relative z-10">
-                <motion.div
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="relative inline-flex h-12 items-center justify-center rounded-md bg-white px-6 sm:px-10 text-lg font-medium text-black border-2 border-white shadow transition-colors hover:bg-black hover:text-white focus-visible:outline-none"
-                >
-                  Contact Us
-                </motion.div>
-              </Link>
-            </div>
-            <div className="lg:w-1/2 lg:pl-12">
-              {/* Add an image or illustration related to contact here */}
             </div>
           </div>
         </div>

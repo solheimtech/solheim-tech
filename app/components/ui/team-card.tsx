@@ -2,7 +2,7 @@ import Image from "next/image";
 import { FC, useState, useEffect } from "react";
 import { FaFacebook, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import { motion } from "framer-motion";
+import { motion, HTMLMotionProps } from "framer-motion";
 
 interface User {
   name: string;
@@ -18,20 +18,23 @@ interface CardProps {
   user: User;
   expandedUser: string | null;
   onExpand: (name: string | null) => void;
+  socialLinkProps?: React.AnchorHTMLAttributes<HTMLAnchorElement>;
 }
 
-const Card: FC<CardProps> = ({ user, expandedUser, onExpand }) => {
+const Card: FC<CardProps> = ({ user, expandedUser, onExpand, socialLinkProps }) => {
   const isExpanded = expandedUser === user.name;
 
   const handleCardClick = () => {
     onExpand(isExpanded ? null : user.name);
   };
 
+  const MotionLink = motion.a as any;
+
   return (
     <motion.div
       className={`bg-white border border-gray-200 rounded-2xl shadow-lg overflow-hidden flex flex-col items-center transform transition-transform duration-300 ${isExpanded ? 'max-w-3xl' : 'max-w-2xl'}`}
       onClick={handleCardClick}
-      transition={{ duration: 0.3 }}
+      transition={{ duration: 0.2 }}
       whileHover={!isExpanded ? { scale: 1.02, cursor: 'pointer' } : {}}
     >
       <Image
@@ -55,32 +58,37 @@ const Card: FC<CardProps> = ({ user, expandedUser, onExpand }) => {
           className="mt-4 text-gray-700"
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: isExpanded ? 1 : 0, height: isExpanded ? 'auto' : 0 }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: 0.2 }}
         >
           <p>{user.description}</p>
         </motion.div>
         <div className="flex justify-start items-center mt-6 space-x-6">
-          <motion.a
+          <MotionLink
             href={user.facebook}
             className="opacity-20 hover:text-black hover:opacity-100 transition-colors duration-300"
             whileHover={{ scale: 1.1 }}
+            {...socialLinkProps}
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <FaFacebook size={20} />
-          </motion.a>
-          <motion.a
+          </MotionLink>
+          <MotionLink
             href={user.twitter}
             className="opacity-20 hover:text-black hover:opacity-100 transition-colors duration-300"
             whileHover={{ scale: 1.1 }}
+            {...socialLinkProps}
           >
             <FaXTwitter size={20} />
-          </motion.a>
-          <motion.a
+          </MotionLink>
+          <MotionLink
             href={user.linkedin}
             className="opacity-20 hover:text-black hover:opacity-100 transition-colors duration-300"
             whileHover={{ scale: 1.1 }}
+            {...socialLinkProps}
           >
             <FaLinkedin size={20} />
-          </motion.a>
+          </MotionLink>
         </div>
       </div>
     </motion.div>
