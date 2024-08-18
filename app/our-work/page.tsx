@@ -35,7 +35,7 @@ const OurWork = () => {
       preview: firstFourVideoContents.length > 0 ? firstFourVideoContents.map((content: any) => content.src).filter((src: any): src is string => !!src) : [],
       title: "Videos",
     },
-  ], [firstFourWebsiteContents, firstFourVideoContents, firstFourLogoContents, firstFourPhotoContents]);
+  ], [firstFourWebsiteContents, firstFourVideoContents, firstFourLogoContents]);
 
   const completedWork = useMemo(() => [
     {
