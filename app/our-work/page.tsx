@@ -8,6 +8,7 @@ import { usePhotoContents } from "@/app/contents/PhotoContents";
 import { useVideoContents } from "@/app/contents/VideoContents";
 import CountUp from 'react-countup';
 import CallToAction from "@/app/components/CallToAction";
+
 const OurWork = () => {
   const websiteContents = useWebsiteContents().context;
   const logoContents = useLogoContents().context;
@@ -83,7 +84,7 @@ const OurWork = () => {
     <div className="pt-[8rem] lg:pt-0">
       <div>
         <h1 className="text-[2.5rem] sm:text-[5rem] text-white font-bold text-center">Our Work</h1>
-        <p className="text-center text-gray-200">We have worked with many clients and have a wide range of projects.</p>
+        <p className="text-center text-gray-200">Explore our portfolio and see the various website, video, and logo projects we've worked on.</p>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
         {projects.map((project, index) => (
