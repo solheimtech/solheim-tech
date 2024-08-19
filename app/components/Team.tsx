@@ -18,7 +18,7 @@ const OurTeam = () => {
       },
       {
         name: "Angela Solheim",
-        image: "https://solheimtech.com/wp-content/uploads/2022/11/Angela_Solheim-x-600.jpg",
+        image: "/assets/images/Angela_Solheim_2020.jpg",
         role: "Chief Financial Officer",
         description: "Angela has been a part of Solheim Technologies from the beginning when it was just her and David. Because of this she also has learned how to support clients technological needs. Over time as the company has grown, Angela has taken on a role that involves more and more financial responsibilities for the company.",
         facebook: "https://www.facebook.com/angela.solheim2012",
