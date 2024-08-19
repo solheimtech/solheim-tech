@@ -24,7 +24,7 @@ const defaultMetadata: Metadata = {
     siteName: "Solheim Technologies",
     images: [
       {
-        url: '/assets/images/MetaBanner.jpg',
+        url: 'https://solheim.tech/assets/images/MetaBanner.jpg',
         width: 600,
         height: 600,
         alt: 'Solheim Technologies Logo',
