@@ -14,7 +14,7 @@ export const metadata = {
     url: 'https://solheimtech.com/about',
     images: [
       {
-        url: 'https://solheimtech.com/assets/images/ST-Icon.jpg',
+        url: 'https://solheim.tech/assets/images/MetaBanner.jpg',
         width: 600,
         height: 600,
         alt: 'Solheim Technologies Logo',
