@@ -51,7 +51,7 @@
     "react-tsparticles": "^2.12.2",
     "recharts": "^2.12.7",
     "resend": "^3.4.0",
-    "sharp": "^0.33.4",
+    "sharp": "^0.33.5",
     "smtp-connection": "^3.2.0",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
