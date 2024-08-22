@@ -21,7 +21,7 @@ export default function LogosPage() {
         </motion.h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 p-8">
           {items.map((item: any, index: number) => (
-            <Parallax key={item.id} y={[-20, 20]} tagOuter="div">
+            <Parallax key={item.id} translateY={[-20, 20]}>
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
