@@ -24,7 +24,7 @@ const LogoDetail = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row items-center p-4 text-center pt-[8rem] lg:pt-[0rem]">
+    <div className="flex flex-col md:flex-row items-center p-4 text-center pt-[8rem] lg:pt-[0rem] min-h-[500px] bg-gray-500">
       <div className="flex flex-col items-center mb-4 w-full md:w-1/2">
         <Image 
           src={item.images[selectedImage].src} 
@@ -32,7 +32,7 @@ const LogoDetail = () => {
           width={300} 
           height={300} 
           className="rounded-lg shadow-lg mb-4"
-          style={{ aspectRatio: '1 / 1' }}
+          style={{ aspectRatio: 'inherit' }}
         />
         <div className="flex space-x-2 mt-2 overflow-x-auto">
           {item.images.map((img: { src: string, alt?: string }, index: number) => (
@@ -43,7 +43,7 @@ const LogoDetail = () => {
               width={50} 
               height={50} 
               className={`cursor-pointer ${selectedImage === index ? 'border-2 border-white' : ''} rounded-lg`}
-              style={{ aspectRatio: '1 / 1' }}
+              style={{ aspectRatio: 'inherit' }}
               onClick={() => handleImageClick(index)}
             />
           ))}

@@ -16,61 +16,49 @@ type Item = {
 const items: Item[] = [
   {
     id: 1,
-    slug: "royalty-rentals",
-    title: "Royal Rentals",
-    description: "Rent party event",
+    slug: "complete-calibrations",
+    title: "Complete Calibrations",
+    description: "ADAS Calibration services",
     images: [
       {
-        src: "/assets/logos/royalty-rentals.jpg",
-        alt: "A beautiful landscape",
+        src: "/assets/logos/ST-Designed-Complete-Calibrations-Rectangle-Transparent-1000.png",
+        alt: "Complete Calibrations Logo Designed by Solheim Technologies",
       },
     ]
   },
   {
     id: 2,
-    slug: "showtime-auto-glass",
-    title: "ShowTime Auto Glass",
-    description: "Auto glass installation",
+    slug: "ab-boutique-medicine",
+    title: "AB Boutique Medicine",
+    description: "Medical Boutique",
     images: [
       {
-        src: "/assets/logos/ShowTime-Auto-Glass.jpg",
-        alt: "A beautiful landscape",
+        src: "/assets/logos/ST-Designed-cropped-AB-Boutique-Medicine-Icon-192x192.png",
+        alt: "AB Boutique Medicine Logo Designed by Solheim Technologies",
       },
     ]
   },
   {
     id: 3,
-    slug: "sodarush",
-    title: "SodaRush",
-    description: "Custom soda drinks",
+    slug: "hildees-tees",
+    title: "Hildees Tees",
+    description: "Custom tees",
     images: [
       {
-        src: "/assets/logos/sodarush.jpg",
-        alt: "A beautiful landscape",
+        src: "/assets/logos/ST-Designed-hildees-tees-logo-wide.webp",
+        alt: "Hildees Tees Logo Designed by Solheim Technologies",
       },
     ]
   },
   {
     id: 4,
-    slug: "tucson-crowns",
-    title: "Tucson Crowns",
-    description: "Dental office",
+    slug: "route-planner",
+    title: "Route Planner",
+    description: "Route Planner",
     images: [
       {
-        src: "/assets/logos/TucsonCrowns.jpeg",
-        alt: "A beautiful landscape",
-      },
-    ]
-  },
-  {
-    id: 5,
-    slug: "big-nates",
-    title: "Big Nates",
-    description: "Big Nates BBQ",
-    images: [
-      {
-        src: "/assets/logos/Big-Nates.jpg",
-        alt: "A beautiful landscape",
+        src: "/assets/logos/ST-Designed-Route-Planner-Logo-Narrow.png",
+        alt: "Route Planner Logo Designed by Solheim Technologies",
       },
     ]
   },
