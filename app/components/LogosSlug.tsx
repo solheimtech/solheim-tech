@@ -3,6 +3,7 @@ import { useParams } from 'next/navigation';
 import Image from 'next/image';
 import { useLogoContents } from '@/app/contents/LogoContents';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 const LogoDetail = () => {
   const { slug } = useParams();
@@ -24,35 +25,50 @@ const LogoDetail = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row items-center p-4 text-center pt-[8rem] lg:pt-[0rem] min-h-[500px] bg-gray-500">
-      <div className="flex flex-col items-center mb-4 w-full md:w-1/2">
+    <div className="flex flex-col md:flex-row items-center p-8 text-center pt-[8rem] lg:pt-[4rem] min-h-[calc(100vh-4rem)] bg-gradient-to-b from-gray-800 to-gray-600">
+      <motion.div 
+        initial={{ opacity: 0, x: -50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5 }}
+        className="flex flex-col items-center mb-8 w-full md:w-1/2"
+      >
         <Image 
           src={item.images[selectedImage].src} 
           alt={item.images[selectedImage].alt || 'Image description not available'} 
-          width={300} 
-          height={300} 
-          className="rounded-lg shadow-lg mb-4"
-          style={{ aspectRatio: 'inherit' }}
+          width={400} 
+          height={400} 
+          className="rounded-lg shadow-2xl mb-6"
+          style={{ objectFit: 'contain' }}
         />
-        <div className="flex space-x-2 mt-2 overflow-x-auto">
+        <div className="flex space-x-4 mt-4 overflow-x-auto p-2 bg-gray-700 rounded-lg">
           {item.images.map((img: { src: string, alt?: string }, index: number) => (
-            <Image 
-              key={index} 
-              src={img.src} 
-              alt={img.alt || 'Thumbnail'} 
-              width={50} 
-              height={50} 
-              className={`cursor-pointer ${selectedImage === index ? 'border-2 border-white' : ''} rounded-lg`}
-              style={{ aspectRatio: 'inherit' }}
-              onClick={() => handleImageClick(index)}
-            />
+            <motion.div
+              key={index}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <Image 
+                src={img.src} 
+                alt={img.alt || 'Thumbnail'} 
+                width={80} 
+                height={80} 
+                className={`cursor-pointer ${selectedImage === index ? 'border-4 border-blue-400' : ''} rounded-lg shadow-md`}
+                style={{ objectFit: 'cover' }}
+                onClick={() => handleImageClick(index)}
+              />
+            </motion.div>
           ))}
         </div>
-      </div>
-      <div className="text-center md:text-left w-full md:w-1/2 md:pl-4">
-        <p className='text-2xl md:text-3xl text-white font-bold mb-2'>{item.title}</p>
-        <p className="text-base md:text-lg text-white">{item.description}</p>
-      </div>
+      </motion.div>
+      <motion.div 
+        initial={{ opacity: 0, x: 50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        className="text-center md:text-left w-full md:w-1/2 md:pl-8"
+      >
+        <h1 className='text-3xl md:text-4xl text-white font-bold mb-4'>{item.title}</h1>
+        <p className="text-lg md:text-xl text-gray-200">{item.description}</p>
+      </motion.div>
     </div>
   );
 };
