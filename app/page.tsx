@@ -49,8 +49,10 @@ export default function Home() {
 
   return (
     <main className="flex-1 pt-[40%] lg:pt-[0rem]">
-      <section className="w-full h-[60vh] lg:h-screen flex items-start justify-center bg-cover bg-center will-change-transform">
-        <div className="container mx-auto text-center mt-[10%] px-4 sm:px-0">
+      <section className="w-full h-[60vh] lg:h-screen flex items-start justify-center bg-cover bg-center relative" style={{ backgroundImage: "url('/assets/images/Night-CityScape-by-Solheim-Technologies.jpg')" }}>
+        <div className="absolute inset-0 bg-black/30"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent"></div>
+        <div className="container mx-auto text-center mt-[10%] px-4 sm:px-0 relative z-10">
           <div className="space-y-6 animate-fade-in">
             <h1 className="text-white text-3xl font-extrabold tracking-tight sm:text-7xl xl:text-8xl w-full space-y-4">
               <span className="block">Solheim Technologies is</span> 
