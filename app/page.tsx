@@ -49,7 +49,7 @@ export default function Home() {
 
   return (
     <main className="flex-1 pt-[40%] lg:pt-[0rem]">
-      <section className="w-full h-[60vh] lg:h-screen flex items-start justify-center bg-cover bg-center">
+      <section className="w-full h-[60vh] lg:h-screen flex items-start justify-center bg-cover bg-center will-change-transform">
         <div className="container mx-auto text-center mt-[10%] px-4 sm:px-0">
           <div className="space-y-6 animate-fade-in">
             <h1 className="text-white text-3xl font-extrabold tracking-tight sm:text-7xl xl:text-8xl w-full space-y-4">
