@@ -3,8 +3,8 @@ import { useParams } from 'next/navigation';
 import { useServicesContents } from '@/app/contents/ServicesContents';
 import Image from 'next/image';
 import Link from 'next/link';
-import SpinningModel from '@/app/components/ThreeDModelSpinning';
 import CallToAction from '@/app/components/CallToAction';
+
 const ServiceDetail = () => {
   const { slug } = useParams();
   const { context: items } = useServicesContents();
@@ -22,9 +22,6 @@ const ServiceDetail = () => {
   return (
     <div className="flex flex-col min-h-[100dvh] pt-[8rem] lg:pt-[0rem]">
     <div className="flex-1 relative overflow-hidden">
-      <div className="absolute right-0 top-[-60%] w-1/2 h-[150%] hidden lg:block z-20 pointer-events-auto">
-        {item.modelUrl && <SpinningModel url={item.modelUrl} />}
-      </div>
       <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 relative z-10">
         <div className="container px-4 md:px-6">
           <div className="max-w-full md:max-w-[70%] lg:max-w-[50%]">

@@ -1,8 +1,7 @@
-/** @type {import('next').NextConfig} */
 const nextConfig = {
   transpilePackages: ['three'],
   images: {
-    domains: ['assets.aceternity.com', 'solheimtech.com', 'img.stripecdn.com', 'media.giphy.com'],
+    domains: ['assets.aceternity.com', 'solheimtech.com', 'solheim.tech', 'img.stripecdn.com', 'media.giphy.com'],
   },
   async redirects() {
     return [
