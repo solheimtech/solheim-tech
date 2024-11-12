@@ -1,11 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Card from "@/app/components/ui/team-card";
 
 const OurTeam = () => {
-    const [expandedUser, setExpandedUser] = useState<string | null>(null);
-  
     const users = [
       {
         name: "David Solheim",
@@ -28,27 +26,39 @@ const OurTeam = () => {
       {
         name: "Soren Reber",
         image: "https://solheimtech.com/wp-content/uploads/2022/11/Soren.jpg",
-        role: "Head of Technology",
+        role: "Chief Technology Officer",
         description: "Soren has always loved computers but didn't discover his love for working on them until high school where he took classes refurbishing donated computers. While not initially following up on that passion, he eventually got a degree where he learned more about computer support, network design and management, and even a little coding. As a technology specialist he is helping with clients computer and website needs.",
         facebook: "https://www.facebook.com/solheimtech",
         twitter: "https://x.com/SolheimTechDSE1",
         linkedin: "https://www.linkedin.com/in/soren-r-bb8r2d2/"
       },
-      // Add more user objects here
+    {
+      name: "Emery Tate",
+      image: "/assets/images/Emery_Tatex600.jpeg",
+      role: "Digital Solutions Engineer",
+      description: "Emery brings his passion for technology and problem-solving to the Solheim Technologies team. With a background in computer systems and technical customer service, he helps build software solutions that help clients thrive.",
+      facebook: "https://www.facebook.com/solheimtech",
+      twitter: "https://x.com/solheimtech", 
+      linkedin: "https://www.linkedin.com/company/solheim-technologies/"
+    }
     ];
   
     return (
-      <div className="pt-[8rem] lg:pt-[0rem] pb-[8rem]">
-        <div className="flex flex-col items-center justify-start min-h-[4rem] text-white pb-8">
-          <h1 className="text-[2.5rem] sm:text-[5rem] font-bold">Meet the Team</h1>
+      <div className="container mx-auto px-4 py-12 lg:py-20">
+        <div className="flex flex-col items-center justify-start mb-12">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center">
+            Meet the Team
+          </h1>
         </div>
-        <div className="flex flex-col md:flex-row justify-center md:space-x-8 overflow-x-auto p-4">
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-6xl mx-auto">
           {users.map((user, index) => (
-            <div key={index} className="p-2">
+            <div 
+              key={index} 
+              className="w-full flex justify-center"
+            >
               <Card 
-                user={user} 
-                expandedUser={expandedUser} 
-                onExpand={setExpandedUser} 
+                user={user}
                 socialLinkProps={{ target: "_blank", rel: "noopener noreferrer" }}
               />
             </div>
