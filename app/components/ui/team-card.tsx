@@ -49,6 +49,7 @@ const Card: FC<CardProps> = ({ user, socialLinkProps }) => {
             href={user.facebook}
             className="opacity-20 hover:text-black hover:opacity-100 transition-colors duration-300"
             whileHover={{ scale: 1.1 }}
+            aria-label={`Visit ${user.name}'s Facebook profile`}
             {...socialLinkProps}
           >
             <FaFacebook size={20} />
@@ -57,6 +58,7 @@ const Card: FC<CardProps> = ({ user, socialLinkProps }) => {
             href={user.twitter}
             className="opacity-20 hover:text-black hover:opacity-100 transition-colors duration-300"
             whileHover={{ scale: 1.1 }}
+            aria-label={`Visit ${user.name}'s X (Twitter) profile`}
             {...socialLinkProps}
           >
             <FaXTwitter size={20} />
@@ -65,6 +67,7 @@ const Card: FC<CardProps> = ({ user, socialLinkProps }) => {
             href={user.linkedin}
             className="opacity-20 hover:text-black hover:opacity-100 transition-colors duration-300"
             whileHover={{ scale: 1.1 }}
+            aria-label={`Visit ${user.name}'s LinkedIn profile`}
             {...socialLinkProps}
           >
             <FaLinkedin size={20} />
